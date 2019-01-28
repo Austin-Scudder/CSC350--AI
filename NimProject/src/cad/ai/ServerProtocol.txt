@@ -1,0 +1,92 @@
+Commands used between server and client.
+
+==============================================================================
+Client Commands (sent to Server):
+@NEW PLAYER   --- Client is a new player - give it a player ID
+@PLAYER:ID    --- Client is a returning player with ID # (useful if connection goes down or client crashes)
+@NAME:<String> --- Register or update client's name (for display)
+@GET NAME:ID   --- Get the Name of Player with given ID
+@TOUR:SUB_CMD --- Tournament sub-commands (see below)
+@GAME:SUB_CMD --- Game sub-commands (see below)
+@PING         --- Are you alive?  (Expects a PONG response)
+@PONG         --- I am alive?     (Sent in response to a PING from server)
+
+Client Tournament Sub-commands:
+CREATE:TYPE ---
+    This client creates a tournament for game TYPE
+    ID # is returned back - for people to join.
+    Player with given ID is in control of Tournament.
+START       --- Start (or resume) the tournament
+PAUSE       --- Pause the tournament
+END         --- End the tournament
+REPORT      --- Return report of the current standings.
+MATCHES LEFT   --- Return the number of matches left to play.
+JOIN:[ID]   --- Join a tournament with [optional] ID #
+                No ID provided of < 0 means join the first tournament available.
+		JOIN   -- No ID
+		JOIN:2 -- Join tournament with ID 2.
+
+Client Game Sub-commands:
+MOVE:X     --- Sent by Client whenever Player (on Client) makes a "move" to the game.
+                  The details will depend on the game being played (see further below)
+MORE TO BE ADDED IF NEEDED...
+
+==============================================================================
+Server Commands (sent to Client):
+@ERROR:MESSAGE   --- An error message
+@MESSAGE:MESSAGE --- An informative message of some sort
+@PID:ID          --- The player ID (when creating or re-registering a player)	
+@TID:ID          --- The tournament ID (when creating a new tournament)
+@REPORT:HID/AID/STATE,...  --- In response to a report request
+   This is a comma separated list.
+   HID is the (integral) ID of the Home Player
+   AID is the (integral) ID of the Away Player
+   STATE is a single character N(ot started), I(n progress), T(ie), H(ome won), A(way won)
+@TOUR:SUB_CMD --- Tour sub-commands (see below)
+@GAME:SUB_CMD --- Game sub-commands (see below)
+@NAME:<NAME>:<ID> --- In response to a GET NAME request
+    <NAME> is the player's name
+    <ID> is the player's ID
+@PING         --- Are you alive?  (Expects a PONG response)
+@PONG         --- I am alive?     (Sent in response to a PING from client)
+
+Server Tour Sub-commands:
+END --- The tournament has ended.  (Client can disconnect or join another tour)
+
+Server Game Sub-commands:
+STATE:...  --- Sent by Server whenever the Game state has changed (turn-based or "real"-time
+   The state of the current game.  The details after the ":" will depend on the game.
+   A single line (possibly long).  It should not contain ":" - or else things get confusing.
+START:ROLE:NAME  --- A new game has started.
+                     ROLE is H(ome) or A(way), a single character
+		     NAME is the name of your opponent (for display purposes only)
+ERROR:Message  --- An error occurred playing the game (e.g. invalid move)
+MESSAGE:Message --- A message from the game (e.g. a successful move)
+RESULT:X   --- Result of game for this player.  It is either
+   T(ie), H(ome won), A(way won)
+==============================================================================
+Game details:
+   Simple Game
+   -----------
+   Client Command: @GAME:MOVE:X
+      Where X is just a number guessed.
+   Server Command: @STATE:A,B,C
+       A is just a 0 or 1 depending on if it is Home (0) or Away (1) turn to guess a number.
+       B is H, L, C, or - if Home was (H)igh, (L)ow, (C)orrect, or (-)not guessed, initially.
+       C is H, L, C, or - if Away ...
+
+   Nim Game
+   --------
+   Client Command: @GAME:MOVE:X
+       Where X is just ROW,TAKE  --- two integers where TAKE sticks are removed from row.
+       For simplicity indexing of rows starts at 0.
+       
+   Server Command: @STATE:T,K,R0,R1,R2,...,
+       Where all are integers.
+       T is just 0 or 1 depending on whose turn it is 0 (Home) or 1 (Away).
+       K is the number of rows
+       R0 is the number of sticks in the first row
+       R1 ... second row
+       R(K-1) ... the K-1th, last, row.
+       
+       
