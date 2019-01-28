@@ -88,27 +88,12 @@ public class NimAI extends AbstractAI {
 			System.err.println("This should never have been reached"); 
 			return "-1,-1"; 
 		}
+	}
+}
 		
 
 
 
 
 		// Just pick a random amount from a random row (that isn't 0)
-		int r = ran.nextInt(rows.length);
-
-		// Proceed from there to find first non-zero row
-		int count = 0;
-		while (rows[r] == 0 && count < rows.length) {
-			count++;
-			r = (r + 1) % rows.length;
-		}
-
-		if (count >= rows.length) {
-			System.err.println("CODE ERROR: All 0s.  Game should be over.");
-			return "-1,-1";
-		}
-
-		take = ran.nextInt(rows[r]) + 1;
-		return r + "," + take;
-	}	
-}
+		
