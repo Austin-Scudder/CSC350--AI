@@ -1,6 +1,6 @@
 /*******************
  * Christian A. Duncan
- * Modified by: ENTER YOUR NAMES HERE!!!!!
+ * Modified by: Austin Scudder, Nicholas Molina, Matthew Jagiela
  *
  * CSC350: Intelligent Systems
  * Spring 2019
