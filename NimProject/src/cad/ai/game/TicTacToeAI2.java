@@ -10,9 +10,6 @@
  ********************/
 package cad.ai.game;
 
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.util.Random;
 
 /***********************************************************
@@ -21,12 +18,11 @@ import java.util.Random;
  *   the move selection is made here - either via user or an attached
  *   AI system.
  ***********************************************************/
-public class TicTacToeAI extends AbstractAI {
+public class TicTacToeAI2 extends AbstractAI {
     public TicTacToeGame game;  // The game that this AI system is playing
     protected Random ran;
     
-    
-    public TicTacToeAI() {
+    public TicTacToeAI2() {
         game = null;
         ran = new Random();
     }
@@ -38,8 +34,6 @@ public class TicTacToeAI extends AbstractAI {
     /**
      * Returns the Move as a String "S"
      *    S=Slot chosen (0-8)
-     * @throws UnsupportedEncodingException 
-     * @throws FileNotFoundException 
      **/
     public synchronized String computeMove() {
         if (game == null) {
@@ -64,7 +58,6 @@ public class TicTacToeAI extends AbstractAI {
             i++;
             if (board[i] == ' ') s--;  // One more open slot down
         }
-    	
 
         return "" + i;
     }	
@@ -75,22 +68,6 @@ public class TicTacToeAI extends AbstractAI {
      **/
     @Override
     public synchronized void postWinner(char result) {
-    	
-    	///change the file path for your directory. 
-    	
-    	final String filename = "Test-TTTBrain.txt";
-    	try {
-			PrintWriter writer = new PrintWriter(filename);
-	        writer.println(result);
-	        writer.close();
-		} catch (FileNotFoundException e) {
-			System.err.println("oops");
-			e.printStackTrace();
-		}/* catch (UnsupportedEncodingException e) {
-			System.err.println("oops");
-			e.printStackTrace();
-		}*/
-    	
         // This AI probably wants to store what it has learned
         // about this particular game.
         game = null;  // No longer playing a game though.
