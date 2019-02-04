@@ -10,7 +10,10 @@
  ********************/
 package cad.ai.game;
 
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.Random;
@@ -81,8 +84,9 @@ public class TicTacToeAI extends AbstractAI {
     	
     	final String filename = "./Test-TTTBrain.txt";
     	try {
-			PrintWriter writer = new PrintWriter(filename);
-	        writer.println(result);
+    		BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));	
+			writer.newLine();
+	        writer.write(result + "Hi Matt!");
 	        writer.close();
 		} catch (FileNotFoundException e) {
 			System.err.println("oops");
@@ -90,7 +94,10 @@ public class TicTacToeAI extends AbstractAI {
 		}/* catch (UnsupportedEncodingException e) {
 			System.err.println("oops");
 			e.printStackTrace();
-		}*/
+		}*/ catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	
         // This AI probably wants to store what it has learned
         // about this particular game.
