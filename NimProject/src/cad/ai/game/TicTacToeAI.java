@@ -24,8 +24,9 @@ import java.util.Random;
 public class TicTacToeAI extends AbstractAI {
     public TicTacToeGame game;  // The game that this AI system is playing
     protected Random ran;
-    
-    
+    //We need the board state to be stored in a hashmap and the chosen move
+    //Take the board state in as a String
+    //maybe store the full record rather than the probabilities.
     public TicTacToeAI() {
         game = null;
         ran = new Random();
@@ -38,8 +39,8 @@ public class TicTacToeAI extends AbstractAI {
     /**
      * Returns the Move as a String "S"
      *    S=Slot chosen (0-8)
-     * @throws UnsupportedEncodingException 
-     * @throws FileNotFoundException 
+     * @throws UnsupportedEncodingException
+     * @throws FileNotFoundException
      **/
     public synchronized String computeMove() {
         if (game == null) {
@@ -78,7 +79,7 @@ public class TicTacToeAI extends AbstractAI {
     	
     	///change the file path for your directory. 
     	
-    	final String filename = "Test-TTTBrain.txt";
+    	final String filename = "./Test-TTTBrain.txt";
     	try {
 			PrintWriter writer = new PrintWriter(filename);
 	        writer.println(result);
