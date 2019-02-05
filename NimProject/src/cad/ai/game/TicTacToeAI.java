@@ -2,7 +2,7 @@
  * Christian A. Duncan
  * CSC350: Intelligent Systems
  * Spring 2019
- *
+ *Austin Scudder, Matt Jagiela, Nicholas Molina 
  * AI Game Client
  * This project is designed to link to a basic Game Server to test
  * AI-based solutions.
@@ -16,7 +16,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Array;
+import java.util.HashMap;
 import java.util.Random;
+import java.util.Stack;
 
 /***********************************************************
  * The AI system for a TicTacToeGame.
@@ -27,6 +30,9 @@ import java.util.Random;
 public class TicTacToeAI extends AbstractAI {
     public TicTacToeGame game;  // The game that this AI system is playing
     protected Random ran;
+    HashMap<String, Array[]> record = new HashMap<String, Array[]>(); // Keeps the current board state choices based on recorded choices
+    
+    Stack moves = new Stack ();
     //We need the board state to be stored in a hashmap and the chosen move
     //Take the board state in as a String
     //maybe store the full record rather than the probabilities.
@@ -68,8 +74,8 @@ public class TicTacToeAI extends AbstractAI {
             i++;
             if (board[i] == ' ') s--;  // One more open slot down
         }
-    	
-
+        String temp = Integer.toString(i);
+    		moves.push(temp);
         return "" + i;
     }	
 
@@ -85,20 +91,20 @@ public class TicTacToeAI extends AbstractAI {
     	final String filename = "./Test-TTTBrain.txt";
     	try {
     		BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));	
-			writer.newLine();
-	        writer.write(result + "Hi Matt!");
+    		writer.newLine();
+			while (!moves.empty()) {
+				String move = (String) moves.pop();
+				writer.write(move);
+			}
 	        writer.close();
 		} catch (FileNotFoundException e) {
 			System.err.println("oops");
 			e.printStackTrace();
-		}/* catch (UnsupportedEncodingException e) {
-			System.err.println("oops");
-			e.printStackTrace();
-		}*/ catch (IOException e) {
+		}
+    		catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    	
         // This AI probably wants to store what it has learned
         // about this particular game.
         game = null;  // No longer playing a game though.
@@ -112,4 +118,21 @@ public class TicTacToeAI extends AbstractAI {
         // This AI probably wants to store (in a file) what
         // it has learned from playing all the games so far...
     }
+    public class Record {
+    		
+    		int 	win[];
+        int loss[];
+        int tie[];
+    public int getRecord(String boardstate){
+    		// based on the board state it grabs the records of that board state and returns the thing
+    	return 1;
+    	}
+    
+    
+    		
+    	
+
+    }
 }
+
+
