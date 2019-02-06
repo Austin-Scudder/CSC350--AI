@@ -96,6 +96,7 @@ public class TicTacToeAI extends AbstractAI {
 				String move = (String) moves.pop();
 				writer.write(move);
 			}
+			writer.write("stop");
 			writer.close();
 		} catch (FileNotFoundException e) {
 			System.err.println("oops");
@@ -105,10 +106,11 @@ public class TicTacToeAI extends AbstractAI {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		// This AI probably wants to store what it has learned
 		// about this particular game.
 		game = null;  // No longer playing a game though.
+		Record.read();
+	//Record.printarray();
 	}
 
 
@@ -118,8 +120,7 @@ public class TicTacToeAI extends AbstractAI {
 
 	@Override
 	public synchronized void end(){
-		Record.read2();
-		Record.printarray();
+		Record.read();
 		// This AI probably wants to store (in a file) what
 		// it has learned from playing all the games so far...
 	}
@@ -134,68 +135,30 @@ public class TicTacToeAI extends AbstractAI {
 		static int t =1; 
 		static String filename = "./Test-TTTBrain.txt";
 
-		public static void read2() {
+		
+		/**
+		 * This Method reads 
+		 **/
+		public static void read() { 
 			try {
 				FileInputStream in = new FileInputStream(filename);
 				BufferedReader br = new BufferedReader(new InputStreamReader(in));
 
 				String strLine;
 				strLine = br.readLine();
+				System.out.println("loop started");
 				//Read File Line By Line
-				while (strLine = br.readLine() != null )  {
-				  // Print the content on the console
-					
-				  System.out.println (strLine);
-				  strLine = br.readLine()
-				}
-
-				//Close the input stream
-				in.close();
+				while ((strLine = br.readLine()) != null)   {
+					  // Print the content on the console
+					  System.out.println (strLine);
+					}
+				in.close();//Close the input stream
 			} catch (FileNotFoundException e) {
 				System.err.println("file Not found check link 139 and 135");
 				e.printStackTrace();
 			}
 			catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
-		}
-
-
-/*
-		public static void read(){
-			try {
-				BufferedReader in = new BufferedReader(new InputStreamReader(filename));
-
-				while ((t < 10) ) { 
-					temp = in.readLine(); 
-
-					System.out.println( "iterator= " + t + "data: " + temp);
-					words[total] = temp;
-					++total; 
-					++t;
-					if (in.readLine().isEmpty()) {
-						t = 0; 
-					}
-				}
-				temp = in.readLine();
-
-				in.close();
-			} catch (FileNotFoundException e) {
-				System.err.println("oops");
-				e.printStackTrace();
-			}
-			catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-	*/
-		public static void printarray() {
-			int j = 0; 
-			System.out.println(" ");
-			while (j<words.length) {
-				System.out.print(words[j]);
 			}
 		}
 
