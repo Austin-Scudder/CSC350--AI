@@ -40,6 +40,7 @@ public class TicTacToeAI extends AbstractAI {
 	//We need the board state to be stored in a hashmap and the chosen move
 	//Take the board state in as a String
 	//maybe store the full record rather than the probabilities.
+	
 	public TicTacToeAI() {
 		game = null;
 		ran = new Random();
@@ -85,18 +86,46 @@ public class TicTacToeAI extends AbstractAI {
 	 *   result is either (H)ome win, (A)way win, (T)ie
 	 **/
 
+	public int player(){
+		int play = game.getPlayer();
+		return play;
+		
+	}
+	
+	
 	@Override
 	public synchronized void postWinner(char result){
 		///change the file path for your directory. 
 		final String filename = "./Test-TTTBrain.txt";
+		int side = player();// This gets the player and is 0 if you are home 1 if you are away
+		int WLT = 3; // Will be 0 for loss 1 for win 
+		//System.out.println(game.getPlayer());
+		//This decides the WLT 
+		if (side == 0 & result == 'H'){
+			WLT = 0; 
+		}
+		else if (side == 0 & result == 'A'){
+			WLT = 1; 
+		}
+		else if (side == 1 & result == 'H' ) {
+			WLT = 1;
+		}
+		else if (side == 1 & result == 'A') {
+			WLT = 0; 
+		}
+		if( result == 'T') {
+			WLT = 2;
+		}
+
 		try {
 			BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));	
+			writer.newLine();
+			writer.write(WLT);
 			writer.newLine();
 			while (!moves.empty()) {
 				String move = (String) moves.pop();
 				writer.write(move);
 			}
-			writer.write("stop");
 			writer.close();
 		} catch (FileNotFoundException e) {
 			System.err.println("oops");
@@ -109,10 +138,8 @@ public class TicTacToeAI extends AbstractAI {
 		// This AI probably wants to store what it has learned
 		// about this particular game.
 		game = null;  // No longer playing a game though.
-		Record.read();
-	//Record.printarray();
+		//Record.printarray();
 	}
-
 
 	/**
 	 * Shutdown the AI - allowing it to save its learned experience
@@ -120,38 +147,31 @@ public class TicTacToeAI extends AbstractAI {
 
 	@Override
 	public synchronized void end(){
-		Record.read();
+		//Record.read();
 		// This AI probably wants to store (in a file) what
 		// it has learned from playing all the games so far...
 	}
 
 	public static class Record{
-		int[] wins; 
+		int[] wins;
 		int[] loss; 
 		int[] tie; 
-		static String[] words = new String[10];
-		static int total;
-		static String temp; 
-		static int t =1; 
 		static String filename = "./Test-TTTBrain.txt";
 
-		
 		/**
-		 * This Method reads 
+		 * This Method reads the file in and puts it into the arrays for use later. 
 		 **/
 		public static void read() { 
 			try {
 				FileInputStream in = new FileInputStream(filename);
 				BufferedReader br = new BufferedReader(new InputStreamReader(in));
-
 				String strLine;
 				strLine = br.readLine();
-				System.out.println("loop started");
 				//Read File Line By Line
 				while ((strLine = br.readLine()) != null)   {
-					  // Print the content on the console
-					  System.out.println (strLine);
-					}
+					// Print the content on the console
+					System.out.println (strLine);
+				}
 				in.close();//Close the input stream
 			} catch (FileNotFoundException e) {
 				System.err.println("file Not found check link 139 and 135");
