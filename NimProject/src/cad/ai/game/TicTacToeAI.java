@@ -40,6 +40,7 @@ public class TicTacToeAI extends AbstractAI {
 	//We need the board state to be stored in a hashmap and the chosen move
 	//Take the board state in as a String
 	//maybe store the full record rather than the probabilities.
+	
 	public TicTacToeAI() {
 		game = null;
 		ran = new Random();
@@ -85,12 +86,41 @@ public class TicTacToeAI extends AbstractAI {
 	 *   result is either (H)ome win, (A)way win, (T)ie
 	 **/
 
+	public int player(){
+		int play = game.getPlayer();
+		return play;
+		
+	}
+	
+	
 	@Override
 	public synchronized void postWinner(char result){
 		///change the file path for your directory. 
 		final String filename = "./Test-TTTBrain.txt";
+		int side = player();// This gets the player and is 0 if you are home 1 if you are away
+		int WLT = 3; // Will be 0 for loss 1 for win 
+		//System.out.println(game.getPlayer());
+		//This decides the WLT 
+		if (side == 0 & result == 'H'){
+			WLT = 0; 
+		}
+		else if (side == 0 & result == 'A'){
+			WLT = 1; 
+		}
+		else if (side == 1 & result == 'H' ) {
+			WLT = 1;
+		}
+		else if (side == 1 & result == 'A') {
+			WLT = 0; 
+		}
+		if( result == 'T') {
+			WLT = 2;
+		}
+
 		try {
 			BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));	
+			writer.newLine();
+			writer.write(WLT);
 			writer.newLine();
 			while (!moves.empty()) {
 				String move = (String) moves.pop();
@@ -105,12 +135,11 @@ public class TicTacToeAI extends AbstractAI {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		// This AI probably wants to store what it has learned
 		// about this particular game.
 		game = null;  // No longer playing a game though.
+		//Record.printarray();
 	}
-
 
 	/**
 	 * Shutdown the AI - allowing it to save its learned experience
@@ -118,84 +147,38 @@ public class TicTacToeAI extends AbstractAI {
 
 	@Override
 	public synchronized void end(){
-		Record.read2();
-		Record.printarray();
+		//Record.read();
 		// This AI probably wants to store (in a file) what
 		// it has learned from playing all the games so far...
 	}
 
 	public static class Record{
-		int[] wins; 
+		int[] wins;
 		int[] loss; 
 		int[] tie; 
-		static String[] words = new String[10];
-		static int total;
-		static String temp; 
-		static int t =1; 
 		static String filename = "./Test-TTTBrain.txt";
 
-		public static void read2() {
+		/**
+		 * This Method reads the file in and puts it into the arrays for use later. 
+		 **/
+		public static void read() { 
 			try {
 				FileInputStream in = new FileInputStream(filename);
 				BufferedReader br = new BufferedReader(new InputStreamReader(in));
-
 				String strLine;
 				strLine = br.readLine();
 				//Read File Line By Line
-				while (strLine = br.readLine() != null )  {
-				  // Print the content on the console
-					
-				  System.out.println (strLine);
-				  strLine = br.readLine()
+				while ((strLine = br.readLine()) != null)   {
+					// Print the content on the console
+					System.out.println (strLine);
 				}
-
-				//Close the input stream
-				in.close();
+				in.close();//Close the input stream
 			} catch (FileNotFoundException e) {
 				System.err.println("file Not found check link 139 and 135");
 				e.printStackTrace();
 			}
 			catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
-		}
-
-
-/*
-		public static void read(){
-			try {
-				BufferedReader in = new BufferedReader(new InputStreamReader(filename));
-
-				while ((t < 10) ) { 
-					temp = in.readLine(); 
-
-					System.out.println( "iterator= " + t + "data: " + temp);
-					words[total] = temp;
-					++total; 
-					++t;
-					if (in.readLine().isEmpty()) {
-						t = 0; 
-					}
-				}
-				temp = in.readLine();
-
-				in.close();
-			} catch (FileNotFoundException e) {
-				System.err.println("oops");
-				e.printStackTrace();
-			}
-			catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-	*/
-		public static void printarray() {
-			int j = 0; 
-			System.out.println(" ");
-			while (j<words.length) {
-				System.out.print(words[j]);
 			}
 		}
 
