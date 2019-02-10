@@ -157,6 +157,27 @@ public class TicTacToeAI extends AbstractAI {
 		int[] loss; 
 		int[] tie; 
 		static String filename = "./Test-TTTBrain.txt";
+		
+		public static Record wins(Record r,int i) {
+			
+			int tbc = r.wins[i];
+			r.wins[i] = tbc+1;
+			return r;
+		}
+		
+		public static void Hash(TicTacToeGame game) {
+			HashMap<String, Record> record = new HashMap<String, Record>(); // Keeps the current board state choices based on recorded choices
+			String temp = game.toString(); 
+			if(record.containsKey(temp)) {
+				record.put(temp,Record.wins(record.getOrDefault(temp, null ), 0));
+			}
+			else {
+				record.put(temp, null);
+			}
+			
+			
+			
+		}
 
 		/**
 		 * This Method reads the file in and puts it into the arrays for use later. 
