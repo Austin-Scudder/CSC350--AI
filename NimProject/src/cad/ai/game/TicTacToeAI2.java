@@ -10,7 +10,12 @@
  ********************/
 package cad.ai.game;
 
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Random;
+import java.util.Stack;
 
 /***********************************************************
  * The AI system for a TicTacToeGame.
@@ -21,7 +26,12 @@ import java.util.Random;
 public class TicTacToeAI2 extends AbstractAI {
     public TicTacToeGame game;  // The game that this AI system is playing
     protected Random ran;
-    
+    final String filename = "./Test-TTTBrain2.txt";
+	int side = player();// This gets the player and is 0 if you are home 1 if you are away
+	int WLT = 3; // Will be 0 for loss 1 for win 
+    Stack boardstate = new Stack();
+	
+	
     public TicTacToeAI2() {
         game = null;
         ran = new Random();
@@ -42,7 +52,7 @@ public class TicTacToeAI2 extends AbstractAI {
         }
 	
         char[] board = (char[]) game.getStateAsObject();
-
+        boardstate.push(board.toString());
         // First see how many open slots there are
         int openSlots = 0;
         int i = 0;
@@ -62,12 +72,37 @@ public class TicTacToeAI2 extends AbstractAI {
         return "" + i;
     }	
 
+    public int player(){
+		int play = game.getPlayer();
+		return play;
+		
+	}
     /**
      * Inform AI who the winner is
      *   result is either (H)ome win, (A)way win, (T)ie
      **/
     @Override
     public synchronized void postWinner(char result) {
+    	///change the file path for your directory. 
+    			
+    			//System.out.println(game.getPlayer());
+    			//This decides the WLT 
+    			if (side == 0 & result == 'H'){
+    				WLT = 0; 
+    			}
+    			else if (side == 0 & result == 'A'){
+    				WLT = 1; 
+    			}
+    			else if (side == 1 & result == 'H' ) {
+    				WLT = 1;
+    			}
+    			else if (side == 1 & result == 'A') {
+    				WLT = 0; 
+    			}
+    			if( result == 'T') {
+    				WLT = 2;
+    			}
+
         // This AI probably wants to store what it has learned
         // about this particular game.
         game = null;  // No longer playing a game though.
@@ -78,6 +113,23 @@ public class TicTacToeAI2 extends AbstractAI {
      **/
     @Override
     public synchronized void end() {
+
+		try {
+			BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
+			String revestate = (String) boardstate.pop();
+			writer.write(revestate);
+			writer.newLine();
+			writer.write(WLT);
+			writer.newLine();
+			writer.close();
+		} catch (FileNotFoundException e) {
+			System.err.println("file not found");
+			e.printStackTrace();
+		}
+		catch (IOException e) {
+			System.err.println("unknown thing");
+			e.printStackTrace();
+		}
         // This AI probably wants to store (in a file) what
         // it has learned from playing all the games so far...
     }

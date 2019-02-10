@@ -97,7 +97,6 @@ public class PlayGame {
         // Let both AI's know we are done - so it can save state...
         for (int i = 0; i < ai.length; i++)  
             if (ai[i] != null) ai[i].end();
-	    
         System.out.println("Good-bye!");
     }
 
