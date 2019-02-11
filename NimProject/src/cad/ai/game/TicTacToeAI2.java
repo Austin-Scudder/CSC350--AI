@@ -29,7 +29,7 @@ public class TicTacToeAI2 extends AbstractAI {
     final String filename = "./Test-TTTBrain2.txt";
 	int side = player();// This gets the player and is 0 if you are home 1 if you are away
 	int WLT = 3; // Will be 0 for loss 1 for win 
-    Stack boardstate = new Stack();
+    Stack<String> boardstate = new Stack<String>();
 	
 	
     public TicTacToeAI2() {
@@ -52,7 +52,7 @@ public class TicTacToeAI2 extends AbstractAI {
         }
 	
         char[] board = (char[]) game.getStateAsObject();
-        boardstate.push(board.toString());
+
         // First see how many open slots there are
         int openSlots = 0;
         int i = 0;
