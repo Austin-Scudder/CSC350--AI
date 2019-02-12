@@ -59,16 +59,16 @@ public class PlayGame {
         case TTT:
             switch (homeAI) {
             case 0: ai[0] = null; break;
-            case 1: ai[0] = new TicTacToeAI(); break;  // Edit these for 
-            default: ai[0] = new TicTacToeAI(); break; 
+            case 1: ai[0] = new TicTacToeAI2(); break;  // Edit these for 
+            default: ai[0] = new TicTacToeAI2(); break; 
             }
             switch (awayAI) {
             case 0: ai[1] = null; break;
-            case 1: ai[1] = new TicTacToeAI(); break;  // Edit these as well...
+            case 1: ai[1] = new TicTacToeAI2(); break;  // Edit these as well...
             // case 2: ai[1] = new TicTacToeAILearn("memoryA.dat"); break;
             // case 3: ai[1] = new TicTacToeAILearn("memoryB.dat"); break;
             // case 4: ai[1] = new TicTacToeAIMinimax(); break;  // "Perfect" play
-            default: ai[0] = new TicTacToeAI(); break; 
+            default: ai[0] = new TicTacToeAI2(); break; 
             }
             break;
         case NIM:
@@ -97,6 +97,7 @@ public class PlayGame {
         // Let both AI's know we are done - so it can save state...
         for (int i = 0; i < ai.length; i++)  
             if (ai[i] != null) ai[i].end();
+	    
         System.out.println("Good-bye!");
     }
 

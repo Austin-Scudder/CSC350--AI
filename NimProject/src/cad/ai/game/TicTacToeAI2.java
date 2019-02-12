@@ -2,7 +2,7 @@
  * Christian A. Duncan
  * CSC350: Intelligent Systems
  * Spring 2019
- *
+ *Names: Austin Scudder, Nicholas Molina, Matthew Jagiela
  * AI Game Client
  * This project is designed to link to a basic Game Server to test
  * AI-based solutions.
@@ -10,10 +10,14 @@
  ********************/
 package cad.ai.game;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashMap;
 import java.util.Random;
 import java.util.Stack;
 
@@ -26,13 +30,17 @@ import java.util.Stack;
 public class TicTacToeAI2 extends AbstractAI {
     public TicTacToeGame game;  // The game that this AI system is playing
     protected Random ran;
-    final String filename = "./Test-TTTBrain2.txt";
-	int side = player();// This gets the player and is 0 if you are home 1 if you are away
+    final String filestate = "./Boards.txt";
+	final String filemoves = "./Moves.txt";
+	// This gets the player and is 0 if you are home 1 if you are away
 	int WLT = 3; // Will be 0 for loss 1 for win 
-    Stack<String> boardstate = new Stack<String>();
+	Stack<String> boardstate = new Stack<String>();
+	Stack <Integer> wins = new Stack<Integer>(); 
+	int totalmoves = 0; 
+	HashMap<String, int[][]> record = Record.Hash(); 
+
 	
-	
-    public TicTacToeAI2() {
+	public TicTacToeAI2() {
         game = null;
         ran = new Random();
     }
@@ -72,65 +80,126 @@ public class TicTacToeAI2 extends AbstractAI {
         return "" + i;
     }	
 
-    public int player(){
+	public int player(){
 		int play = game.getPlayer();
 		return play;
-		
+
 	}
-    /**
-     * Inform AI who the winner is
-     *   result is either (H)ome win, (A)way win, (T)ie
-     **/
-    @Override
-    public synchronized void postWinner(char result) {
-    	///change the file path for your directory. 
-    			
-    			//System.out.println(game.getPlayer());
-    			//This decides the WLT 
-    			if (side == 0 & result == 'H'){
-    				WLT = 0; 
-    			}
-    			else if (side == 0 & result == 'A'){
-    				WLT = 1; 
-    			}
-    			else if (side == 1 & result == 'H' ) {
-    				WLT = 1;
-    			}
-    			else if (side == 1 & result == 'A') {
-    				WLT = 0; 
-    			}
-    			if( result == 'T') {
-    				WLT = 2;
-    			}
+	/**
+	 * Inform AI who the winner is
+	 *   result is either (H)ome win, (A)way win, (T)ie
+	 **/
+	@Override
+	public synchronized void postWinner(char result) {
+		//This decides the WLT
+		int side = player();
+		if (side == 0 & result == 'H'){
+			WLT = 0; 
+		}
+		else if (side == 0 & result == 'A'){
+			WLT = 1; 
+		}
+		else if (side == 1 & result == 'H' ) {
+			WLT = 1;
+		}
+		else if (side == 1 & result == 'A') {
+			WLT = 0; 
+		}
+		if( result == 'T') {
+			WLT = 2;
+		}
+		wins.push(WLT);
+		// This AI probably wants to store what it has learned
+		// about this particular game.
+		game = null;  // No longer playing a game though.
+	}
 
-        // This AI probably wants to store what it has learned
-        // about this particular game.
-        game = null;  // No longer playing a game though.
-    }
+	/**
+	 * Shutdown the AI - allowing it to save its learned experience
+	 **/
 
-    /**
-     * Shutdown the AI - allowing it to save its learned experience
-     **/
-    @Override
-    public synchronized void end() {
-
+	@Override
+	public synchronized void end() {
 		try {
-			BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
-			String revestate = (String) boardstate.pop();
-			writer.write(revestate);
-			writer.newLine();
-			writer.write(WLT);
-			writer.newLine();
-			writer.close();
+			
+			BufferedWriter statewrite = new BufferedWriter(new FileWriter(filestate, true));
+			while (boardstate.empty() && wins.empty()) {
+				String relstate = (String) boardstate.pop();
+				statewrite.write(relstate);
+				statewrite.newLine();	
+			}
+			statewrite.close();
+
 		} catch (FileNotFoundException e) {
-			System.err.println("file not found");
+			System.err.println("oops");
 			e.printStackTrace();
 		}
 		catch (IOException e) {
-			System.err.println("unknown thing");
 			e.printStackTrace();
 		}
-        // This AI probably wants to store (in a file) what
-        // it has learned from playing all the games so far...
-    }
+		// This AI probably wants to store (in a file) what
+		// it has learned from playing all the games so far...
+	}
+
+	public static class Record{
+		static int[][] myArray = new int[3][9];
+		static char[] attempt = new char[9];
+		static int[] wins = new int[9];
+		static int[] loss = new int[9];
+		static int[] tie = new int[9];
+		final static String filestate = "./Boards.txt";
+		final String filemoves = "./Moves.txt";
+
+		public static HashMap<String, int[][]> Hash() {
+			HashMap<String, int[][]> record = new HashMap<String, int[][] >(); // Keeps the current board state choices based on recorded choices
+			try {
+				FileInputStream states = new FileInputStream(filestate);
+				BufferedReader br = new BufferedReader(new InputStreamReader(states));
+				//Read File Line By Line
+				while ((br.readLine()) != null)   {
+					String temp = br.readLine();
+					if (record.containsKey(temp)) {
+						br.read(attempt, 0, 9);
+						for (int i = 0; i < attempt.length; i++) {
+							wins[i] = (int)attempt[i] - 48;
+						}
+						br.read(attempt, 0, 9);
+						for (int i = 0; i < attempt.length; i++) {
+							loss[i] = (int)attempt[i] - 48;
+						}
+						br.read(attempt, 0, 9);
+						for (int i = 0; i < attempt.length; i++) {
+							tie[i] = (int)attempt[i] - 48;
+						}
+					}
+					else {
+						record.put(temp,myArray);
+					}
+				}
+				states.close();//Close the input stream
+			} catch (FileNotFoundException e) {
+				System.err.println("File Not Found.");
+				e.printStackTrace();
+			}
+			catch (IOException e) {
+				e.printStackTrace();
+			}
+			return record;
+		}
+		public static void SaveHash() {
+			FileInputStream states;
+			try {
+				states = new FileInputStream(filestate);
+				BufferedReader br = new BufferedReader(new InputStreamReader(states));
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+		}
+
+	}
+
+
 }
