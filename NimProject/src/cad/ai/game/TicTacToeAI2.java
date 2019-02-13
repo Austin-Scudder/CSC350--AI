@@ -28,10 +28,11 @@ import java.util.Stack;
  *   the move selection is made here - either via user or an attached
  *   AI system.
  ***********************************************************/
-public class TicTacToeAI extends AbstractAI {
+public class TicTacToeAI2 extends AbstractAI {
 	public TicTacToeGame game;  // The game that this AI system is playing
 	protected Random ran;
 	final static String filestate = "./Boards.txt";
+	final static String filemoves = "./Moves.txt";
 	public static Record Record = null;
 	public static HashMap<String, Record> map = readMap(filestate); ;
 	// This gets the player and is 0 if you are home 1 if you are away
@@ -42,8 +43,9 @@ public class TicTacToeAI extends AbstractAI {
 	Stack <Integer> totalmoves = new Stack<Integer>(); // used to keep track of how many moves are made in a game
 	int totalmove = 0;
 	char[] board;
-	
-	public TicTacToeAI() {
+
+
+	public TicTacToeAI2() {
 		game = null;
 		ran = new Random();
 	}
@@ -69,15 +71,15 @@ public class TicTacToeAI extends AbstractAI {
 		while( i == pick(map, board.toString(), board)) {
 			i = pick(map, board.toString(), board);
 		}
-		 */
+		*/
 		boardstate.push(board.toString());
 		// First see how many open slots there are
-
+		
 
 		// Now pick a random open slot
-
+		
 		// And get the proper row
-
+		
 		moves.push(i); 
 		return "" + i;
 	}	
@@ -148,8 +150,8 @@ public class TicTacToeAI extends AbstractAI {
 	public static class Record implements Serializable {
 		static final long serialVersionUID = 1L;  // Used to verify it is same version of Record (in case it changes!)
 		double alpha;  // The fitness score of this state
-		double[] records = new double[9];
-		double hold = 0; 
+		double[] records;
+
 		public Record() {
 			alpha = 0.1110;
 			records = new double[9];
@@ -158,31 +160,25 @@ public class TicTacToeAI extends AbstractAI {
 		}
 
 		public Record RecordUp(Record r,int i) {
-			if (r.records[i] >= .997) { 
-				r.records[i] = .996; 
-				}
+			if (r.records[i] >= .999) { r.records[i] = .999; }
 			else {
-				hold = 0; 
-				r.records[i] = (r.records[i]+.002);
+				r.records[i] = records[i]+.002;
 			}
 			return r;
 		}
 
 		public Record RecordDown(Record r, int i) {
-			System.out.println(r.records[i]);
-			if (r.records[i] <= .003) { 
-				System.out.println(r.records[i]);
-				r.records[i] = .004; }
-			else { r.records[i] = (r.records[i]-.002); }
+			if (r.records[i] <= .01) { r.records[i] = .01; }
+			else { r.records[i] = records[i]-.002; }
 			return r;
 		}
 		public Record RecordTie(Record r, int i) {
-			if (r.records[i] >= .997) { 
-				r.records[i] = .996; }
-			else { r.records[i] = (r.records[i]+.001); }
+			if (r.records[i] <= .01) { r.records[i] = .01; }
+			else { r.records[i] = records[i]+.001; }
 			return r;
 		}
 	}
+
 
 	public static HashMap<String,Record> EditHash(HashMap<String, Record> map, String state, int result, int move){
 		if(map.containsKey(state)) {
@@ -213,15 +209,11 @@ public class TicTacToeAI extends AbstractAI {
 
 	@SuppressWarnings("null")
 	public static int pick(HashMap<String, Record> map, String state, char[] curboard) {
-		if( !map.containsKey(state)){
-		Record r = new Record(); 
-		map.put(state, r);
-	}
 		Record r = map.get(state); 
 		double total = 0;
 		double check = 0;
 		double[] choices = new double[curboard.length];
-		for (int i = 0; i < curboard.length; i++) { 
+		for (int i = 0; i < curboard.length; i++) {
 			if (curboard[i] == ' ') {  choices[i] = r.records[i]; }
 			else { choices[i]= 0;}
 		}
@@ -230,11 +222,51 @@ public class TicTacToeAI extends AbstractAI {
 		double after = ra.nextInt((int) ((total - 1) + 1)+1);
 		int j = 0;
 		while(after > check ) {
+			System.out.println("gets here After: " + after + "Check: "+ check + " J: " + j);
 			check = choices[j]*1000 + check;
 			j++;
 		}
 		return j-1;
 	}
+	
+		
+		/*
+		Record r = map.get(state); 
+		double num = 0; 
+		double after = 0; 
+		double check = 0;
+		Stack<Integer> stor = new Stack<Integer>();
+		double[] choices = new double[open.size()];
+		for(int i = 0; i< open.size(); i++) {
+			int temp = open.pop();
+			stor.push(temp);
+			choices[i] = r.records[temp];
+			num += choices[i];
+		}
+		int[] later = new int[stor.size()];  
+		for(int g = stor.size(); g > stor.size(); g--) {
+			open.push(stor.pop()); 
+		}
+
+		num = num*1000;
+		Random ra = new Random();
+		after = ra.nextInt((int) ((num - 1) + 1)+1);
+		for(int i = 0; i < stor.size(); ++i) {
+			System.out.println("Thing: "+choices[i]);
+		}
+
+		for(int j = 0; j < choices.length; j++) {
+			check += choices[j]*1000; 
+			System.out.println("check: " + check+ " after: " + after +" j = " + j);
+			if(check >= after) {
+				System.out.println("gets here check: " + check+ " after: " + after);
+				return later[j];
+			}
+		}
+		System.out.println("gets here default check: " + check+ " after: " + after);
+		return later[0];
+	}
+	*/
 
 	public static void saveMap(HashMap<String, Record> map, String mapFileName) {
 		ObjectOutputStream oos = null;
@@ -268,9 +300,11 @@ public class TicTacToeAI extends AbstractAI {
 			System.out.println("Aborting!  Error processing file. Does not appear to save a Hash Map. " + e.getMessage());
 			System.exit(1);
 		}
+
 		// Just return a blank map...
 		return new HashMap<String,Record>();
 	}
+
 }
 
 
