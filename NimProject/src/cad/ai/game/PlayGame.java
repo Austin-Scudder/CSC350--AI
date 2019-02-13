@@ -59,16 +59,16 @@ public class PlayGame {
         case TTT:
             switch (homeAI) {
             case 0: ai[0] = null; break;
-            case 1: ai[0] = new TicTacToeAI2(); break;  // Edit these for 
-            default: ai[0] = new TicTacToeAI2(); break; 
+            case 1: ai[0] = new TicTacToeAI(); break;  // Edit these for 
+            default: ai[0] = new TicTacToeAI(); break; 
             }
             switch (awayAI) {
             case 0: ai[1] = null; break;
-            case 1: ai[1] = new TicTacToeAI2(); break;  // Edit these as well...
+            case 1: ai[1] = new TicTacToeAI(); break;  // Edit these as well...
             // case 2: ai[1] = new TicTacToeAILearn("memoryA.dat"); break;
             // case 3: ai[1] = new TicTacToeAILearn("memoryB.dat"); break;
             // case 4: ai[1] = new TicTacToeAIMinimax(); break;  // "Perfect" play
-            default: ai[0] = new TicTacToeAI2(); break; 
+            default: ai[0] = new TicTacToeAIr(); break; 
             }
             break;
         case NIM:
@@ -273,7 +273,7 @@ public class PlayGame {
         int awayAI = 1;  // ... same ...
         GameType gameType = DEFAULT_GAME;
         int repeat = 1;  // Number of games to play
-        int verbose = 1; // How "noisy" to be
+        int verbose = 0; // How "noisy" to be
 	
         // Parse the arguments
         for (String arg: args) {
