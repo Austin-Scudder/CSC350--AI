@@ -46,9 +46,11 @@ public class TicTacToeAIr extends AbstractAI {
         // First see how many open slots there are
         int openSlots = 0;
         int i = 0;
-        for (i = 0; i < board.length; i++)
-            if (board[i] == ' ') openSlots++;
-
+        for (i = 0; i < board.length; i++) {
+            if (board[i] == ' ') { 
+            	openSlots++;
+            	}
+        }
         // Now pick a random open slot
         int s = ran.nextInt(openSlots);
 
@@ -58,7 +60,7 @@ public class TicTacToeAIr extends AbstractAI {
             i++;
             if (board[i] == ' ') s--;  // One more open slot down
         }
-
+        System.out.println("away ai");
         return "" + i;
     }	
 

@@ -136,7 +136,8 @@ public class TicTacToeAI extends AbstractAI {
 			roundmoves = totalmoves.pop();
 			while(roundmoves > 0) {
 				move = moves.pop();
-				state = boardstate.pop(); 
+				state = boardstate.pop();
+				System.out.println("state: " + state + " Move: " + move);
 				EditHash(map,state, rec, move);
 				--roundmoves; 
 			}
@@ -158,8 +159,8 @@ public class TicTacToeAI extends AbstractAI {
 		}
 
 		public Record RecordUp(Record r,int i) {
-			if (r.records[i] >= .997) { 
-				r.records[i] = .996; 
+			if (r.records[i] >= .999) { 
+				r.records[i] = .980; 
 				}
 			else {
 				hold = 0; 
@@ -169,7 +170,7 @@ public class TicTacToeAI extends AbstractAI {
 		}
 
 		public Record RecordDown(Record r, int i) {
-			System.out.println(r.records[i]);
+			System.out.println(i);
 			if (r.records[i] <= .003) { 
 				System.out.println(r.records[i]);
 				r.records[i] = .004; }
@@ -177,7 +178,7 @@ public class TicTacToeAI extends AbstractAI {
 			return r;
 		}
 		public Record RecordTie(Record r, int i) {
-			if (r.records[i] >= .997) { 
+			if (r.records[i] >= .999) { 
 				r.records[i] = .996; }
 			else { r.records[i] = (r.records[i]+.001); }
 			return r;
@@ -190,15 +191,18 @@ public class TicTacToeAI extends AbstractAI {
 			r = map.get(state);
 			//increase the value of the space on a win
 			if (result == 0) {
+				System.out.println("Current State" + state.toString());
 				r.RecordUp(r, move);
 				map.put(state, r);
 			}
 			//decrease the value of the space on a win
 			else if(result == 1) { 
+				System.out.println("Current State" + state.toString());
 				r.RecordDown(r, move);
 				map.put(state, r);
 			}
 			else if(result == 2) { 
+				System.out.println("Current State" + state.toString());
 				r.RecordTie(r, move);
 				map.put(state, r);
 			}
@@ -229,11 +233,11 @@ public class TicTacToeAI extends AbstractAI {
 		Random ra = new Random();
 		double after = ra.nextInt((int) ((total - 1) + 1)+1);
 		int j = 0;
-		while(after > check ) {
+		while((after > check)  & (j < (choices.length-1 ))) {
 			check = choices[j]*1000 + check;
 			j++;
 		}
-		return j-1;
+		return j;
 	}
 
 	public static void saveMap(HashMap<String, Record> map, String mapFileName) {
