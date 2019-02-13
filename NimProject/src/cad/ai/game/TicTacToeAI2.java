@@ -2,7 +2,8 @@
  * Christian A. Duncan
  * CSC350: Intelligent Systems
  * Spring 2019
- *Names: Austin Scudder, Nicholas Molina, Matthew Jagiela
+ * Names: Austin Scudder, Nicholas Molina, Matthew Jagiela
+ * This program uses the HashExamplePersistent that was supplied by professor Duncan
  * AI Game Client
  * This project is designed to link to a basic Game Server to test
  * AI-based solutions.
@@ -23,8 +24,6 @@ import java.util.HashMap;
 import java.util.Random;
 import java.util.Stack;
 
-
-
 /***********************************************************
  * The AI system for a TicTacToeGame.
  *   Most of the game control is handled by the Server but
@@ -36,13 +35,18 @@ public class TicTacToeAI2 extends AbstractAI {
 	protected Random ran;
 	final static String filestate = "./Boards.txt";
 	final static String filemoves = "./Moves.txt";
+	public static Record Record = null;
+	public static HashMap<String, Record> map = readMap(filestate); ;
 	// This gets the player and is 0 if you are home 1 if you are away
 	int WLT = 3; // Will be 0 for loss 1 for win 
 	Stack<String> boardstate = new Stack<String>();
-	Stack <Integer> wins = new Stack<Integer>(); 
-	int totalmoves = 0; 
-
-
+	Stack <Integer> games = new Stack<Integer>(); 
+	Stack <Integer> moves = new Stack<Integer>(); 
+	Stack <Integer> totalmoves = new Stack<Integer>(); // used to keep track of how many moves are made in a game
+	int totalmove = 0;
+	
+	
+	
 	public TicTacToeAI2() {
 		game = null;
 		ran = new Random();
@@ -56,14 +60,15 @@ public class TicTacToeAI2 extends AbstractAI {
 	 * Returns the Move as a String "S"
 	 *    S=Slot chosen (0-8)
 	 **/
+	
 	public synchronized String computeMove() {
+		totalmove++; 
 		if (game == null) {
 			System.err.println("CODE ERROR: AI is not attached to a game.");
 			return "0";
 		}
-
 		char[] board = (char[]) game.getStateAsObject();
-
+		boardstate.push(board.toString());
 		// First see how many open slots there are
 		int openSlots = 0;
 		int i = 0;
@@ -79,21 +84,22 @@ public class TicTacToeAI2 extends AbstractAI {
 			i++;
 			if (board[i] == ' ') s--;  // One more open slot down
 		}
-
+		moves.push(i); 
 		return "" + i;
 	}	
 
 	public int player(){
 		int play = game.getPlayer();
 		return play;
-
 	}
+	
 	/**
 	 * Inform AI who the winner is
 	 *   result is either (H)ome win, (A)way win, (T)ie
 	 **/
 	@Override
 	public synchronized void postWinner(char result) {
+		//System.out.println("got here pre WLT");
 		//This decides the WLT
 		int side = player();
 		if (side == 0 & result == 'H'){
@@ -111,7 +117,11 @@ public class TicTacToeAI2 extends AbstractAI {
 		if( result == 'T') {
 			WLT = 2;
 		}
-		wins.push(WLT);
+		games.push(WLT);
+		//System.out.println("got here WLT");
+		//System.out.println(games.peek());
+		totalmoves.push(totalmove); 
+		totalmove=0; 
 		// This AI probably wants to store what it has learned
 		// about this particular game.
 		game = null;  // No longer playing a game though.
@@ -123,33 +133,85 @@ public class TicTacToeAI2 extends AbstractAI {
 
 	@Override
 	public synchronized void end() {
-		try {
-
-			BufferedWriter statewrite = new BufferedWriter(new FileWriter(filestate, true));
-			while (boardstate.empty() && wins.empty()) {
-				String relstate = (String) boardstate.pop();
-				statewrite.write(relstate);
-				statewrite.newLine();	
-			}
-			statewrite.close();
-
-		} catch (FileNotFoundException e) {
-			System.err.println("oops");
-			e.printStackTrace();
+		//System.out.println("got here 1");
+		int rec;
+		int move;
+		String state;
+		int roundmoves; 
+		
+		while (!games.isEmpty()) {
+			rec = games.pop();
+			roundmoves = totalmoves.pop();
+		while(roundmoves > 0) {
+			move = moves.pop();
+			state = boardstate.pop(); 
+			EditHash(map,state, rec, move);
+			--roundmoves; 
 		}
-		catch (IOException e) {
-			e.printStackTrace();
 		}
-		// This AI probably wants to store (in a file) what
-		// it has learned from playing all the games so far...
+		saveMap(map, filestate); 
+		
+		System.out.println(map);
 	}
+
 	public static class Record implements Serializable {
 		static final long serialVersionUID = 1L;  // Used to verify it is same version of Record (in case it changes!)
 		double alpha;  // The fitness score of this state
-
-		public Record() { alpha = 1.0; }
+		double[] records;
+		
+		public Record() {
+			alpha = 0.5;
+			records = new double[9];
+			for (int i= 0; i< records.length; ++i) { 
+				records[i] = alpha;} 
+		}
+		
+		public Record RecordUp(Record r,int i) {
+			if (r.records[i] >= .999) { r.records[i] = .999; }
+			else {r.records[i] = records[i]+.002;}
+			return r;
+		}
+		
+		public Record RecordDown(Record r, int i) {
+			if (r.records[i] <= .01) { r.records[i] = .01; }
+			else { r.records[i] = records[i]-.002; }
+			return r;
+		}
+		public Record RecordTie(Record r, int i) {
+			if (r.records[i] <= .01) { r.records[i] = .01; }
+			else { r.records[i] = records[i]+.001; }
+			return r;
+		}
 	}
 
+	
+	public static HashMap<String,Record> EditHash(HashMap<String, Record> map, String state, int result, int move){
+		if(map.containsKey(state)) {
+			Record r = new Record(); 
+			r = map.get(state);
+			//increase the value of the space on a win
+			if (result == 0) {
+				r.RecordUp(r, move);
+				map.put(state, r);
+			}
+			//decrease the value of the space on a win
+			else if(result == 1) { 
+				r.RecordDown(r, move);
+				map.put(state, r);
+			}
+			else if(result == 2) { 
+				r.RecordTie(r, move);
+				map.put(state, r);
+			}
+		}
+		else {
+			Record r = new Record(); 
+			map.put(state, r);
+			map = EditHash(map, state, result, move);
+		}
+		System.out.println("got here" + map);
+		return map;
+	}
 
 	public static void saveMap(HashMap<String, Record> map, String mapFileName) {
 		ObjectOutputStream oos = null;
@@ -169,7 +231,7 @@ public class TicTacToeAI2 extends AbstractAI {
 		ObjectInputStream ois = null;
 		try {
 			// Open up the Object file for reading and read in the HashMap
-			ois = new ObjectInputStream(new FileInputStream(filemoves));
+			ois = new ObjectInputStream(new FileInputStream(filestate));
 			Object obj = ois.readObject();
 			ois.close();
 			return (HashMap<String,Record>) obj; // Typecast the Object read to a HashMap
