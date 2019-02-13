@@ -68,7 +68,7 @@ public class PlayGame {
             // case 2: ai[1] = new TicTacToeAILearn("memoryA.dat"); break;
             // case 3: ai[1] = new TicTacToeAILearn("memoryB.dat"); break;
             // case 4: ai[1] = new TicTacToeAIMinimax(); break;  // "Perfect" play
-            default: ai[0] = new TicTacToeAIr(); break; 
+            default: ai[0] = new TicTacToeAI(); break; 
             }
             break;
         case NIM:
@@ -272,7 +272,7 @@ public class PlayGame {
         int homeAI = 1;  // 0=Human, 1-3=AI (various levels)
         int awayAI = 1;  // ... same ...
         GameType gameType = DEFAULT_GAME;
-        int repeat = 1;  // Number of games to play
+        int repeat = 100;  // Number of games to play
         int verbose = 1; // How "noisy" to be
 	
         // Parse the arguments
