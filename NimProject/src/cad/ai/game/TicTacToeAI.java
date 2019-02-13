@@ -233,8 +233,12 @@ public class TicTacToeAI extends AbstractAI {
 		Random ra = new Random();
 		double after = ra.nextInt((int) ((total - 1) + 1)+1);
 		int j = 0;
-		while((after > check)  & (j < (choices.length-1 ))) {
-			check = choices[j]*1000 + check;
+		while((after >= check)  & (j < choices.length-1 )) {
+			System.out.println("THis is the value for Check: "+ check + " This is the value of after: " + after);
+			check = (choices[j]*1000) + check;
+			if (after <= check) {
+				return j; 
+			}
 			j++;
 		}
 		return j;
