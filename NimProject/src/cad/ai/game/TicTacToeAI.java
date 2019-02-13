@@ -64,7 +64,7 @@ public class TicTacToeAI extends AbstractAI {
 			return "0";
 		}
 		board = (char[]) game.getStateAsObject();
-		int i = pick(map, board.toString(), board);
+		int i = pickbest(map, board.toString(), board);
 		
 		boardstate.push(board.toString());
 		// First see how many open slots there are
@@ -89,7 +89,6 @@ public class TicTacToeAI extends AbstractAI {
 	 **/
 	@Override
 	public synchronized void postWinner(char result) {
-		//System.out.println("got here pre WLT");
 		//This decides the WLT
 		int side = player();
 		if (side == 0 & result == 'H'){
@@ -123,10 +122,18 @@ public class TicTacToeAI extends AbstractAI {
 	public synchronized void end() {
 		int rec;
 		int move;
+		double record = 0; 
+		double totalgs = games.size(); 
 		String state;
 		int roundmoves; 
 		while (!games.isEmpty()) {
 			rec = games.pop();
+			if(rec  == 0 ) {
+				record = record +1; 
+			}
+			else if (rec == 2) {
+				record = record +0.5;
+			}
 			roundmoves = totalmoves.pop();
 			while(roundmoves > 0) {
 				move = moves.pop();
@@ -135,7 +142,7 @@ public class TicTacToeAI extends AbstractAI {
 				--roundmoves; 
 			}
 		}
-		saveMap(map, filestate); 
+		System.out.println("This is the record: " + (record/totalgs)); 
 	}
 
 	public static class Record implements Serializable {
@@ -229,6 +236,27 @@ public class TicTacToeAI extends AbstractAI {
 		}
 		return j;
 	}
+	
+	public static int pickbest(HashMap<String, Record> map, String state, char[] curboard) {
+		if( !map.containsKey(state)){
+		Record r = new Record(); 
+		map.put(state, r);
+	}
+		Record r = map.get(state); 
+		double max = 0;
+		int best = 0;
+		for (int i = 0; i < curboard.length; i++) { 
+			if (curboard[i] == ' ') {  
+				if(r.records[i] > max)
+				max = r.records[i];
+				best = i;
+				}
+		}
+			
+		return best;
+	}
+	
+	
 
 	public static void saveMap(HashMap<String, Record> map, String mapFileName) {
 		ObjectOutputStream oos = null;

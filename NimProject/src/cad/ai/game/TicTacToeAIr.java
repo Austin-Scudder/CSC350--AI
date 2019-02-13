@@ -60,7 +60,6 @@ public class TicTacToeAIr extends AbstractAI {
             i++;
             if (board[i] == ' ') s--;  // One more open slot down
         }
-        System.out.println("away ai");
         return "" + i;
     }	
 
