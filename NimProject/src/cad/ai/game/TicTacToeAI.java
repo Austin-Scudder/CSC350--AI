@@ -121,12 +121,10 @@ public class TicTacToeAI extends AbstractAI {
 
 	@Override
 	public synchronized void end() {
-		//System.out.println("got here 1");
 		int rec;
 		int move;
 		String state;
 		int roundmoves; 
-
 		while (!games.isEmpty()) {
 			rec = games.pop();
 			roundmoves = totalmoves.pop();
@@ -138,7 +136,6 @@ public class TicTacToeAI extends AbstractAI {
 			}
 		}
 		saveMap(map, filestate); 
-		System.out.println(map);
 	}
 
 	public static class Record implements Serializable {
@@ -150,7 +147,8 @@ public class TicTacToeAI extends AbstractAI {
 			alpha = 0.1110;
 			records = new double[9];
 			for (int i= 0; i< records.length; ++i) { 
-				records[i] = alpha;} 
+				records[i] = alpha;
+				} 
 		}
 
 		public Record RecordUp(Record r,int i) {
@@ -164,8 +162,7 @@ public class TicTacToeAI extends AbstractAI {
 			return r;
 		}
 
-		public Record RecordDown(Record r, int i) {
-			System.out.println(i);
+		public Record RecordDown(Record r, int i) {			
 			if (r.records[i] <= .003) { 
 				r.records[i] = .004; }
 			else { r.records[i] = (r.records[i]-.002); }
