@@ -65,11 +65,7 @@ public class TicTacToeAI extends AbstractAI {
 		}
 		board = (char[]) game.getStateAsObject();
 		int i = pick(map, board.toString(), board);
-		/*
-		while( i == pick(map, board.toString(), board)) {
-			i = pick(map, board.toString(), board);
-		}
-		 */
+		
 		boardstate.push(board.toString());
 		// First see how many open slots there are
 
@@ -137,7 +133,6 @@ public class TicTacToeAI extends AbstractAI {
 			while(roundmoves > 0) {
 				move = moves.pop();
 				state = boardstate.pop();
-				System.out.println("state: " + state + " Move: " + move);
 				EditHash(map,state, rec, move);
 				--roundmoves; 
 			}
@@ -172,7 +167,6 @@ public class TicTacToeAI extends AbstractAI {
 		public Record RecordDown(Record r, int i) {
 			System.out.println(i);
 			if (r.records[i] <= .003) { 
-				System.out.println(r.records[i]);
 				r.records[i] = .004; }
 			else { r.records[i] = (r.records[i]-.002); }
 			return r;
@@ -191,18 +185,15 @@ public class TicTacToeAI extends AbstractAI {
 			r = map.get(state);
 			//increase the value of the space on a win
 			if (result == 0) {
-				System.out.println("Current State" + state.toString());
 				r.RecordUp(r, move);
 				map.put(state, r);
 			}
 			//decrease the value of the space on a win
 			else if(result == 1) { 
-				System.out.println("Current State" + state.toString());
 				r.RecordDown(r, move);
 				map.put(state, r);
 			}
 			else if(result == 2) { 
-				System.out.println("Current State" + state.toString());
 				r.RecordTie(r, move);
 				map.put(state, r);
 			}
@@ -215,7 +206,6 @@ public class TicTacToeAI extends AbstractAI {
 		return map;
 	}
 
-	@SuppressWarnings("null")
 	public static int pick(HashMap<String, Record> map, String state, char[] curboard) {
 		if( !map.containsKey(state)){
 		Record r = new Record(); 
@@ -234,7 +224,6 @@ public class TicTacToeAI extends AbstractAI {
 		double after = ra.nextInt((int) ((total - 1) + 1)+1);
 		int j = 0;
 		while((after >= check)  & (j < choices.length-1 )) {
-			System.out.println("THis is the value for Check: "+ check + " This is the value of after: " + after);
 			check = (choices[j]*1000) + check;
 			if (after <= check) {
 				return j; 
