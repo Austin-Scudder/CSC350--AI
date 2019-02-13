@@ -10,16 +10,20 @@
  ********************/
 package cad.ai.game;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.Stack;
+
+
 
 /***********************************************************
  * The AI system for a TicTacToeGame.
@@ -28,57 +32,56 @@ import java.util.Stack;
  *   AI system.
  ***********************************************************/
 public class TicTacToeAI2 extends AbstractAI {
-    public TicTacToeGame game;  // The game that this AI system is playing
-    protected Random ran;
-    final String filestate = "./Boards.txt";
-	final String filemoves = "./Moves.txt";
+	public TicTacToeGame game;  // The game that this AI system is playing
+	protected Random ran;
+	final static String filestate = "./Boards.txt";
+	final static String filemoves = "./Moves.txt";
 	// This gets the player and is 0 if you are home 1 if you are away
 	int WLT = 3; // Will be 0 for loss 1 for win 
 	Stack<String> boardstate = new Stack<String>();
 	Stack <Integer> wins = new Stack<Integer>(); 
 	int totalmoves = 0; 
-	HashMap<String, int[][]> record = Record.Hash(); 
 
-	
+
 	public TicTacToeAI2() {
-        game = null;
-        ran = new Random();
-    }
+		game = null;
+		ran = new Random();
+	}
 
-    public synchronized void attachGame(Game g) {
-        game = (TicTacToeGame) g;
-    }
-    
-    /**
-     * Returns the Move as a String "S"
-     *    S=Slot chosen (0-8)
-     **/
-    public synchronized String computeMove() {
-        if (game == null) {
-            System.err.println("CODE ERROR: AI is not attached to a game.");
-            return "0";
-        }
-	
-        char[] board = (char[]) game.getStateAsObject();
+	public synchronized void attachGame(Game g) {
+		game = (TicTacToeGame) g;
+	}
 
-        // First see how many open slots there are
-        int openSlots = 0;
-        int i = 0;
-        for (i = 0; i < board.length; i++)
-            if (board[i] == ' ') openSlots++;
+	/**
+	 * Returns the Move as a String "S"
+	 *    S=Slot chosen (0-8)
+	 **/
+	public synchronized String computeMove() {
+		if (game == null) {
+			System.err.println("CODE ERROR: AI is not attached to a game.");
+			return "0";
+		}
 
-        // Now pick a random open slot
-        int s = ran.nextInt(openSlots);
+		char[] board = (char[]) game.getStateAsObject();
 
-        // And get the proper row
-        i = -1;
-        while (s >= 0) {
-            i++;
-            if (board[i] == ' ') s--;  // One more open slot down
-        }
+		// First see how many open slots there are
+		int openSlots = 0;
+		int i = 0;
+		for (i = 0; i < board.length; i++)
+			if (board[i] == ' ') openSlots++;
 
-        return "" + i;
-    }	
+		// Now pick a random open slot
+		int s = ran.nextInt(openSlots);
+
+		// And get the proper row
+		i = -1;
+		while (s >= 0) {
+			i++;
+			if (board[i] == ' ') s--;  // One more open slot down
+		}
+
+		return "" + i;
+	}	
 
 	public int player(){
 		int play = game.getPlayer();
@@ -121,7 +124,7 @@ public class TicTacToeAI2 extends AbstractAI {
 	@Override
 	public synchronized void end() {
 		try {
-			
+
 			BufferedWriter statewrite = new BufferedWriter(new FileWriter(filestate, true));
 			while (boardstate.empty() && wins.empty()) {
 				String relstate = (String) boardstate.pop();
@@ -140,66 +143,51 @@ public class TicTacToeAI2 extends AbstractAI {
 		// This AI probably wants to store (in a file) what
 		// it has learned from playing all the games so far...
 	}
+	public static class Record implements Serializable {
+		static final long serialVersionUID = 1L;  // Used to verify it is same version of Record (in case it changes!)
+		double alpha;  // The fitness score of this state
 
-	public static class Record{
-		static int[][] myArray = new int[3][9];
-		static char[] attempt = new char[9];
-		static int[] wins = new int[9];
-		static int[] loss = new int[9];
-		static int[] tie = new int[9];
-		final static String filestate = "./Boards.txt";
-		final String filemoves = "./Moves.txt";
-
-		public static HashMap<String, int[][]> Hash() {
-			HashMap<String, int[][]> record = new HashMap<String, int[][] >(); // Keeps the current board state choices based on recorded choices
-			try {
-				FileInputStream states = new FileInputStream(filestate);
-				BufferedReader br = new BufferedReader(new InputStreamReader(states));
-				//Read File Line By Line
-				while ((br.readLine()) != null)   {
-					String temp = br.readLine();
-					if (record.containsKey(temp)) {
-						br.read(attempt, 0, 9);
-						for (int i = 0; i < attempt.length; i++) {
-							wins[i] = (int)attempt[i] - 48;
-						}
-						br.read(attempt, 0, 9);
-						for (int i = 0; i < attempt.length; i++) {
-							loss[i] = (int)attempt[i] - 48;
-						}
-						br.read(attempt, 0, 9);
-						for (int i = 0; i < attempt.length; i++) {
-							tie[i] = (int)attempt[i] - 48;
-						}
-					}
-					else {
-						record.put(temp,myArray);
-					}
-				}
-				states.close();//Close the input stream
-			} catch (FileNotFoundException e) {
-				System.err.println("File Not Found.");
-				e.printStackTrace();
-			}
-			catch (IOException e) {
-				e.printStackTrace();
-			}
-			return record;
-		}
-		public static void SaveHash() {
-			FileInputStream states;
-			try {
-				states = new FileInputStream(filestate);
-				BufferedReader br = new BufferedReader(new InputStreamReader(states));
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			
-		}
-
+		public Record() { alpha = 1.0; }
 	}
 
 
+	public static void saveMap(HashMap<String, Record> map, String mapFileName) {
+		ObjectOutputStream oos = null;
+		try {
+			// Open up the Object file for writing and write the HashMap
+			oos = new ObjectOutputStream(new FileOutputStream(mapFileName));
+			oos.writeObject(map);
+			oos.close();
+		} catch (IOException e) {
+			System.out.println("Aborting!  Error saving map to file. " + e.getMessage());
+			System.exit(1);
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	public static HashMap<String, Record> readMap(String mapFileName) {
+		ObjectInputStream ois = null;
+		try {
+			// Open up the Object file for reading and read in the HashMap
+			ois = new ObjectInputStream(new FileInputStream(filemoves));
+			Object obj = ois.readObject();
+			ois.close();
+			return (HashMap<String,Record>) obj; // Typecast the Object read to a HashMap
+		} catch (FileNotFoundException e) {
+			System.out.println("Map file " + mapFileName + " was not found.  Using new map.");
+			System.out.println("  Message: " + e.getMessage());
+		} catch (IOException e) {
+			System.out.println("Aborting!  Error processing file. " + e.getMessage());
+			System.exit(1);
+		} catch (ClassNotFoundException e) {
+			System.out.println("Aborting!  Error processing file. Does not appear to save a Hash Map. " + e.getMessage());
+			System.exit(1);
+		}
+
+		// Just return a blank map...
+		return new HashMap<String,Record>();
+	}
+
 }
+
+
