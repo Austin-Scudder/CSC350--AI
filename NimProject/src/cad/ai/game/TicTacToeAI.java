@@ -44,7 +44,7 @@ public class TicTacToeAI extends AbstractAI {
 	char[] board;
 	double totalwins= 0; 
 	double totalgames = 0;
-
+	boolean check = true; 
 	public TicTacToeAI() {
 		game = null;
 		ran = new Random();
@@ -67,6 +67,19 @@ public class TicTacToeAI extends AbstractAI {
 		}
 		board = (char[]) game.getStateAsObject();
 		int i = pick(map, new String(board), board);
+		while(check) {
+			for(int j = 0; j < board.length; j++) {
+				if((board[j] == ' ')& i == j) {
+					check = false; 
+				}
+				else {
+					System.out.println("Error!");
+				i = pickbest(map, new String(board), board);
+				}
+			}
+		}
+		check = true;
+
 		boardstate.push(new String(board));
 		moves.push(i); 
 		return "" + i;
@@ -127,7 +140,7 @@ public class TicTacToeAI extends AbstractAI {
 	public synchronized void end() {
 		double percentage = (totalwins/2)/totalgames;
 		System.out.println("Win percentage: " + percentage);
-		
+
 		saveMap(map, filestate);
 
 	}
@@ -147,8 +160,8 @@ public class TicTacToeAI extends AbstractAI {
 		}
 
 		public void RecordUp(int i) {
-			if (records[i] >= .999) { 
-				records[i] = .999; 
+			if (records[i] >= .990) { 
+				records[i] = .990; 
 			}
 			else {
 				records[i] = (records[i]+.002);
@@ -156,14 +169,14 @@ public class TicTacToeAI extends AbstractAI {
 		}
 
 		public void RecordDown(int i) {			
-			if (records[i] <= .001) { 
-				records[i] = .001; }
+			if (records[i] <= .010) { 
+				records[i] = .010; }
 			else { records[i] = (records[i]-.002); }
 
 		}
 		public void RecordTie(int i) {
-			if (records[i] >= .999) { 
-				records[i] = .999; }
+			if (records[i] >= .990) { 
+				records[i] = .990; }
 			else { records[i] = (records[i]+.0001); }
 		}
 
@@ -204,7 +217,7 @@ public class TicTacToeAI extends AbstractAI {
 		return map;
 	}
 
-	public static int pick(HashMap<String, Record> map, String state, char[] curboard) {
+	public int pick(HashMap<String, Record> map, String state, char[] curboard) {
 		if( !map.containsKey(state)){
 			Record r = new Record(); 
 			map.put(state, r);
@@ -244,7 +257,7 @@ public class TicTacToeAI extends AbstractAI {
 			if (curboard[i] == ' ') {  
 				if(r.records[i] > max) {
 					max = r.records[i];
-				best = i;
+					best = i;
 				}
 			}
 		}
