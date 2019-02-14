@@ -272,8 +272,8 @@ public class PlayGame {
         int homeAI = 1;  // 0=Human, 1-3=AI (various levels)
         int awayAI = 1;  // ... same ...
         GameType gameType = DEFAULT_GAME;
-        int repeat = 10;  // Number of games to play
-        int verbose = 1; // How "noisy" to be
+        int repeat = 100000000;  // Number of games to play
+        int verbose = 0; // How "noisy" to be
 	
         // Parse the arguments
         for (String arg: args) {
