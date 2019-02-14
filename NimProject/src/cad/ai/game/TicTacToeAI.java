@@ -31,7 +31,7 @@ import java.util.Stack;
 public class TicTacToeAI extends AbstractAI {
 	public TicTacToeGame game;  // The game that this AI system is playing
 	protected Random ran;
-	final static String filestate = "./Boards3.txt";
+	final static String filestate = "./TTTBrainMain.txt";
 	// public static Record Record = null;
 	public static HashMap<String, Record> map = readMap(filestate);
 	// This gets the player and is 0 if you are home 1 if you are away
@@ -42,8 +42,8 @@ public class TicTacToeAI extends AbstractAI {
 	Stack <Integer> totalmoves = new Stack<Integer>(); // used to keep track of how many moves are made in a game
 	int totalmove = 0;
 	char[] board;
-	int totalwins= 0; 
-	int totalgames = 0;
+	double totalwins= 0; 
+	double totalgames = 0;
 
 	public TicTacToeAI() {
 		game = null;
@@ -125,8 +125,8 @@ public class TicTacToeAI extends AbstractAI {
 
 	@Override
 	public synchronized void end() {
-		
-		System.out.println("Win percentage: " + (totalwins/2)/totalgames);
+		double percentage = (totalwins/2)/totalgames;
+		System.out.println("Win percentage: " + percentage);
 		
 		saveMap(map, filestate);
 
@@ -156,15 +156,15 @@ public class TicTacToeAI extends AbstractAI {
 		}
 
 		public void RecordDown(int i) {			
-			if (records[i] <= .010) { 
-				records[i] = .010; }
+			if (records[i] <= .001) { 
+				records[i] = .001; }
 			else { records[i] = (records[i]-.002); }
 
 		}
 		public void RecordTie(int i) {
 			if (records[i] >= .999) { 
 				records[i] = .999; }
-			else { records[i] = (records[i]+.001); }
+			else { records[i] = (records[i]+.0001); }
 		}
 
 		public String toString() {
