@@ -127,7 +127,7 @@ public class TicTacToeAI extends AbstractAI {
 	public synchronized void end() {
 		double percentage = (totalwins/2)/totalgames;
 		System.out.println("Win percentage: " + percentage);
-		
+
 		saveMap(map, filestate);
 
 	}
@@ -244,7 +244,7 @@ public class TicTacToeAI extends AbstractAI {
 			if (curboard[i] == ' ') {  
 				if(r.records[i] > max) {
 					max = r.records[i];
-				best = i;
+					best = i;
 				}
 			}
 		}

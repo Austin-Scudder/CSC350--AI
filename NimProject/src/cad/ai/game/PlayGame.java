@@ -65,8 +65,10 @@ public class PlayGame {
             }
             switch (awayAI) {
             case 0: ai[1] = null; break;
-            case 1: ai[1] = new TicTacToeAIr(); break;  // Edit these as well...
+            case 1: ai[1] = new TicTacToeAI(); break;
             case 2: ai[1] = new TicTacToeAITrainer(); break;
+            case 3: ai[1] = new TicTacToeAIr(); break;  // Edit these as well...
+            
             // case 2: ai[1] = new TicTacToeAILearn("memoryA.dat"); break;
             // case 3: ai[1] = new TicTacToeAILearn("memoryB.dat"); break;
             // case 4: ai[1] = new TicTacToeAIMinimax(); break;  // "Perfect" play
