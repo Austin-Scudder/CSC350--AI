@@ -233,8 +233,8 @@ public class TicTacToeGame implements Game {
                 int slot = Integer.parseInt(move);  // The move is just a single number (0-8)
                 if (slot < 0 || slot >= board.length)
                     return  "ERROR:Selection (" + slot + ") is out of range.";
-                if (board[slot] != ' ')
-                    return "ERROR:This slot is already taken!";
+                if (board[slot] != ' ') 
+                	return "ERROR:This slot is already taken!";
                 char symbol = (p == 0) ? 'X' : 'O';
                 board[slot] = symbol;
                 turn ^= 1;  // Switch turn from 0 to 1 or 1 to 0
