@@ -31,7 +31,7 @@ import java.util.Stack;
 public class TicTacToeAI extends AbstractAI {
 	public TicTacToeGame game;  // The game that this AI system is playing
 	protected Random ran;
-	final static String filestate = "./Boar.txt";
+	final static String filestate = "./Boar2.txt";
 	// public static Record Record = null;
 	public static HashMap<String, Record> map = readMap(filestate);
 	// This gets the player and is 0 if you are home 1 if you are away
@@ -179,7 +179,7 @@ public class TicTacToeAI extends AbstractAI {
 		public void RecordTie(int i) {
 			if (records[i] >= .990) { 
 				records[i] = .990; }
-			else { records[i] = (records[i]+.004); }
+			else { records[i] = (records[i]+.00); }
 		}
 
 		public String toString() {
