@@ -1,5 +1,5 @@
 /*******************
- * Christian A. Duncan
+	Christian A. Duncan
  * CSC350: Intelligent Systems
  * Spring 2019
  *
@@ -36,6 +36,7 @@ public class TicTacToeAITrainer extends AbstractAI {
      * Returns the Move as a String "S"
      *    S=Slot chosen (0-8)
      **/
+    /*
     public synchronized String computeMove() {
         if (game == null) {
             System.err.println("CODE ERROR: AI is not attached to a game.");
@@ -187,7 +188,7 @@ public class TicTacToeAITrainer extends AbstractAI {
 
         return "" + i;
     }	
-
+*/
     /**
      * Inform AI who the winner is
      *   result is either (H)ome win, (A)way win, (T)ie
@@ -207,4 +208,10 @@ public class TicTacToeAITrainer extends AbstractAI {
         // This AI probably wants to store (in a file) what
         // it has learned from playing all the games so far...
     }
+
+	@Override
+	public String computeMove() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

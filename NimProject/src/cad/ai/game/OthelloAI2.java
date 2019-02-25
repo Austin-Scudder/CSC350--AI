@@ -24,7 +24,7 @@ import java.util.ArrayList;
  *   the move selection is made here - either via user or an attached
  *   AI system.
  ***********************************************************/
-public class OthelloAI extends AbstractAI {
+public class OthelloAI2 extends AbstractAI {
     public OthelloGame game;  // The game that this AI system is playing
     protected Random ran;
     private final int[] rowCheckValues = {1, 1, 0, -1, -1, -1, 0, 1};
@@ -35,7 +35,7 @@ public class OthelloAI extends AbstractAI {
     private char opponentPiece = 'X';
     int totalValue = 0;
     
-    public OthelloAI() {
+    public OthelloAI2() {
         game = null;
         ran = new Random();
     }
@@ -87,7 +87,7 @@ public class OthelloAI extends AbstractAI {
             }
         }
         
-        return nextmove;
+        return actions.get(choice).toString();
     }	
     
     private int getMoveValue(char[][] board, int row, int column, int player) {
