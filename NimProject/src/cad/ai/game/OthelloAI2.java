@@ -73,7 +73,7 @@ public class OthelloAI2 extends AbstractAI {
 
         // Now just pick one of them out at random
         int choice = ran.nextInt(actions.size());
-        
+        /*
         for (OthelloGame.Action action : actions) {
             System.out.println("Move value for " + action.toString() + ":" + getMoveValue(board, action.row, action.col, player));
         }
@@ -86,6 +86,7 @@ public class OthelloAI2 extends AbstractAI {
             	
             }
         }
+        */
         
         return actions.get(choice).toString();
     }	

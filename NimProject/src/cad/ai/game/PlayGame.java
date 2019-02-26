@@ -78,8 +78,18 @@ public class PlayGame {
         case OTHELLO_MICRO:
         case OTHELLO_MINI:
         case OTHELLO:
-            ai[0] = (homeAI == 0 ? null : new OthelloAI());
-            ai[1] = (awayAI == 0 ? null : new OthelloAI());
+            switch (homeAI) {
+                case 0: ai[0] = null; break;
+                case 1: ai[0] = new OthelloAI(); break;
+                case 2: ai[0] = new OthelloAI2(); break;
+                default: ai[0] = new OthelloAI(); break;
+            }
+            switch (awayAI) {
+                case 0: ai[1] = null; break;
+                case 1: ai[1] = new OthelloAI(); break;
+                case 2: ai[1] = new OthelloAI2(); break;
+                default: ai[1] = new OthelloAI(); break;
+            }
             break;
         }
     }
