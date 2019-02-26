@@ -29,6 +29,7 @@ public class OthelloAI extends AbstractAI {
     protected Random ran;
     private final int[] rowCheckValues = {1, 1, 0, -1, -1, -1, 0, 1};
     private final int[] columnCheckValues = {0, -1, -1, -1, 0, 1, 1, 1};
+    private byte goodVectors = 0b00000000;
     private int tempRow = 0;
     private int tempColumn = 0;
     private char playerPiece = 'O';
@@ -75,6 +76,7 @@ public class OthelloAI extends AbstractAI {
         int choice = ran.nextInt(actions.size());
         
         for (OthelloGame.Action action : actions) {
+            System.out.println("Calculating move value for " + action.toString());
             System.out.println("Move value for " + action.toString() + ":" + getMoveValue(board, action.row, action.col, player));
         }
         String nextmove = null; 
@@ -99,29 +101,55 @@ public class OthelloAI extends AbstractAI {
         */
         tempRow = 0;
         tempColumn = 0;
+        goodVectors = 0b00000000;
         
         for (int i = 0; i < 8; i++) {
             tempRow = row + rowCheckValues[i];
             tempColumn = column + columnCheckValues[i];
+            //System.out.println("Evaluating Row: " + tempRow + " and Column: " + (char) (tempColumn + 97));
+            /*
+                Find good vectors
+                    --Find adjacent space with enemy piece
+                    --Travel that vector until player piece
+                    --If both of the above pass, add to good vector.
+            */
             if (!isValidSpace(board, tempRow, tempColumn, opponentPiece)) {
-                    continue;
-            } 
-            while (isValidSpace(board, tempRow, tempColumn, opponentPiece)) {
-                totalValue++;
+                continue;
+            } else while (isValidSpace(board, tempRow, tempColumn, opponentPiece)) {
+                //totalValue++;
+                //System.out.println("Incrementing move value.");
                 tempRow += rowCheckValues[i];
                 tempColumn += columnCheckValues[i];
             }
+            if (isValidSpace(board, tempRow, tempColumn, playerPiece)) {
+                goodVectors |= (byte) (0b00000001 << i);
+            }
         }
+        for (int i = 0; i < 8; i++) {
+            //System.out.println(goodVectors);
+            //System.out.println((0b00000001 << i));
+            if ((goodVectors & (0b00000001 << i)) == (0b00000001 << i)) {
+                tempRow = row + rowCheckValues[i];
+                tempColumn = column + columnCheckValues[i];
+                //totalValue++;
+                while (isValidSpace(board, tempRow, tempColumn, opponentPiece)) {
+                    totalValue++;
+                    tempRow += rowCheckValues[i];
+                    tempColumn += columnCheckValues[i];
+                }
+            }
+        }
+        //System.out.println("Cummulative move value: " + totalValue);
         return totalValue;
     }
     
  
     
-    private boolean isValidSpace(char[][] board, int row, int column, char opponentPiece) {
+    private boolean isValidSpace(char[][] board, int row, int column, char desiredPiece) {
         if ((row >= board.length) || (column >= board.length) || (row < 0) || (column < 0)) {
             return false;
         }
-        if (board[row][column] != opponentPiece) {
+        if (board[row][column] != desiredPiece) {
             return false;
         }
         return true;

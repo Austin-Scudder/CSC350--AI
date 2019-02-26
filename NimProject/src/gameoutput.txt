@@ -1,0 +1,194 @@
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+Calculating move value for 0b
+Move value for 0b:1
+Calculating move value for 1a
+Move value for 1a:1
+Calculating move value for 2d
+Move value for 2d:1
+Calculating move value for 3c
+Move value for 3c:1
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+Calculating move value for 0a
+Move value for 0a:1
+Calculating move value for 0c
+Move value for 0c:1
+Calculating move value for 2a
+Move value for 2a:1
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X     0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+Calculating move value for 1a
+Move value for 1a:1
+Calculating move value for 2d
+Move value for 2d:1
+Calculating move value for 3c
+Move value for 3c:1
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X     0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+Calculating move value for 0c
+Move value for 0c:2
+Calculating move value for 2a
+Move value for 2a:2
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0 O O O   0
+1 X X O   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=5
+Turn: Home (X)
+Calculating move value for 0d
+Move value for 0d:1
+Calculating move value for 1d
+Move value for 1d:1
+Calculating move value for 2d
+Move value for 2d:1
+Calculating move value for 3d
+Move value for 3d:1
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0 O O O X 0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=4
+Turn: Away (O)
+Calculating move value for 2a
+Move value for 2a:3
+Calculating move value for 2d
+Move value for 2d:1
+Calculating move value for 3b
+Move value for 3b:2
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0 O O O X 0
+1 O O X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=2 O=8
+Turn: Home (X)
+Calculating move value for 3a
+Move value for 3a:1
+Calculating move value for 3c
+Move value for 3c:1
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0 O O O X 0
+1 O O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=4 O=7
+Turn: Away (O)
+Calculating move value for 1d
+Move value for 1d:1
+Calculating move value for 2d
+Move value for 2d:1
+Calculating move value for 3b
+Move value for 3b:1
+Calculating move value for 3c
+Move value for 3c:1
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0 O O O X 0
+1 O O O O 1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=3 O=9
+Turn: Home (X)
+Calculating move value for 2d
+Move value for 2d:2
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0 O O O X 0
+1 O O O X 1
+2 O X X X 2
+3 X       3
+  a b c d
+Score: X=6 O=7
+Turn: Away (O)
+Calculating move value for 3b
+Move value for 3b:1
+Calculating move value for 3c
+Move value for 3c:2
+Calculating move value for 3d
+Move value for 3d:1
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Away]
+  a b c d
+0 O O O X 0
+1 O O O X 1
+2 O O O X 2
+3 X   O   3
+  a b c d
+Score: X=4 O=10
+Turn: Home (X)
+Calculating move value for 3b
+Move value for 3b:1
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Home]
+  a b c d
+0 O O O X 0
+1 O O O X 1
+2 O O X X 2
+3 X X O   3
+  a b c d
+Score: X=6 O=9
+Turn: Away (O)
+Calculating move value for 3d
+Move value for 3d:1
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0 O O O X 0
+1 O O O X 1
+2 O O O X 2
+3 X X O O 3
+  a b c d
+Score: X=5 O=11
+Turn: Away (O)
+Away won.
+Away won!
+Away won!
+Good-bye!
