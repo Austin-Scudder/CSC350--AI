@@ -22,6 +22,7 @@ import java.util.HashMap;
 import java.util.Random;
 import java.util.Stack;
 
+
 /***********************************************************
  * The AI system for a TicTacToeGame.
  *   Most of the game control is handled by the Server but
@@ -33,7 +34,7 @@ public class TicTacToeAI extends AbstractAI {
 	protected Random ran;
 	final static String filestate = "./Boards.txt";
 	public static Record Record = null;
-	public static HashMap<String, Record> map = readMap(filestate); ;
+	public static HashMap<String, Record> map;
 	// This gets the player and is 0 if you are home 1 if you are away
 	int WLT = 3; // Will be 0 for loss 1 for win 
 	Stack<String> boardstate = new Stack<String>();
@@ -42,7 +43,7 @@ public class TicTacToeAI extends AbstractAI {
 	Stack <Integer> totalmoves = new Stack<Integer>(); // used to keep track of how many moves are made in a game
 	int totalmove = 0;
 	char[] board;
-	
+
 	public TicTacToeAI() {
 		game = null;
 		ran = new Random();
@@ -65,7 +66,7 @@ public class TicTacToeAI extends AbstractAI {
 		}
 		board = (char[]) game.getStateAsObject();
 		int i = pickbest(map, board.toString(), board);
-		
+
 		boardstate.push(board.toString());
 		// First see how many open slots there are
 
@@ -155,13 +156,13 @@ public class TicTacToeAI extends AbstractAI {
 			records = new double[9];
 			for (int i= 0; i< records.length; ++i) { 
 				records[i] = alpha;
-				} 
+			} 
 		}
 
 		public Record RecordUp(Record r,int i) {
 			if (r.records[i] >= .999) { 
 				r.records[i] = .980; 
-				}
+			}
 			else {
 				hold = 0; 
 				r.records[i] = (r.records[i]+.002);
@@ -212,9 +213,9 @@ public class TicTacToeAI extends AbstractAI {
 
 	public static int pick(HashMap<String, Record> map, String state, char[] curboard) {
 		if( !map.containsKey(state)){
-		Record r = new Record(); 
-		map.put(state, r);
-	}
+			Record r = new Record(); 
+			map.put(state, r);
+		}
 		Record r = map.get(state); 
 		double total = 0;
 		double check = 0;
@@ -236,27 +237,32 @@ public class TicTacToeAI extends AbstractAI {
 		}
 		return j;
 	}
-	
+
+	@SuppressWarnings("null")
 	public static int pickbest(HashMap<String, Record> map, String state, char[] curboard) {
+		if (map == null) {
+			Record r = new Record(); 
+			map.put(state, r);
+		}
 		if( !map.containsKey(state)){
-		Record r = new Record(); 
-		map.put(state, r);
-	}
+			Record r = new Record(); 
+			map.put(state, r);
+		}
 		Record r = map.get(state); 
 		double max = 0;
 		int best = 0;
 		for (int i = 0; i < curboard.length; i++) { 
 			if (curboard[i] == ' ') {  
 				if(r.records[i] > max)
-				max = r.records[i];
+					max = r.records[i];
 				best = i;
-				}
+			}
 		}
-			
+
 		return best;
 	}
-	
-	
+
+
 
 	public static void saveMap(HashMap<String, Record> map, String mapFileName) {
 		ObjectOutputStream oos = null;
@@ -276,7 +282,7 @@ public class TicTacToeAI extends AbstractAI {
 		ObjectInputStream ois = null;
 		try {
 			// Open up the Object file for reading and read in the HashMap
-			ois = new ObjectInputStream(new FileInputStream(filestate));
+			ois = new ObjectInputStream(new FileInputStream(mapFileName));
 			Object obj = ois.readObject();
 			ois.close();
 			return (HashMap<String,Record>) obj; // Typecast the Object read to a HashMap
