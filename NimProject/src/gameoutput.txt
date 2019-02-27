@@ -1,0 +1,6441 @@
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X     0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X     0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0 O O O   0
+1 X X O   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=5
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0 O O O X 0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=4
+Turn: Away (O)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Away]
+  a b c d
+0 O O O X 0
+1 X X O   1
+2   X O O 2
+3         3
+  a b c d
+Score: X=4 O=6
+Turn: Home (X)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Home]
+  a b c d
+0 O O O X 0
+1 X X X X 1
+2   X O O 2
+3         3
+  a b c d
+Score: X=6 O=5
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0 O O O X 0
+1 X O X X 1
+2   O O O 2
+3   O     3
+  a b c d
+Score: X=4 O=8
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O O O X 0
+1 X O X X 1
+2   X X O 2
+3   O X   3
+  a b c d
+Score: X=7 O=6
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0 O O O X 0
+1 O O X X 1
+2 O O O O 2
+3   O X   3
+  a b c d
+Score: X=4 O=10
+Turn: Home (X)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Home]
+  a b c d
+0 O O O X 0
+1 O O X X 1
+2 O O O X 2
+3   O X X 3
+  a b c d
+Score: X=6 O=9
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0 O O O X 0
+1 O O X X 1
+2 O X O X 2
+3 X X X X 3
+  a b c d
+Score: X=9 O=7
+Turn: Home (X)
+Home won.
+Home won!
+Home won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0   X     0
+1   X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0   X O   0
+1   O O   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=3 O=5
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0   X X X 0
+1   O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=6 O=3
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0   X X X 0
+1   O X   1
+2 O O O   2
+3 X O     3
+  a b c d
+Score: X=5 O=5
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0   X X X 0
+1 X X X   1
+2 X O O   2
+3 X O     3
+  a b c d
+Score: X=8 O=3
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X O O   2
+3 X O     3
+  a b c d
+Score: X=7 O=5
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X X X   2
+3 X X X   3
+  a b c d
+Score: X=11 O=2
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X X O   2
+3 X X X O 3
+  a b c d
+Score: X=10 O=4
+Turn: Home (X)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Home]
+  a b c d
+0 O X X X 0
+1 X O X X 1
+2 X X X   2
+3 X X X O 3
+  a b c d
+Score: X=12 O=3
+Turn: Home (X)
+Home won.
+Home won!
+Home won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X     0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X     0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0 O X     0
+1 O X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=3 O=5
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0 O X     0
+1 O X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=4
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0 O O O   0
+1 O O O   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=2 O=8
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0 O O O X 0
+1 O O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=4 O=7
+Turn: Away (O)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Away]
+  a b c d
+0 O O O X 0
+1 O O O   1
+2 O X O O 2
+3 X       3
+  a b c d
+Score: X=3 O=9
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0 O O O X 0
+1 O O O   1
+2 O O O O 2
+3 X O     3
+  a b c d
+Score: X=2 O=11
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O O O X 0
+1 O O O   1
+2 O O O O 2
+3 X X X   3
+  a b c d
+Score: X=4 O=10
+Turn: Home (X)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Home]
+  a b c d
+0 O O O X 0
+1 O O O X 1
+2 O O X O 2
+3 X X X   3
+  a b c d
+Score: X=6 O=9
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0 O O O X 0
+1 O O O X 1
+2 O O O O 2
+3 X X X O 3
+  a b c d
+Score: X=5 O=11
+Turn: Away (O)
+Away won.
+Away won!
+Away won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0   X O   0
+1   X O   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0   X X X 0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=6 O=1
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X X X 0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=3
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X X X 0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=7 O=2
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0 O X X X 0
+1 O X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=5 O=5
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0 O X X X 0
+1 O X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=7 O=4
+Turn: Away (O)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Away]
+  a b c d
+0 O X X X 0
+1 O X X   1
+2 O O O   2
+3 X   O   3
+  a b c d
+Score: X=6 O=6
+Turn: Home (X)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Home]
+  a b c d
+0 O X X X 0
+1 O X X   1
+2 O X O   2
+3 X X O   3
+  a b c d
+Score: X=8 O=5
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0 O X X X 0
+1 O O O O 1
+2 O X O   2
+3 X X O   3
+  a b c d
+Score: X=6 O=8
+Turn: Home (X)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Home]
+  a b c d
+0 O X X X 0
+1 O O O O 1
+2 O X O   2
+3 X X X X 3
+  a b c d
+Score: X=8 O=7
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0 O X X X 0
+1 O O X X 1
+2 O X X X 2
+3 X X X X 3
+  a b c d
+Score: X=12 O=4
+Turn: Home (X)
+Home won.
+Home won!
+Home won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0   X     0
+1   X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0   X O   0
+1   O O   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=3 O=5
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0   X X X 0
+1   O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=6 O=3
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0   X X X 0
+1   O X   1
+2 O O O   2
+3 X O     3
+  a b c d
+Score: X=5 O=5
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0   X X X 0
+1 X X X   1
+2 X O O   2
+3 X O     3
+  a b c d
+Score: X=8 O=3
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X O O   2
+3 X O     3
+  a b c d
+Score: X=7 O=5
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X X X   2
+3 X X X   3
+  a b c d
+Score: X=11 O=2
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0 O X X X 0
+1 X O O O 1
+2 X X X   2
+3 X X X   3
+  a b c d
+Score: X=10 O=4
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0 O X X X 0
+1 X O X X 1
+2 X X X X 2
+3 X X X   3
+  a b c d
+Score: X=13 O=2
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0 O X X X 0
+1 X O X X 1
+2 X X O X 2
+3 X X X O 3
+  a b c d
+Score: X=12 O=4
+Turn: Away (O)
+Home won.
+Home won!
+Home won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0   X     0
+1   X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X     0
+1   O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=4 O=4
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X     0
+1 X X X   1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=7 O=2
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0 O O O   0
+1 X X O   1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=5 O=5
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0 O O O X 0
+1 X X X   1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=7 O=4
+Turn: Away (O)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Away]
+  a b c d
+0 O O O X 0
+1 X X O   1
+2 X X O O 2
+3 X       3
+  a b c d
+Score: X=6 O=6
+Turn: Home (X)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Home]
+  a b c d
+0 O O O X 0
+1 X X X X 1
+2 X X O O 2
+3 X       3
+  a b c d
+Score: X=8 O=5
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0 O O O X 0
+1 X O X X 1
+2 X O O O 2
+3 X O     3
+  a b c d
+Score: X=6 O=8
+Turn: Home (X)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Home]
+  a b c d
+0 O O O X 0
+1 X O X X 1
+2 X O O X 2
+3 X O   X 3
+  a b c d
+Score: X=8 O=7
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O O O X 0
+1 X O X X 1
+2 X X X X 2
+3 X X X X 3
+  a b c d
+Score: X=12 O=4
+Turn: Home (X)
+Home won.
+Home won!
+Home won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0   X     0
+1   X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X     0
+1   O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=4 O=4
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X     0
+1 X X X   1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=7 O=2
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0 O O O   0
+1 X X O   1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=5 O=5
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0 O O O X 0
+1 X X X   1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=7 O=4
+Turn: Away (O)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Away]
+  a b c d
+0 O O O X 0
+1 X X O   1
+2 X X O O 2
+3 X       3
+  a b c d
+Score: X=6 O=6
+Turn: Home (X)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Home]
+  a b c d
+0 O O O X 0
+1 X X X X 1
+2 X X O O 2
+3 X       3
+  a b c d
+Score: X=8 O=5
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0 O O O X 0
+1 X O X X 1
+2 X O O O 2
+3 X O     3
+  a b c d
+Score: X=6 O=8
+Turn: Home (X)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Home]
+  a b c d
+0 O O O X 0
+1 X O X X 1
+2 X O O X 2
+3 X O   X 3
+  a b c d
+Score: X=8 O=7
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O O O X 0
+1 X O X X 1
+2 X X X X 2
+3 X X X X 3
+  a b c d
+Score: X=12 O=4
+Turn: Home (X)
+Home won.
+Home won!
+Home won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0   X     0
+1   X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0   X O   0
+1   O O   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=3 O=5
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0   X X X 0
+1   O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=6 O=3
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0   X X X 0
+1   O O O 1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=5
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0   X X X 0
+1 X O O O 1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=7 O=4
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0   X X X 0
+1 X O O O 1
+2 X O O   2
+3 X O     3
+  a b c d
+Score: X=6 O=6
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0   X X X 0
+1 X O X X 1
+2 X X X X 2
+3 X O     3
+  a b c d
+Score: X=11 O=2
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0   X X X 0
+1 X O X X 1
+2 X X O X 2
+3 X O   O 3
+  a b c d
+Score: X=10 O=4
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0   X X X 0
+1 X O X X 1
+2 X X X X 2
+3 X X X O 3
+  a b c d
+Score: X=13 O=2
+Turn: Home (X)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Home]
+  a b c d
+0 X X X X 0
+1 X X X X 1
+2 X X X X 2
+3 X X X O 3
+  a b c d
+Score: X=15 O=1
+Turn: Home (X)
+Home won.
+Home won!
+Home won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0   X     0
+1   X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0   X O   0
+1   O O   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=3 O=5
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0   X X X 0
+1   O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=6 O=3
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0   X X X 0
+1   O O O 1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=5
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0   X X X 0
+1 X O O O 1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=7 O=4
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0   X X X 0
+1 X O O O 1
+2 X O O   2
+3 X O     3
+  a b c d
+Score: X=6 O=6
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0   X X X 0
+1 X O X X 1
+2 X X X X 2
+3 X O     3
+  a b c d
+Score: X=11 O=2
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0   X X X 0
+1 X O X X 1
+2 X X O X 2
+3 X O   O 3
+  a b c d
+Score: X=10 O=4
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0   X X X 0
+1 X O X X 1
+2 X X X X 2
+3 X X X O 3
+  a b c d
+Score: X=13 O=2
+Turn: Home (X)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Home]
+  a b c d
+0 X X X X 0
+1 X X X X 1
+2 X X X X 2
+3 X X X O 3
+  a b c d
+Score: X=15 O=1
+Turn: Home (X)
+Home won.
+Home won!
+Home won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X     0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X     0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0 O O O   0
+1 X X O   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=5
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0 O O O X 0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=4
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0 O O O X 0
+1 O O X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=2 O=8
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0 O O O X 0
+1 O O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=4 O=7
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0 O O O X 0
+1 O O X   1
+2 O O O   2
+3 X O     3
+  a b c d
+Score: X=3 O=9
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O O O X 0
+1 O O X   1
+2 O O X   2
+3 X X X   3
+  a b c d
+Score: X=6 O=7
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0 O O O X 0
+1 O O O O 1
+2 O O X   2
+3 X X X   3
+  a b c d
+Score: X=5 O=9
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0 O O O X 0
+1 O O O X 1
+2 O O X X 2
+3 X X X   3
+  a b c d
+Score: X=7 O=8
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0 O O O X 0
+1 O O O X 1
+2 O O O X 2
+3 X X X O 3
+  a b c d
+Score: X=6 O=10
+Turn: Away (O)
+Away won.
+Away won!
+Away won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0   X O   0
+1   X O   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0   X X X 0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=6 O=1
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X X X 0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=3
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X X X 0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=7 O=2
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0 O X X X 0
+1 O X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=5 O=5
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0 O X X X 0
+1 O X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=7 O=4
+Turn: Away (O)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Away]
+  a b c d
+0 O X X X 0
+1 O X X   1
+2 O O O   2
+3 X   O   3
+  a b c d
+Score: X=6 O=6
+Turn: Home (X)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Home]
+  a b c d
+0 O X X X 0
+1 O X X   1
+2 O X O   2
+3 X X O   3
+  a b c d
+Score: X=8 O=5
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0 O X X X 0
+1 O O O O 1
+2 O X O   2
+3 X X O   3
+  a b c d
+Score: X=6 O=8
+Turn: Home (X)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Home]
+  a b c d
+0 O X X X 0
+1 O O O O 1
+2 O X O   2
+3 X X X X 3
+  a b c d
+Score: X=8 O=7
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0 O X X X 0
+1 O O X X 1
+2 O X X X 2
+3 X X X X 3
+  a b c d
+Score: X=12 O=4
+Turn: Home (X)
+Home won.
+Home won!
+Home won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0   X O   0
+1   X O   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0   X X X 0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=6 O=1
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0   X X X 0
+1   X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=5 O=3
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0   X X X 0
+1   X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=7 O=2
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X X X 0
+1   O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=6 O=4
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X X X 0
+1 X X X   1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=9 O=2
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0 O X X X 0
+1 X X X   1
+2 X X X X 2
+3 X       3
+  a b c d
+Score: X=11 O=1
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X X O X 2
+3 X     O 3
+  a b c d
+Score: X=9 O=4
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X X X X 2
+3 X   X O 3
+  a b c d
+Score: X=11 O=3
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X O X X 2
+3 X O O O 3
+  a b c d
+Score: X=9 O=6
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0 O X X X 0
+1 X O O O 1
+2 X O O O 2
+3 X O O O 3
+  a b c d
+Score: X=6 O=10
+Turn: Away (O)
+Away won.
+Away won!
+Away won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0   X O   0
+1   X O   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0   X X X 0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=6 O=1
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0   X X X 0
+1   X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=5 O=3
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0   X X X 0
+1   X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=7 O=2
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X X X 0
+1   O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=6 O=4
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X X X 0
+1 X X X   1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=9 O=2
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0 O X X X 0
+1 X X X   1
+2 X X X X 2
+3 X       3
+  a b c d
+Score: X=11 O=1
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X X O X 2
+3 X     O 3
+  a b c d
+Score: X=9 O=4
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X X X X 2
+3 X   X O 3
+  a b c d
+Score: X=11 O=3
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0 O X X X 0
+1 X O O O 1
+2 X X X O 2
+3 X   X O 3
+  a b c d
+Score: X=9 O=6
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0 O X X X 0
+1 X O O O 1
+2 X O O O 2
+3 X O O O 3
+  a b c d
+Score: X=6 O=10
+Turn: Away (O)
+Away won.
+Away won!
+Away won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0   X O   0
+1   X O   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0   X X X 0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=6 O=1
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0   X X X 0
+1   X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=5 O=3
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0   X X X 0
+1   X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=7 O=2
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X X X 0
+1   O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=6 O=4
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X X X 0
+1 X X X   1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=9 O=2
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0 O X X X 0
+1 X X X   1
+2 X X X X 2
+3 X       3
+  a b c d
+Score: X=11 O=1
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X X O X 2
+3 X     O 3
+  a b c d
+Score: X=9 O=4
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X X X X 2
+3 X   X O 3
+  a b c d
+Score: X=11 O=3
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X O X X 2
+3 X O O O 3
+  a b c d
+Score: X=9 O=6
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0 O X X X 0
+1 X O O O 1
+2 X O O O 2
+3 X O O O 3
+  a b c d
+Score: X=6 O=10
+Turn: Away (O)
+Away won.
+Away won!
+Away won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X     0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X     0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0 O X     0
+1 O X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=3 O=5
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0 O X     0
+1 O X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=4
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0 O O O   0
+1 O O O   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=2 O=8
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0 O O O X 0
+1 O O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=4 O=7
+Turn: Away (O)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Away]
+  a b c d
+0 O O O X 0
+1 O O X   1
+2 O O O   2
+3 X   O   3
+  a b c d
+Score: X=3 O=9
+Turn: Away (O)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Away]
+  a b c d
+0 O O O X 0
+1 O O O   1
+2 O O O O 2
+3 X   O   3
+  a b c d
+Score: X=2 O=11
+Turn: Away (O)
+Away won.
+Away won!
+Away won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X     0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X     0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0 O O O   0
+1 X X O   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=5
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0 O O O X 0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=4
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0 O O O X 0
+1 X O X   1
+2   O O   2
+3   O     3
+  a b c d
+Score: X=3 O=7
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0 O O O X 0
+1 X O X   1
+2   X O   2
+3 X O     3
+  a b c d
+Score: X=5 O=6
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0 O O O X 0
+1 X O O O 1
+2   X O   2
+3 X O     3
+  a b c d
+Score: X=4 O=8
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O O O X 0
+1 X O O O 1
+2   X O   2
+3 X X X   3
+  a b c d
+Score: X=6 O=7
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0 O O O X 0
+1 O O O O 1
+2 O O O   2
+3 X X X   3
+  a b c d
+Score: X=4 O=10
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0 O O O X 0
+1 O O O X 1
+2 O O O X 2
+3 X X X   3
+  a b c d
+Score: X=6 O=9
+Turn: Home (X)
+Away won.
+Away won!
+Away won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X     0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X     0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0 O X     0
+1 O X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=3 O=5
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0 O X     0
+1 O X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=4
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0 O X     0
+1 O O O O 1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=3 O=7
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0 O X   X 0
+1 O O X O 1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=6
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0 O X   X 0
+1 O O X O 1
+2 O O O   2
+3 X O     3
+  a b c d
+Score: X=4 O=8
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0 O X   X 0
+1 O O X X 1
+2 O O O X 2
+3 X O     3
+  a b c d
+Score: X=6 O=7
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0 O O O X 0
+1 O O O X 1
+2 O O O X 2
+3 X O     3
+  a b c d
+Score: X=4 O=10
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O O O X 0
+1 O O O X 1
+2 O O O X 2
+3 X X X   3
+  a b c d
+Score: X=6 O=9
+Turn: Home (X)
+Away won.
+Away won!
+Away won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X     0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X     0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0 O O O   0
+1 X X O   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=5
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0 O O O X 0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=4
+Turn: Away (O)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Away]
+  a b c d
+0 O O O X 0
+1 X X O   1
+2   X O O 2
+3         3
+  a b c d
+Score: X=4 O=6
+Turn: Home (X)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Home]
+  a b c d
+0 O O O X 0
+1 X X X X 1
+2   X O O 2
+3         3
+  a b c d
+Score: X=6 O=5
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0 O O O X 0
+1 X O X X 1
+2   O O O 2
+3   O     3
+  a b c d
+Score: X=4 O=8
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O O O X 0
+1 X O X X 1
+2   X X O 2
+3   O X   3
+  a b c d
+Score: X=7 O=6
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0 O O O X 0
+1 X O X X 1
+2   X O O 2
+3   O O O 3
+  a b c d
+Score: X=5 O=9
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0 O O O X 0
+1 O O X X 1
+2 O O O O 2
+3   O O O 3
+  a b c d
+Score: X=3 O=12
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0 O O O X 0
+1 O O X X 1
+2 O X O O 2
+3 X O O O 3
+  a b c d
+Score: X=5 O=11
+Turn: Home (X)
+Away won.
+Away won!
+Away won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X     0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X     0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0 O X     0
+1 O X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=3 O=5
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0 O X     0
+1 O X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=4
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0 O O O   0
+1 O O O   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=2 O=8
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0 O O O X 0
+1 O O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=4 O=7
+Turn: Away (O)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Away]
+  a b c d
+0 O O O X 0
+1 O O X   1
+2 O O O   2
+3 X   O   3
+  a b c d
+Score: X=3 O=9
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0 O O O X 0
+1 O O O O 1
+2 O O O   2
+3 X   O   3
+  a b c d
+Score: X=2 O=11
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0 O O O X 0
+1 O O O X 1
+2 O O O X 2
+3 X   O   3
+  a b c d
+Score: X=4 O=10
+Turn: Home (X)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Home]
+  a b c d
+0 O O O X 0
+1 O O O X 1
+2 O O X X 2
+3 X X O   3
+  a b c d
+Score: X=6 O=9
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0 O O O X 0
+1 O O O X 1
+2 O O O X 2
+3 X X O O 3
+  a b c d
+Score: X=5 O=11
+Turn: Away (O)
+Away won.
+Away won!
+Away won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0   X O   0
+1   X O   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0   X X X 0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=6 O=1
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X X X 0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=3
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X X X 0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=7 O=2
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0 O X X X 0
+1 O X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=5 O=5
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0 O X X X 0
+1 O X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=7 O=4
+Turn: Away (O)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Away]
+  a b c d
+0 O X X X 0
+1 O X X   1
+2 O O O   2
+3 X   O   3
+  a b c d
+Score: X=6 O=6
+Turn: Home (X)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Home]
+  a b c d
+0 O X X X 0
+1 O X X   1
+2 O X O   2
+3 X X O   3
+  a b c d
+Score: X=8 O=5
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0 O X X X 0
+1 O O O O 1
+2 O X O   2
+3 X X O   3
+  a b c d
+Score: X=6 O=8
+Turn: Home (X)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Home]
+  a b c d
+0 O X X X 0
+1 O O O O 1
+2 O X O   2
+3 X X X X 3
+  a b c d
+Score: X=8 O=7
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0 O X X X 0
+1 O O X X 1
+2 O X X X 2
+3 X X X X 3
+  a b c d
+Score: X=12 O=4
+Turn: Home (X)
+Home won.
+Home won!
+Home won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X     0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X     0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0 O O O   0
+1 X X O   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=5
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0 O O O X 0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=4
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0 O O O X 0
+1 X O X   1
+2   O O   2
+3   O     3
+  a b c d
+Score: X=3 O=7
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0 O O O X 0
+1 X O X   1
+2   X O   2
+3 X O     3
+  a b c d
+Score: X=5 O=6
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0 O O O X 0
+1 O O X   1
+2 O O O   2
+3 X O     3
+  a b c d
+Score: X=3 O=9
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O O O X 0
+1 O O X   1
+2 O O X   2
+3 X X X   3
+  a b c d
+Score: X=6 O=7
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0 O O O X 0
+1 O O X   1
+2 O O O   2
+3 X X X O 3
+  a b c d
+Score: X=5 O=9
+Turn: Home (X)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Home]
+  a b c d
+0 O O O X 0
+1 O O X X 1
+2 O O X   2
+3 X X X O 3
+  a b c d
+Score: X=7 O=8
+Turn: Away (O)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Away]
+  a b c d
+0 O O O X 0
+1 O O O X 1
+2 O O O O 2
+3 X X X O 3
+  a b c d
+Score: X=5 O=11
+Turn: Away (O)
+Away won.
+Away won!
+Away won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0   X     0
+1   X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0   X O   0
+1   O O   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=3 O=5
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0   X X X 0
+1   O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=6 O=3
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0   X X X 0
+1   O X   1
+2 O O O   2
+3 X O     3
+  a b c d
+Score: X=5 O=5
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0   X X X 0
+1 X X X   1
+2 X O O   2
+3 X O     3
+  a b c d
+Score: X=8 O=3
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X O O   2
+3 X O     3
+  a b c d
+Score: X=7 O=5
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X X X   2
+3 X X X   3
+  a b c d
+Score: X=11 O=2
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0 O X X X 0
+1 X O O O 1
+2 X X X   2
+3 X X X   3
+  a b c d
+Score: X=10 O=4
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0 O X X X 0
+1 X O X X 1
+2 X X X X 2
+3 X X X   3
+  a b c d
+Score: X=13 O=2
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0 O X X X 0
+1 X O X X 1
+2 X X O X 2
+3 X X X O 3
+  a b c d
+Score: X=12 O=4
+Turn: Away (O)
+Home won.
+Home won!
+Home won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X     0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X     0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0 O O O   0
+1 X X O   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=5
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0 O O O X 0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=4
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0 O O O X 0
+1 O O X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=2 O=8
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0 O O O X 0
+1 O O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=4 O=7
+Turn: Away (O)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Away]
+  a b c d
+0 O O O X 0
+1 O O X   1
+2 O O O   2
+3 X   O   3
+  a b c d
+Score: X=3 O=9
+Turn: Away (O)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Away]
+  a b c d
+0 O O O X 0
+1 O O O   1
+2 O O O O 2
+3 X   O   3
+  a b c d
+Score: X=2 O=11
+Turn: Away (O)
+Away won.
+Away won!
+Away won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0   X O   0
+1   X O   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0   X X X 0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=6 O=1
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X X X 0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=3
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X X X 0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=7 O=2
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0 O X X X 0
+1 O X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=5 O=5
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0 O X X X 0
+1 O X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=7 O=4
+Turn: Away (O)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Away]
+  a b c d
+0 O X X X 0
+1 O X X   1
+2 O O O   2
+3 X   O   3
+  a b c d
+Score: X=6 O=6
+Turn: Home (X)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Home]
+  a b c d
+0 O X X X 0
+1 O X X   1
+2 O X O   2
+3 X X O   3
+  a b c d
+Score: X=8 O=5
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0 O X X X 0
+1 O O O O 1
+2 O X O   2
+3 X X O   3
+  a b c d
+Score: X=6 O=8
+Turn: Home (X)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Home]
+  a b c d
+0 O X X X 0
+1 O O O O 1
+2 O X O   2
+3 X X X X 3
+  a b c d
+Score: X=8 O=7
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0 O X X X 0
+1 O O X X 1
+2 O X X X 2
+3 X X X X 3
+  a b c d
+Score: X=12 O=4
+Turn: Home (X)
+Home won.
+Home won!
+Home won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0   X     0
+1   X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0   X O   0
+1   O O   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=3 O=5
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0   X X X 0
+1   O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=6 O=3
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0   X X X 0
+1   O O O 1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=5
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0   X X X 0
+1 X O O O 1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=7 O=4
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0   X X X 0
+1 X O O O 1
+2 X O O   2
+3 X O     3
+  a b c d
+Score: X=6 O=6
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0   X X X 0
+1 X O X X 1
+2 X X X X 2
+3 X O     3
+  a b c d
+Score: X=11 O=2
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0   X X X 0
+1 X O X X 1
+2 X X O X 2
+3 X O   O 3
+  a b c d
+Score: X=10 O=4
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0   X X X 0
+1 X O X X 1
+2 X X X X 2
+3 X X X O 3
+  a b c d
+Score: X=13 O=2
+Turn: Home (X)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Home]
+  a b c d
+0 X X X X 0
+1 X X X X 1
+2 X X X X 2
+3 X X X O 3
+  a b c d
+Score: X=15 O=1
+Turn: Home (X)
+Home won.
+Home won!
+Home won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0   X     0
+1   X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X     0
+1   O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=4 O=4
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X     0
+1 X X X   1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=7 O=2
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0 O O O   0
+1 X X O   1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=5 O=5
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0 O O O X 0
+1 X X X   1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=7 O=4
+Turn: Away (O)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Away]
+  a b c d
+0 O O O X 0
+1 X X O   1
+2 X X O O 2
+3 X       3
+  a b c d
+Score: X=6 O=6
+Turn: Home (X)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Home]
+  a b c d
+0 O O O X 0
+1 X X X X 1
+2 X X O O 2
+3 X       3
+  a b c d
+Score: X=8 O=5
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0 O O O X 0
+1 X O X X 1
+2 X O O O 2
+3 X O     3
+  a b c d
+Score: X=6 O=8
+Turn: Home (X)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Home]
+  a b c d
+0 O O O X 0
+1 X O X X 1
+2 X O O X 2
+3 X O   X 3
+  a b c d
+Score: X=8 O=7
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O O O X 0
+1 X O X X 1
+2 X X X X 2
+3 X X X X 3
+  a b c d
+Score: X=12 O=4
+Turn: Home (X)
+Home won.
+Home won!
+Home won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0   X     0
+1   X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X     0
+1   O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=4 O=4
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X     0
+1 X X X   1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=7 O=2
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0 O O O   0
+1 X X O   1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=5 O=5
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0 O O O X 0
+1 X X X   1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=7 O=4
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0 O O O X 0
+1 X O X   1
+2 X O O   2
+3 X O     3
+  a b c d
+Score: X=5 O=7
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O O O X 0
+1 X O X   1
+2 X X X   2
+3 X X X   3
+  a b c d
+Score: X=9 O=4
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0 O O O X 0
+1 X O X   1
+2 X X O   2
+3 X X X O 3
+  a b c d
+Score: X=8 O=6
+Turn: Home (X)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Home]
+  a b c d
+0 O O O X 0
+1 X O X X 1
+2 X X X   2
+3 X X X O 3
+  a b c d
+Score: X=10 O=5
+Turn: Away (O)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Away]
+  a b c d
+0 O O O X 0
+1 X O O X 1
+2 X X X O 2
+3 X X X O 3
+  a b c d
+Score: X=9 O=7
+Turn: Away (O)
+Home won.
+Home won!
+Home won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X     0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X     0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0 O X     0
+1 O X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=3 O=5
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0 O X     0
+1 O X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=4
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0 O X     0
+1 O O O O 1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=3 O=7
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0 O X   X 0
+1 O O X O 1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=6
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0 O O O X 0
+1 O O O O 1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=3 O=9
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0 O O O X 0
+1 O O O X 1
+2 O X X X 2
+3 X       3
+  a b c d
+Score: X=6 O=7
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0 O O O X 0
+1 O O O X 1
+2 O X O X 2
+3 X     O 3
+  a b c d
+Score: X=5 O=9
+Turn: Home (X)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Home]
+  a b c d
+0 O O O X 0
+1 O O O X 1
+2 O X X X 2
+3 X X   O 3
+  a b c d
+Score: X=7 O=8
+Turn: Away (O)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Away]
+  a b c d
+0 O O O X 0
+1 O O O X 1
+2 O O O X 2
+3 X X O O 3
+  a b c d
+Score: X=5 O=11
+Turn: Away (O)
+Away won.
+Away won!
+Away won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0   X     0
+1   X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0   X O   0
+1   O O   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=3 O=5
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0   X X X 0
+1   O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=6 O=3
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0   X X X 0
+1   O X   1
+2 O O O   2
+3 X O     3
+  a b c d
+Score: X=5 O=5
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0   X X X 0
+1 X X X   1
+2 X O O   2
+3 X O     3
+  a b c d
+Score: X=8 O=3
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X O O   2
+3 X O     3
+  a b c d
+Score: X=7 O=5
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X X X   2
+3 X X X   3
+  a b c d
+Score: X=11 O=2
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0 O X X X 0
+1 X O O O 1
+2 X X X   2
+3 X X X   3
+  a b c d
+Score: X=10 O=4
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0 O X X X 0
+1 X O X X 1
+2 X X X X 2
+3 X X X   3
+  a b c d
+Score: X=13 O=2
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0 O X X X 0
+1 X O X X 1
+2 X X O X 2
+3 X X X O 3
+  a b c d
+Score: X=12 O=4
+Turn: Away (O)
+Home won.
+Home won!
+Home won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0   X O   0
+1   X O   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0   X X X 0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=6 O=1
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0   X X X 0
+1   X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=5 O=3
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0   X X X 0
+1   X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=7 O=2
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X X X 0
+1   O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=6 O=4
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X X X 0
+1 X X X   1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=9 O=2
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0 O X X X 0
+1 X X X   1
+2 X X X X 2
+3 X       3
+  a b c d
+Score: X=11 O=1
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X X O X 2
+3 X     O 3
+  a b c d
+Score: X=9 O=4
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X X X X 2
+3 X   X O 3
+  a b c d
+Score: X=11 O=3
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0 O X X X 0
+1 X O O O 1
+2 X X X O 2
+3 X   X O 3
+  a b c d
+Score: X=9 O=6
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0 O X X X 0
+1 X O O O 1
+2 X O O O 2
+3 X O O O 3
+  a b c d
+Score: X=6 O=10
+Turn: Away (O)
+Away won.
+Away won!
+Away won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0   X O   0
+1   X O   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0   X X X 0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=6 O=1
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X X X 0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=3
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X X X 0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=7 O=2
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0 O X X X 0
+1 O X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=5 O=5
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0 O X X X 0
+1 O X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=7 O=4
+Turn: Away (O)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Away]
+  a b c d
+0 O X X X 0
+1 O X X   1
+2 O O O   2
+3 X   O   3
+  a b c d
+Score: X=6 O=6
+Turn: Home (X)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Home]
+  a b c d
+0 O X X X 0
+1 O X X   1
+2 O X O   2
+3 X X O   3
+  a b c d
+Score: X=8 O=5
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0 O X X X 0
+1 O O O O 1
+2 O X O   2
+3 X X O   3
+  a b c d
+Score: X=6 O=8
+Turn: Home (X)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Home]
+  a b c d
+0 O X X X 0
+1 O O O O 1
+2 O X O   2
+3 X X X X 3
+  a b c d
+Score: X=8 O=7
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0 O X X X 0
+1 O O X X 1
+2 O X X X 2
+3 X X X X 3
+  a b c d
+Score: X=12 O=4
+Turn: Home (X)
+Home won.
+Home won!
+Home won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X     0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X     0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0 O X     0
+1 O X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=3 O=5
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0 O X     0
+1 O X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=4
+Turn: Away (O)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Away]
+  a b c d
+0 O X     0
+1 O X X   1
+2 O O O   2
+3 X   O   3
+  a b c d
+Score: X=4 O=6
+Turn: Home (X)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Home]
+  a b c d
+0 O X     0
+1 O X X   1
+2 O X O   2
+3 X X O   3
+  a b c d
+Score: X=6 O=5
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0 O X     0
+1 O O O O 1
+2 O X O   2
+3 X X O   3
+  a b c d
+Score: X=4 O=8
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0 O X     0
+1 O O X O 1
+2 O X X X 2
+3 X X O   3
+  a b c d
+Score: X=7 O=6
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0 O O O   0
+1 O O O O 1
+2 O X O X 2
+3 X X O   3
+  a b c d
+Score: X=4 O=10
+Turn: Home (X)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Home]
+  a b c d
+0 O O O   0
+1 O O O O 1
+2 O X O X 2
+3 X X X X 3
+  a b c d
+Score: X=6 O=9
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0 O O O X 0
+1 O O X X 1
+2 O X O X 2
+3 X X X X 3
+  a b c d
+Score: X=9 O=7
+Turn: Home (X)
+Home won.
+Home won!
+Home won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X     0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X     0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0 O O O   0
+1 X X O   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=5
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0 O O O X 0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=4
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0 O O O X 0
+1 X O X   1
+2   O O   2
+3   O     3
+  a b c d
+Score: X=3 O=7
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0 O O O X 0
+1 X O X   1
+2   X O   2
+3 X O     3
+  a b c d
+Score: X=5 O=6
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0 O O O X 0
+1 X O O O 1
+2   X O   2
+3 X O     3
+  a b c d
+Score: X=4 O=8
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O O O X 0
+1 X O O O 1
+2   X O   2
+3 X X X   3
+  a b c d
+Score: X=6 O=7
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0 O O O X 0
+1 O O O O 1
+2 O O O   2
+3 X X X   3
+  a b c d
+Score: X=4 O=10
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0 O O O X 0
+1 O O O X 1
+2 O O O X 2
+3 X X X   3
+  a b c d
+Score: X=6 O=9
+Turn: Home (X)
+Away won.
+Away won!
+Away won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0   X     0
+1   X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X     0
+1   O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=4 O=4
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X     0
+1 X X X   1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=7 O=2
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0 O O O   0
+1 X X O   1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=5 O=5
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0 O O O X 0
+1 X X X   1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=7 O=4
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0 O O O X 0
+1 X O X   1
+2 X O O   2
+3 X O     3
+  a b c d
+Score: X=5 O=7
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O O O X 0
+1 X O X   1
+2 X X X   2
+3 X X X   3
+  a b c d
+Score: X=9 O=4
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0 O O O X 0
+1 X O X   1
+2 X X O   2
+3 X X X O 3
+  a b c d
+Score: X=8 O=6
+Turn: Home (X)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Home]
+  a b c d
+0 O O O X 0
+1 X O X X 1
+2 X X X   2
+3 X X X O 3
+  a b c d
+Score: X=10 O=5
+Turn: Away (O)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Away]
+  a b c d
+0 O O O X 0
+1 X O O X 1
+2 X X X O 2
+3 X X X O 3
+  a b c d
+Score: X=9 O=7
+Turn: Away (O)
+Home won.
+Home won!
+Home won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0   X     0
+1   X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0   X O   0
+1   O O   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=3 O=5
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0   X X X 0
+1   O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=6 O=3
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0   X X X 0
+1   O X   1
+2 O O O   2
+3 X O     3
+  a b c d
+Score: X=5 O=5
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0   X X X 0
+1 X X X   1
+2 X O O   2
+3 X O     3
+  a b c d
+Score: X=8 O=3
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X O O   2
+3 X O     3
+  a b c d
+Score: X=7 O=5
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X X X   2
+3 X X X   3
+  a b c d
+Score: X=11 O=2
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0 O X X X 0
+1 X O O O 1
+2 X X X   2
+3 X X X   3
+  a b c d
+Score: X=10 O=4
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0 O X X X 0
+1 X O X X 1
+2 X X X X 2
+3 X X X   3
+  a b c d
+Score: X=13 O=2
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0 O X X X 0
+1 X O X X 1
+2 X X O X 2
+3 X X X O 3
+  a b c d
+Score: X=12 O=4
+Turn: Away (O)
+Home won.
+Home won!
+Home won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0   X     0
+1   X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0   X O   0
+1   O O   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=3 O=5
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0   X X X 0
+1   O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=6 O=3
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0   X X X 0
+1   O O O 1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=5
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0   X X X 0
+1 X O O O 1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=7 O=4
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0   X X X 0
+1 X O O O 1
+2 X O O   2
+3 X O     3
+  a b c d
+Score: X=6 O=6
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0   X X X 0
+1 X O X X 1
+2 X X X X 2
+3 X O     3
+  a b c d
+Score: X=11 O=2
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0   X X X 0
+1 X O X X 1
+2 X X O X 2
+3 X O   O 3
+  a b c d
+Score: X=10 O=4
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0   X X X 0
+1 X O X X 1
+2 X X X X 2
+3 X X X O 3
+  a b c d
+Score: X=13 O=2
+Turn: Home (X)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Home]
+  a b c d
+0 X X X X 0
+1 X X X X 1
+2 X X X X 2
+3 X X X O 3
+  a b c d
+Score: X=15 O=1
+Turn: Home (X)
+Home won.
+Home won!
+Home won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0   X     0
+1   X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0   X O   0
+1   O O   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=3 O=5
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0   X X X 0
+1   O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=6 O=3
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0   X X X 0
+1   O O O 1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=5
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0   X X X 0
+1 X O O O 1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=7 O=4
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0   X X X 0
+1 X O O O 1
+2 X O O   2
+3 X O     3
+  a b c d
+Score: X=6 O=6
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0   X X X 0
+1 X O X X 1
+2 X X X X 2
+3 X O     3
+  a b c d
+Score: X=11 O=2
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0   X X X 0
+1 X O X X 1
+2 X X O X 2
+3 X O   O 3
+  a b c d
+Score: X=10 O=4
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0   X X X 0
+1 X O X X 1
+2 X X X X 2
+3 X X X O 3
+  a b c d
+Score: X=13 O=2
+Turn: Home (X)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Home]
+  a b c d
+0 X X X X 0
+1 X X X X 1
+2 X X X X 2
+3 X X X O 3
+  a b c d
+Score: X=15 O=1
+Turn: Home (X)
+Home won.
+Home won!
+Home won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0   X O   0
+1   X O   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0   X X X 0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=6 O=1
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0   X X X 0
+1   X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=5 O=3
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0   X X X 0
+1   X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=7 O=2
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X X X 0
+1   O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=6 O=4
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X X X 0
+1 X X X   1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=9 O=2
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0 O X X X 0
+1 X X X   1
+2 X X X X 2
+3 X       3
+  a b c d
+Score: X=11 O=1
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X X O X 2
+3 X     O 3
+  a b c d
+Score: X=9 O=4
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X X X X 2
+3 X   X O 3
+  a b c d
+Score: X=11 O=3
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X O X X 2
+3 X O O O 3
+  a b c d
+Score: X=9 O=6
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0 O X X X 0
+1 X O O O 1
+2 X O O O 2
+3 X O O O 3
+  a b c d
+Score: X=6 O=10
+Turn: Away (O)
+Away won.
+Away won!
+Away won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0   X     0
+1   X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0   X O   0
+1   O O   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=3 O=5
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0   X X X 0
+1   O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=6 O=3
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0   X X X 0
+1   O O O 1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=5
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0   X X X 0
+1 X O O O 1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=7 O=4
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0   X X X 0
+1 X O O O 1
+2 X O O   2
+3 X O     3
+  a b c d
+Score: X=6 O=6
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0   X X X 0
+1 X O X X 1
+2 X X X X 2
+3 X O     3
+  a b c d
+Score: X=11 O=2
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0   X X X 0
+1 X O X X 1
+2 X X O X 2
+3 X O   O 3
+  a b c d
+Score: X=10 O=4
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0   X X X 0
+1 X O X X 1
+2 X X X X 2
+3 X X X O 3
+  a b c d
+Score: X=13 O=2
+Turn: Home (X)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Home]
+  a b c d
+0 X X X X 0
+1 X X X X 1
+2 X X X X 2
+3 X X X O 3
+  a b c d
+Score: X=15 O=1
+Turn: Home (X)
+Home won.
+Home won!
+Home won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0   X     0
+1   X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X     0
+1   O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=4 O=4
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X     0
+1 X X X   1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=7 O=2
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0 O O O   0
+1 X X O   1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=5 O=5
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0 O O O X 0
+1 X X X   1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=7 O=4
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0 O O O X 0
+1 X O X   1
+2 X O O   2
+3 X O     3
+  a b c d
+Score: X=5 O=7
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O O O X 0
+1 X O X   1
+2 X X X   2
+3 X X X   3
+  a b c d
+Score: X=9 O=4
+Turn: Away (O)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Away]
+  a b c d
+0 O O O X 0
+1 X O O   1
+2 X X X O 2
+3 X X X   3
+  a b c d
+Score: X=8 O=6
+Turn: Home (X)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Home]
+  a b c d
+0 O O O X 0
+1 X X X X 1
+2 X X X O 2
+3 X X X   3
+  a b c d
+Score: X=11 O=4
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0 O O O X 0
+1 X O X X 1
+2 X X O O 2
+3 X X X O 3
+  a b c d
+Score: X=9 O=7
+Turn: Away (O)
+Home won.
+Home won!
+Home won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0   X     0
+1   X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0   X O   0
+1   O O   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=3 O=5
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0   X X X 0
+1   O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=6 O=3
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0   X X X 0
+1   O O O 1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=5
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0   X X X 0
+1 X O O O 1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=7 O=4
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0   X X X 0
+1 X O O O 1
+2 X O O   2
+3 X O     3
+  a b c d
+Score: X=6 O=6
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0   X X X 0
+1 X O X X 1
+2 X X X X 2
+3 X O     3
+  a b c d
+Score: X=11 O=2
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0   X X X 0
+1 X O X X 1
+2 X X O X 2
+3 X O   O 3
+  a b c d
+Score: X=10 O=4
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0   X X X 0
+1 X O X X 1
+2 X X X X 2
+3 X X X O 3
+  a b c d
+Score: X=13 O=2
+Turn: Home (X)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Home]
+  a b c d
+0 X X X X 0
+1 X X X X 1
+2 X X X X 2
+3 X X X O 3
+  a b c d
+Score: X=15 O=1
+Turn: Home (X)
+Home won.
+Home won!
+Home won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0   X     0
+1   X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0   X O   0
+1   O O   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=3 O=5
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0   X X X 0
+1   O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=6 O=3
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0   X X X 0
+1   O X   1
+2 O O O   2
+3 X O     3
+  a b c d
+Score: X=5 O=5
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0   X X X 0
+1 X X X   1
+2 X O O   2
+3 X O     3
+  a b c d
+Score: X=8 O=3
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X O O   2
+3 X O     3
+  a b c d
+Score: X=7 O=5
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X X X   2
+3 X X X   3
+  a b c d
+Score: X=11 O=2
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X X O   2
+3 X X X O 3
+  a b c d
+Score: X=10 O=4
+Turn: Home (X)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Home]
+  a b c d
+0 O X X X 0
+1 X O X X 1
+2 X X X   2
+3 X X X O 3
+  a b c d
+Score: X=12 O=3
+Turn: Home (X)
+Home won.
+Home won!
+Home won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0   X     0
+1   X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X     0
+1   O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=4 O=4
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X     0
+1 X X X   1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=7 O=2
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0 O O O   0
+1 X X O   1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=5 O=5
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0 O O O X 0
+1 X X X   1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=7 O=4
+Turn: Away (O)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Away]
+  a b c d
+0 O O O X 0
+1 X X O   1
+2 X X O O 2
+3 X       3
+  a b c d
+Score: X=6 O=6
+Turn: Home (X)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Home]
+  a b c d
+0 O O O X 0
+1 X X X X 1
+2 X X O O 2
+3 X       3
+  a b c d
+Score: X=8 O=5
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0 O O O X 0
+1 X O X X 1
+2 X O O O 2
+3 X O     3
+  a b c d
+Score: X=6 O=8
+Turn: Home (X)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Home]
+  a b c d
+0 O O O X 0
+1 X O X X 1
+2 X O O X 2
+3 X O   X 3
+  a b c d
+Score: X=8 O=7
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O O O X 0
+1 X O X X 1
+2 X X X X 2
+3 X X X X 3
+  a b c d
+Score: X=12 O=4
+Turn: Home (X)
+Home won.
+Home won!
+Home won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X     0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X     0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0 O X     0
+1 O X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=3 O=5
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0 O X     0
+1 O X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=4
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0 O X     0
+1 O O O O 1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=3 O=7
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0 O X   X 0
+1 O O X O 1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=6
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0 O O O X 0
+1 O O O O 1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=3 O=9
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0 O O O X 0
+1 O O O X 1
+2 O X X X 2
+3 X       3
+  a b c d
+Score: X=6 O=7
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0 O O O X 0
+1 O O O X 1
+2 O O X X 2
+3 X O     3
+  a b c d
+Score: X=5 O=9
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O O O X 0
+1 O O O X 1
+2 O O X X 2
+3 X X X   3
+  a b c d
+Score: X=7 O=8
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0 O O O X 0
+1 O O O X 1
+2 O O O X 2
+3 X X X O 3
+  a b c d
+Score: X=6 O=10
+Turn: Away (O)
+Away won.
+Away won!
+Away won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X     0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X     0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0 O X     0
+1 O X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=3 O=5
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0 O X     0
+1 O X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=4
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0 O O O   0
+1 O O O   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=2 O=8
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0 O O O X 0
+1 O O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=4 O=7
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0 O O O X 0
+1 O O X   1
+2 O O O   2
+3 X O     3
+  a b c d
+Score: X=3 O=9
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O O O X 0
+1 O O X   1
+2 O O X   2
+3 X X X   3
+  a b c d
+Score: X=6 O=7
+Turn: Away (O)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Away]
+  a b c d
+0 O O O X 0
+1 O O O   1
+2 O O O O 2
+3 X X X   3
+  a b c d
+Score: X=4 O=10
+Turn: Home (X)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Home]
+  a b c d
+0 O O O X 0
+1 O O O X 1
+2 O O X O 2
+3 X X X   3
+  a b c d
+Score: X=6 O=9
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0 O O O X 0
+1 O O O X 1
+2 O O O O 2
+3 X X X O 3
+  a b c d
+Score: X=5 O=11
+Turn: Away (O)
+Away won.
+Away won!
+Away won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0   X O   0
+1   X O   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0   X X X 0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=6 O=1
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X X X 0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=3
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X X X 0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=7 O=2
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0 O X X X 0
+1 O X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=5 O=5
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0 O X X X 0
+1 O X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=7 O=4
+Turn: Away (O)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Away]
+  a b c d
+0 O X X X 0
+1 O X X   1
+2 O O O   2
+3 X   O   3
+  a b c d
+Score: X=6 O=6
+Turn: Home (X)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Home]
+  a b c d
+0 O X X X 0
+1 O X X   1
+2 O X O   2
+3 X X O   3
+  a b c d
+Score: X=8 O=5
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0 O X X X 0
+1 O O O O 1
+2 O X O   2
+3 X X O   3
+  a b c d
+Score: X=6 O=8
+Turn: Home (X)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Home]
+  a b c d
+0 O X X X 0
+1 O O O O 1
+2 O X O   2
+3 X X X X 3
+  a b c d
+Score: X=8 O=7
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0 O X X X 0
+1 O O X X 1
+2 O X X X 2
+3 X X X X 3
+  a b c d
+Score: X=12 O=4
+Turn: Home (X)
+Home won.
+Home won!
+Home won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0   X O   0
+1   X O   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0   X X X 0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=6 O=1
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0   X X X 0
+1   X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=5 O=3
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0   X X X 0
+1   X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=7 O=2
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X X X 0
+1   O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=6 O=4
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X X X 0
+1 X X X   1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=9 O=2
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0 O X X X 0
+1 X X X   1
+2 X X X X 2
+3 X       3
+  a b c d
+Score: X=11 O=1
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X X O X 2
+3 X     O 3
+  a b c d
+Score: X=9 O=4
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X X X X 2
+3 X   X O 3
+  a b c d
+Score: X=11 O=3
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0 O X X X 0
+1 X O O O 1
+2 X X X O 2
+3 X   X O 3
+  a b c d
+Score: X=9 O=6
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0 O X X X 0
+1 X O O O 1
+2 X O O O 2
+3 X O O O 3
+  a b c d
+Score: X=6 O=10
+Turn: Away (O)
+Away won.
+Away won!
+Away won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0   X O   0
+1   X O   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0   X X X 0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=6 O=1
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X X X 0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=5 O=3
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X X X 0
+1 X X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=7 O=2
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0 O X X X 0
+1 O X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=5 O=5
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0 O X X X 0
+1 O X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=7 O=4
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0 O X X X 0
+1 O O O O 1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=5 O=7
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0 O X X X 0
+1 O O X X 1
+2 O X X X 2
+3 X       3
+  a b c d
+Score: X=9 O=4
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0 O X X X 0
+1 O O X X 1
+2 O X O X 2
+3 X     O 3
+  a b c d
+Score: X=8 O=6
+Turn: Home (X)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Home]
+  a b c d
+0 O X X X 0
+1 O O X X 1
+2 O X X X 2
+3 X X   O 3
+  a b c d
+Score: X=10 O=5
+Turn: Away (O)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Away]
+  a b c d
+0 O X X X 0
+1 O O X X 1
+2 O O X X 2
+3 X X O O 3
+  a b c d
+Score: X=9 O=7
+Turn: Away (O)
+Home won.
+Home won!
+Home won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0   X O   0
+1   X O   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0   X X X 0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=6 O=1
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0   X X X 0
+1   X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=5 O=3
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0   X X X 0
+1   X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=7 O=2
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X X X 0
+1   O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=6 O=4
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X X X 0
+1 X X X   1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=9 O=2
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0 O X X X 0
+1 X X X   1
+2 X X X X 2
+3 X       3
+  a b c d
+Score: X=11 O=1
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X X O X 2
+3 X     O 3
+  a b c d
+Score: X=9 O=4
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X X X X 2
+3 X   X O 3
+  a b c d
+Score: X=11 O=3
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0 O X X X 0
+1 X O O O 1
+2 X X X O 2
+3 X   X O 3
+  a b c d
+Score: X=9 O=6
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0 O X X X 0
+1 X O O O 1
+2 X O O O 2
+3 X O O O 3
+  a b c d
+Score: X=6 O=10
+Turn: Away (O)
+Away won.
+Away won!
+Away won!
+  a b c d
+0         0
+1   O X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=2 O=2
+Turn: Home (X)
+AI chose to move 0b
+MESSAGE:Placed mark at location 0b.[Home]
+  a b c d
+0   X     0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=4 O=1
+Turn: Away (O)
+AI chose to move 0c
+MESSAGE:Placed mark at location 0c.[Away]
+  a b c d
+0   X O   0
+1   X O   1
+2   X O   2
+3         3
+  a b c d
+Score: X=3 O=3
+Turn: Home (X)
+AI chose to move 0d
+MESSAGE:Placed mark at location 0d.[Home]
+  a b c d
+0   X X X 0
+1   X X   1
+2   X O   2
+3         3
+  a b c d
+Score: X=6 O=1
+Turn: Away (O)
+AI chose to move 2a
+MESSAGE:Placed mark at location 2a.[Away]
+  a b c d
+0   X X X 0
+1   X X   1
+2 O O O   2
+3         3
+  a b c d
+Score: X=5 O=3
+Turn: Home (X)
+AI chose to move 3a
+MESSAGE:Placed mark at location 3a.[Home]
+  a b c d
+0   X X X 0
+1   X X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=7 O=2
+Turn: Away (O)
+AI chose to move 0a
+MESSAGE:Placed mark at location 0a.[Away]
+  a b c d
+0 O X X X 0
+1   O X   1
+2 O X O   2
+3 X       3
+  a b c d
+Score: X=6 O=4
+Turn: Home (X)
+AI chose to move 1a
+MESSAGE:Placed mark at location 1a.[Home]
+  a b c d
+0 O X X X 0
+1 X X X   1
+2 X X O   2
+3 X       3
+  a b c d
+Score: X=9 O=2
+Turn: Home (X)
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d
+0 O X X X 0
+1 X X X   1
+2 X X X X 2
+3 X       3
+  a b c d
+Score: X=11 O=1
+Turn: Away (O)
+AI chose to move 3d
+MESSAGE:Placed mark at location 3d.[Away]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X X O X 2
+3 X     O 3
+  a b c d
+Score: X=9 O=4
+Turn: Home (X)
+AI chose to move 3c
+MESSAGE:Placed mark at location 3c.[Home]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X X X X 2
+3 X   X O 3
+  a b c d
+Score: X=11 O=3
+Turn: Away (O)
+AI chose to move 3b
+MESSAGE:Placed mark at location 3b.[Away]
+  a b c d
+0 O X X X 0
+1 X O X   1
+2 X O X X 2
+3 X O O O 3
+  a b c d
+Score: X=9 O=6
+Turn: Away (O)
+AI chose to move 1d
+MESSAGE:Placed mark at location 1d.[Away]
+  a b c d
+0 O X X X 0
+1 X O O O 1
+2 X O O O 2
+3 X O O O 3
+  a b c d
+Score: X=6 O=10
+Turn: Away (O)
+Away won.
+Away won!
+Away won!
+Good-bye!

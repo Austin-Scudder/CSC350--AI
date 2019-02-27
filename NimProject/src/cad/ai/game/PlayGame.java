@@ -30,7 +30,7 @@ public class PlayGame {
     private Game serverGame = null;
     private AI ai[];
     private static enum GameType { NIM, TTT, OTHELLO_MICRO, OTHELLO_MINI, OTHELLO };
-    private static final GameType DEFAULT_GAME = GameType.TTT;
+    private static final GameType DEFAULT_GAME = GameType.OTHELLO_MICRO;
 
     private GameType gameType;
     private int numGames;
@@ -78,8 +78,18 @@ public class PlayGame {
         case OTHELLO_MICRO:
         case OTHELLO_MINI:
         case OTHELLO:
-            ai[0] = (homeAI == 0 ? null : new OthelloAI());
-            ai[1] = (awayAI == 0 ? null : new OthelloAI());
+            switch (homeAI) {
+                case 0: ai[0] = null; break;
+                case 1: ai[0] = new OthelloAI(); break;
+                case 2: ai[0] = new OthelloAI2(); break;
+                default: ai[0] = new OthelloAI(); break;
+            }
+            switch (awayAI) {
+                case 0: ai[1] = null; break;
+                case 1: ai[1] = new OthelloAI(); break;
+                case 2: ai[1] = new OthelloAI2(); break;
+                default: ai[1] = new OthelloAI(); break;
+            }
             break;
         }
     }
@@ -272,7 +282,7 @@ public class PlayGame {
         int homeAI = 1;  // 0=Human, 1-3=AI (various levels)
         int awayAI = 1;  // ... same ...
         GameType gameType = DEFAULT_GAME;
-        int repeat = 10;  // Number of games to play
+        int repeat = 1;  // Number of games to play
         int verbose = 1; // How "noisy" to be
 	
         // Parse the arguments
