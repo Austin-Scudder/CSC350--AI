@@ -31,7 +31,9 @@ import java.util.Stack;
 public class TicTacToeAI extends AbstractAI {
 	public TicTacToeGame game;  // The game that this AI system is playing
 	protected Random ran;
-	final static String filestate = "./Boar2.txt";
+	final static String filestate = "./Boar3.txt";
+	final static double HEAT = 0.0;
+	
 	// public static Record Record = null;
 	public static HashMap<String, Record> map = readMap(filestate);
 	// This gets the player and is 0 if you are home 1 if you are away
@@ -66,7 +68,7 @@ public class TicTacToeAI extends AbstractAI {
 			return "0";
 		}
 		board = (char[]) game.getStateAsObject();
-		int i = pickbest(map, new String(board), board);
+		int move = pickbest(map, new String(board), board, HEAT);
 		/*
 		while(check) {
 			for(int j = 0; j < board.length; j++) {
@@ -83,8 +85,8 @@ public class TicTacToeAI extends AbstractAI {
 		check = true;
 
 		boardstate.push(new String(board));
-		moves.push(i); 
-		return "" + i;
+		moves.push(move); 
+		return "" + move;
 	}	
 
 	public int player(){
@@ -153,6 +155,8 @@ public class TicTacToeAI extends AbstractAI {
 	public static class Record implements Serializable {
 		static final long serialVersionUID = 1L;  // Used to verify it is same version of Record (in case it changes!)
 		double alpha;  // The fitness score of this state
+		static final double blend = 0.01;
+		
 		double[] records = new double[9];
 		public Record() {
 			alpha = 0.1110;
@@ -161,26 +165,16 @@ public class TicTacToeAI extends AbstractAI {
 			} 
 		}
 
-		public void RecordUp(int i) {
-			if (records[i] >= .990) { 
-				records[i] = .990; 
-			}
-			else {
-				records[i] = (records[i]+.008);
-			}
+		// Updates the score using an exponentially moving average
+		private void update(int i, double score) {
+			records[i] = records[i]*(1-blend) + score*blend;						
 		}
+		
+		public void RecordUp(int i) { update(i, 1.0); }
 
-		public void RecordDown(int i) {			
-			if (records[i] <= .010) { 
-				records[i] = .010; }
-			else { records[i] = (records[i]-.008); }
+		public void RecordDown(int i) { update(i, 0.0); }
 
-		}
-		public void RecordTie(int i) {
-			if (records[i] >= .990) { 
-				records[i] = .990; }
-			else { records[i] = (records[i]+.00); }
-		}
+		public void RecordTie(int i) { update(i, 0.5); }
 
 		public String toString() {
 			String result = "[";
@@ -219,13 +213,16 @@ public class TicTacToeAI extends AbstractAI {
 		return map;
 	}
 
-	public int pick(HashMap<String, Record> map, String state, char[] curboard) {
+	public static Random ra = new Random();
+	public static int pick(HashMap<String, Record> map, String state, char[] curboard) {
 		if( !map.containsKey(state)){
+			// Haven't seen this state yet, create a new record for it
 			Record r = new Record(); 
 			map.put(state, r);
 		}
+
 		Record r = map.get(state); 
-		int total = 0;
+		double total = 0;
 		double check = 0;
 		double[] choices = new double[curboard.length];
 		for (int i = 0; i < curboard.length; i++) { 
@@ -237,10 +234,9 @@ public class TicTacToeAI extends AbstractAI {
 			}
 		}
 		for(int i = 0; i < choices.length; i++) { 
-			total += (int) (choices[i]*1000);
+			total += (choices[i]*1000);
 		}
-		Random ra = new Random();
-		double after = ra.nextInt((int) ((total -1 ) + 1)+1);
+		double after = ra.nextDouble()*total;
 		int j = 0;
 		while(j < choices.length-1 ) {
 			check = (choices[j]*1000) + check;
@@ -253,18 +249,23 @@ public class TicTacToeAI extends AbstractAI {
 	}
 
 	public static int pickbest(HashMap<String, Record> map, String state, char[] curboard) {
+		return pickbest(map, state, curboard, 0.0);
+	}
+	
+	public static int pickbest(HashMap<String, Record> map, String state, char[] curboard, double heat) {
 		if( !map.containsKey(state)){
 			Record r = new Record(); 
 			map.put(state, r);
 		}
 		Record r = map.get(state);
 		//System.out.println("State: " + state + ": " + r);
-		double max = 0;
+		double max = -1.0;
 		int best = 0;
 		for (int i = 0; i < curboard.length; i++) { 
 			if (curboard[i] == ' ') {  
-				if(r.records[i] >= max) {
-					max = r.records[i];
+				double score = r.records[i] + ra.nextDouble()*heat;
+				if(score >= max) {
+					max = score;
 					best = i;
 				}
 			}
