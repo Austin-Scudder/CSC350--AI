@@ -117,7 +117,7 @@ public class OthelloAI extends AbstractAI {
             }
         }
         */
-        return getBestMove(board, actions).toString();
+        return getBestMove(board, actions, Integer.MIN_VALUE, Integer.MAX_VALUE).toString();
     }	
     
     private int getMoveValue(char[][] board, int row, int column, int movingPlayer) {
@@ -189,7 +189,7 @@ public class OthelloAI extends AbstractAI {
         return getMoveTreeValue(workingBoard, row, column, 1 ^ movingPlayer, totalValue);
     }
     
-    private Action getBestMove(char[][] workingBoard, ArrayList<Action> actions) {
+    private Action getBestMove(char[][] workingBoard, ArrayList<Action> actions, int alpha = Integer.MIN_VALUE, int beta = Integer.MAX_VALUE) {
         Action bestAction = actions.get(0);
         if (actions.size() == 1) {
             bestAction.value += getMoveValue(workingBoard, bestAction.row, bestAction.col, player);
@@ -213,7 +213,7 @@ public class OthelloAI extends AbstractAI {
         return bestAction;
     }
     
-    private Action getWorstMove(char[][] workingBoard, ArrayList<Action> actions) {
+    private Action getWorstMove(char[][] workingBoard, ArrayList<Action> actions, int alpha, int beta) {
         Action worstAction = actions.get(0);
         if (actions.size() == 1) {
             worstAction.value += getMoveValue(workingBoard, worstAction.row, worstAction.col, opponent);
@@ -221,13 +221,13 @@ public class OthelloAI extends AbstractAI {
             char[][] tempBoard = copyBoard(workingBoard);
             tempBoard[worstAction.row][worstAction.col] = opponentPiece;
             if (getActions(player, tempBoard).size() > 0) {
-                worstAction.value += getBestMove(tempBoard, getActions(player, tempBoard)).value;
+                worstAction.value += getBestMove(tempBoard, getActions(player, tempBoard, alpha, beta)).value;
             }
             for (int i = 1; i < actions.size(); i++) {
                 tempBoard = copyBoard(workingBoard);
                 tempBoard[actions.get(0).row][actions.get(0).col] = opponentPiece;
                 if (getActions(player, tempBoard).size() > 0) {
-                    actions.get(i).value += getBestMove(tempBoard, getActions(player, tempBoard)).value;
+                    actions.get(i).value += getBestMove(tempBoard, getActions(player, tempBoard, alpha, beta)).value;
                 }
                 if (worstAction.value < actions.get(0).value) {
                     worstAction = actions.get(0);
