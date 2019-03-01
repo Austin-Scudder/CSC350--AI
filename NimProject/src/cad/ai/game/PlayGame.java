@@ -30,7 +30,7 @@ public class PlayGame {
     private Game serverGame = null;
     private AI ai[];
     private static enum GameType { NIM, TTT, OTHELLO_MICRO, OTHELLO_MINI, OTHELLO };
-    private static final GameType DEFAULT_GAME = GameType.TTT;
+    private static final GameType DEFAULT_GAME = GameType.OTHELLO_MICRO;
 
     private GameType gameType;
     private int numGames;

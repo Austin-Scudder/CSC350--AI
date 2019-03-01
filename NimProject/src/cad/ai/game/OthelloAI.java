@@ -126,6 +126,8 @@ public class OthelloAI extends AbstractAI {
             and the "opponent" based on what player we're considering a move for.
             
             Then, at the end, if the moving player is different from the AI's player, then we count the move total as negative.
+            
+            Right now, the value returned is simply the number of pieces flipped.
         */
         if (movingPlayer == player) {
             workingPlayerPiece = playerPiece;
@@ -176,20 +178,7 @@ public class OthelloAI extends AbstractAI {
         }
     }
     
-    private int getMoveTreeValue(char[][] workingBoard, int row, int column, int movingPlayer, int totalValue) {
-        System.out.println(getActions(player, workingBoard).size());
-        if (getActions(player, workingBoard).size() <= 1) {
-            System.out.println("we are happy");
-            return getMoveValue(workingBoard, row, column, movingPlayer) + totalValue;
-        } else if (player == movingPlayer) {
-            workingBoard[row][column] = playerPiece;
-        } else {
-            workingBoard[row][column] = opponentPiece;
-        }
-        return getMoveTreeValue(workingBoard, row, column, 1 ^ movingPlayer, totalValue);
-    }
-    
-    private Action getBestMove(char[][] workingBoard, ArrayList<Action> actions, int alpha = Integer.MIN_VALUE, int beta = Integer.MAX_VALUE) {
+    private Action getBestMove(char[][] workingBoard, ArrayList<Action> actions, int alpha, int beta) {
         Action bestAction = actions.get(0);
         if (actions.size() == 1) {
             bestAction.value += getMoveValue(workingBoard, bestAction.row, bestAction.col, player);
@@ -197,17 +186,21 @@ public class OthelloAI extends AbstractAI {
             char[][] tempBoard = copyBoard(workingBoard);
             tempBoard[bestAction.row][bestAction.col] = playerPiece;
             if (getActions(opponent, tempBoard).size() > 0) {
-                bestAction.value += getWorstMove(tempBoard, getActions(opponent, tempBoard)).value;
+                bestAction.value += getWorstMove(tempBoard, getActions(opponent, tempBoard), alpha, beta).value;
             }
             for (int i = 1; i < actions.size(); i++) {
                 tempBoard = copyBoard(workingBoard);
                 tempBoard[actions.get(i).row][actions.get(i).col] = playerPiece;
                 if (getActions(opponent, tempBoard).size() > 0) {
-                    actions.get(i).value += getWorstMove(tempBoard, getActions(opponent, tempBoard)).value;
+                    actions.get(i).value += getWorstMove(tempBoard, getActions(opponent, tempBoard), alpha, beta).value;
                 }
                 if (bestAction.value < actions.get(i).value) {
                     bestAction = actions.get(i);
                 }
+                if (bestAction.value >= beta) {
+                    return bestAction;
+                }
+                alpha = Math.max(alpha, bestAction.value);
             }
         }
         return bestAction;
@@ -221,17 +214,21 @@ public class OthelloAI extends AbstractAI {
             char[][] tempBoard = copyBoard(workingBoard);
             tempBoard[worstAction.row][worstAction.col] = opponentPiece;
             if (getActions(player, tempBoard).size() > 0) {
-                worstAction.value += getBestMove(tempBoard, getActions(player, tempBoard, alpha, beta)).value;
+                worstAction.value += getBestMove(tempBoard, getActions(player, tempBoard), alpha, beta).value;
             }
             for (int i = 1; i < actions.size(); i++) {
                 tempBoard = copyBoard(workingBoard);
                 tempBoard[actions.get(0).row][actions.get(0).col] = opponentPiece;
                 if (getActions(player, tempBoard).size() > 0) {
-                    actions.get(i).value += getBestMove(tempBoard, getActions(player, tempBoard, alpha, beta)).value;
+                    actions.get(i).value += getBestMove(tempBoard, getActions(player, tempBoard), alpha, beta).value;
                 }
-                if (worstAction.value < actions.get(0).value) {
+                if (worstAction.value > actions.get(0).value) {
                     worstAction = actions.get(0);
                 }
+                if (worstAction.value <= alpha) {
+                    return worstAction;
+                }
+                alpha = Math.min(beta, worstAction.value);
             }
         }
         return worstAction;
