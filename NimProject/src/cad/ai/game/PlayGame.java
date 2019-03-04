@@ -14,10 +14,15 @@ import java.net.*;
 import java.io.PrintWriter;
 import java.io.IOException;
 import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import cad.ai.game.*;
+//import cad.ai.solutions.TicTacToeAIMinimax;
+//import cad.ai.solutions.OthelloAIMinimax;
+//import cad.ai.solutions.OthelloAIAB;
 
 /***********************************************************
  * The PlayGame class is designed to allow two players to 
@@ -35,7 +40,8 @@ public class PlayGame {
     private GameType gameType;
     private int numGames;
     private int verbose;
-    
+    private String partialGameFile;  // Name of a file storing steps for a partial Othello Game
+
     /**
      * Constructor
      * @param homeAI 0 if home is human, 1-3 if home is AI (of diff types)
@@ -52,7 +58,8 @@ public class PlayGame {
         this.gameType = gameType;
         this.numGames = numGames;
         this.verbose = verbose;
-	
+        this.partialGameFile = null;
+
         // Create the game and AI based on type
         // Create the AI based on type
         switch (gameType) {
@@ -60,15 +67,14 @@ public class PlayGame {
             switch (homeAI) {
             case 0: ai[0] = null; break;
             case 1: ai[0] = new TicTacToeAI(); break;  // Edit these for 
+            //case 2: ai[0] = new TicTacToeAIMinimax(); break;  // different params
             default: ai[0] = new TicTacToeAI(); break; 
             }
             switch (awayAI) {
             case 0: ai[1] = null; break;
             case 1: ai[1] = new TicTacToeAI(); break;  // Edit these as well...
-            // case 2: ai[1] = new TicTacToeAILearn("memoryA.dat"); break;
-            // case 3: ai[1] = new TicTacToeAILearn("memoryB.dat"); break;
-            // case 4: ai[1] = new TicTacToeAIMinimax(); break;  // "Perfect" play
-            default: ai[0] = new TicTacToeAI(); break; 
+            //case 2: ai[1] = new TicTacToeAIMinimax(); break;  // different params
+            default: ai[1] = new TicTacToeAI(); break; 
             }
             break;
         case NIM:
@@ -79,18 +85,62 @@ public class PlayGame {
         case OTHELLO_MINI:
         case OTHELLO:
             switch (homeAI) {
-                case 0: ai[0] = null; break;
-                case 1: ai[0] = new OthelloAI(); break;
-                case 2: ai[0] = new OthelloAI2(); break;
-                default: ai[0] = new OthelloAI(); break;
+            case 0: ai[0] = null; break;
+            case 1: ai[0] = new OthelloAI(); break;  // Edit these for 
+            case 2: ai[0] = new OthelloAI2(); break; 
+            //case 2: ai[0] = new OthelloAIMinimax(); break;  // different params
+            //case 3: ai[0] = new OthelloAIAB(); break;  // different params
+            default: ai[0] = new OthelloAI(); break; 
             }
             switch (awayAI) {
-                case 0: ai[1] = null; break;
-                case 1: ai[1] = new OthelloAI(); break;
-                case 2: ai[1] = new OthelloAI2(); break;
-                default: ai[1] = new OthelloAI(); break;
+            case 0: ai[1] = null; break;
+            case 1: ai[1] = new OthelloAI(); break;  // Edit these for 
+            case 2: ai[1] = new OthelloAI2(); break; 
+            //case 2: ai[1] = new OthelloAIMinimax(); break;  // different params
+            //case 3: ai[1] = new OthelloAIAB(); break;  // different params
+            default: ai[1] = new OthelloAI(); break; 
             }
             break;
+        }
+    }
+
+    public void setPartialGame(String newPartialGameFile) {
+        partialGameFile = newPartialGameFile;
+    }
+
+    private void playPartialGame() {
+        System.out.println("Playing partial game.");
+
+        String line = null;
+        try {
+            // Open up the file for processing
+            BufferedReader in = new BufferedReader(new FileReader(partialGameFile));
+
+            // Read in and process each line
+            line = in.readLine();
+            while (line != null) {
+                if (!line.startsWith("#")) {
+                    // Any line not starting with a # is processed
+                    System.out.println("Move: " + line);
+                    String[] action = line.split(",");  // TURN,MOVE -- e.g. 0,1a
+                    String result = serverGame.processMove(Integer.parseInt(action[0]), action[1]);
+                    if (result.contains("ERROR")) {
+                        // Some error was returned?
+                        System.err.println("Error processing move [" + line + "].");
+                        System.err.println("  Message: " + result);
+                    }
+                }
+                line = in.readLine();  // Read in the next line
+            }
+            in.close();
+        } catch (FileNotFoundException e) {
+            System.err.println("Error: Partial Game File (" + partialGameFile + ") was not found.");
+            System.err.println("     Message: " + e.getMessage());
+            System.err.println("     Aborting partial game play.");
+        } catch (Exception e) {
+            System.err.println("Error: Processing line: " + line);
+            System.err.println("     Message: " + e.getMessage());
+            System.err.println("     Aborting partial game play.");
         }
     }
 
@@ -101,6 +151,8 @@ public class PlayGame {
         // Play multiple games...
         for (int i = 0; i < numGames; i++) {
             createGame();
+            if (partialGameFile != null) playPartialGame();
+
             playGame();
         }
 
@@ -127,16 +179,12 @@ public class PlayGame {
                 game[p] = new NimGame(p, userIn, ai[p], false);
             serverGame = new NimGame(-1, userIn, null, true);
             break;
-        case OTHELLO_MICRO: dim -= 4;  // Make sure dim becomes 4
+        case OTHELLO_MICRO: dim -= 2;  // Decrease dimension by 2
+        case OTHELLO_MINI: dim -= 2; // Decrease dimension by 2
         case OTHELLO: 
             for (int p = 0; p < 2; p++)
                 game[p] = new OthelloGame(p, userIn, ai[p], false, verbose, dim);
             serverGame = new OthelloGame(-1, userIn, null, true, verbose, dim);
-            break;
-        case OTHELLO_MINI:  // Special case right now...
-            for (int p = 0; p < 2; p++)
-                game[p] = new OthelloGame(p, userIn, ai[p], false, verbose, 6, 6);
-            serverGame = new OthelloGame(-1, userIn, null, true, verbose, 6, 6);
             break;
         }
     }
@@ -284,7 +332,8 @@ public class PlayGame {
         GameType gameType = DEFAULT_GAME;
         int repeat = 1;  // Number of games to play
         int verbose = 1; // How "noisy" to be
-	
+        String partialFile = null;
+
         // Parse the arguments
         for (String arg: args) {
             try {
@@ -317,6 +366,8 @@ public class PlayGame {
                     break;
                 case "--repeat":
                     repeat = Integer.parseInt(params[1]); break;
+                case "--partial":
+                    partialFile = params[1]; break;    
                 case "--verbose":
                     verbose = Integer.parseInt(params[1]); break;
                 default:
@@ -328,6 +379,7 @@ public class PlayGame {
         }	    
 
         PlayGame c = new PlayGame(homeAI, awayAI, gameType, repeat, verbose);
+        c.setPartialGame(partialFile);
         c.run();
     }
 
@@ -343,6 +395,8 @@ public class PlayGame {
         System.err.println("         --away=ai/human/0-4   -- Away is ai or human (default is ai).");
         System.err.println("         --game=XXX            -- Can be either NIM, TTT, OTHELLO_MICRO, OTHELLO_MINI, OTHELLO (default " + DEFAULT_GAME + ").");
         System.err.println("         --repeat=X            -- Number of games to play (default 1).");
+        System.err.println("         --partial=fileName    -- Load the given file name and play its steps as a partial game");
+        System.err.println("                                  before commencing with regular game.");
         System.err.println("         --verbose=X           -- 0=quiet, >0=Output more stuff.");
         if (message != null) 
             System.err.println("       " + message);
