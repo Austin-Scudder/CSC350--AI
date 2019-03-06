@@ -16,13 +16,13 @@
 1,2b
 0,3a
 1,0f
-0,0e
-1,5a
+# 0,0e
+# 1,5a
 # I ran Alpha-Beta from here. So from this point on, the AIs are playing optimally (or should be) - but it took about 20 hours for my slow laptop to solve.
-0,1a
-1,0c
-0,1f
-1,2f
+# 0,1a
+# 1,0c
+# 0,1f
+# 1,2f
 # Here are the rest of the moves.  They are commented out.
 # But these are what my program determined as the optimal solution
 # From this point on, the program should run fast enough to finish quickly.

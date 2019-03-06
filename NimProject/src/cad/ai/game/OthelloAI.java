@@ -28,8 +28,10 @@ import java.util.Arrays;
 public class OthelloAI extends AbstractAI {
     public static class Action {
         /*
-            Borrowing this from OthelloGame. We want to associate a value assessment to an action; the easiest thing is
-            just another field.
+            Borrowing this from OthelloGame. We want to associate a value 
+            assessment to an action; the easiest thing is just another field.
+            Similarly, we add a new constructor so we can pass a move value with out
+            functions that return Actions.
         */
         public int row;
         public int col;
@@ -40,6 +42,7 @@ public class OthelloAI extends AbstractAI {
 
         public String toString() { return "" + row + (char) (col+'a'); }
     }
+    
     
     public OthelloGame game;  // The game that this AI system is playing
     protected Random ran;
@@ -57,14 +60,50 @@ public class OthelloAI extends AbstractAI {
     private int player = 0;
     private int opponent = 0;
     
+    private Thread thinker;
+    private Thread player;
+    private Action currentBestMove;
+    
     public OthelloAI() {
         game = null;
         ran = new Random();
+        thinker = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    //ACTUALLY DO STUFF HERE
+                    //More specifically, compute a best move.
+                    updateBestMove();
+                }
+            }        
+        )
+        player = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                //ALSO DO STUFF HERE LIKE WAIT FOR COMPUTE MOVE OR SOMETHING HOWEVER THAT WORKS.
+                //WE MAY NOT HAVE TO DO THIS
+            }
+        }
+        thinker.start();
     }
 
     public synchronized void attachGame(Game g) {
         game = (OthelloGame) g;
     }
+    
+    /*
+        PlayerThread
+        ThinkerThread
+        
+        PlayerThread:
+        
+        
+        
+        ComputeBestMove
+        GetTheirActions
+        GetTheirBestMove(FiveInFuture)
+        ComputeBestMoveFromThere
+        
+    */
     
     /**
      * Returns the Move as a String "rc" (e.g. 2b)
@@ -85,105 +124,15 @@ public class OthelloAI extends AbstractAI {
 	
         char[][] board = (char[][]) game.getStateAsObject();
 
-        // First get the list of possible moves
-        // We're going to use our local version, since we have modified Actions
         ArrayList<Action> actions = getActions(player, board);
         
-        /*
-            Best move is:
-            
-            best of all my options
-            
-            all of my options are the worst of all their options
-            
-            all of their options are the best of all my options
-            
-            
-        */
-
-        /*
-        for (OthelloGame.Action action : actions) {
-            System.out.println("Calculating move value for " + action.toString());
-            System.out.println("Move value for " + action.toString() + ":" + getMoveValue(board, action.row, action.col, player));
-        }
-        String nextmove = null; 
-        int nextmoveval = 0;
-        
-        
-            
-        
-        for (OthelloGame.Action action : actions) {
-            if (nextmoveval < getMoveTreeValue(board, action.row, action.col, player, 0)) {
-            	nextmove = action.toString();
-            	nextmoveval = getMoveTreeValue(board, action.row, action.col, player, 0);
-            }
-        }
-        */
-        //Action moveTaken = getBestMove(board, actions, "History: ");
-        //displayState(board);
-        //processMove(playerPiece, moveTaken.row, moveTaken.col, board);
-        //displayState(board);
-        //System.out.println(moveTaken.history);
-        //return moveTaken.toString();
-        return getBestMove(board, Integer.MIN_VALUE, Integer.MAX_VALUE, 12).toString();
-    }	
-    
-    private int getMoveValue(char[][] board, int row, int column, int movingPlayer) {
-        /*
-            It's easiest if the move value always counts up. We adjust what we consider the "player"
-            and the "opponent" based on what player we're considering a move for.
-            
-            Then, at the end, if the moving player is different from the AI's player, then we count the move total as negative.
-        */
-        if (movingPlayer == player) {
-            workingPlayerPiece = playerPiece;
-            workingOpponentPiece = opponentPiece;
-        } else {
-            workingPlayerPiece = opponentPiece;
-            workingOpponentPiece = playerPiece;
-        }
-        totalValue = 0;
-        tempRow = 0;
-        tempColumn = 0;
-        goodVectors = 0b00000000;
-        
-        for (int i = 0; i < 8; i++) {
-            tempRow = row + rowCheckValues[i];
-            tempColumn = column + columnCheckValues[i];
-            /*
-                Find good vectors
-                    --Find adjacent space with enemy piece
-                    --Travel that vector until player piece
-                    --If both of the above pass, add to good vectors.
-            */
-            if (!isValidSpace(board, tempRow, tempColumn, workingOpponentPiece)) {
-                continue;
-            } else while (isValidSpace(board, tempRow, tempColumn, workingOpponentPiece)) {
-                tempRow += rowCheckValues[i];
-                tempColumn += columnCheckValues[i];
-            }
-            if (isValidSpace(board, tempRow, tempColumn, workingPlayerPiece)) {
-                goodVectors |= (byte) (0b00000001 << i);
-            }
-        }
-        for (int i = 0; i < 8; i++) {
-            if ((goodVectors & (0b00000001 << i)) == (0b00000001 << i)) {
-                tempRow = row + rowCheckValues[i];
-                tempColumn = column + columnCheckValues[i];
-                while (isValidSpace(board, tempRow, tempColumn, workingOpponentPiece)) {
-                    totalValue++;
-                    tempRow += rowCheckValues[i];
-                    tempColumn += columnCheckValues[i];
-                }
-            }
-        }
-        if (movingPlayer == player) {
-            return totalValue;
-        } else {
-            return totalValue * -1;
-        }
+        return getBestMove(board, Integer.MIN_VALUE, Integer.MAX_VALUE, 15).toString();
     }
     
+    private void updateBestMove() {
+        
+    }
+
     private int getBoardValue(char[][] board) {
         int score = 0;
         for (int i = 0; i < board.length; i++) {
@@ -198,6 +147,26 @@ public class OthelloAI extends AbstractAI {
         return score;
     }
     
+    /*
+        Implement thinker thread
+            Run to an arbitrary depth until called upon
+            Once called upon, get a time limit
+            Run until depth is finished or time limit is reached
+            Set currentbestmove
+            
+        Determine time limit
+        
+        Refine board evaluation.
+    */
+    
+    /*private boolean isCorner(char piece, int row, int col, char[][] board) {
+        if (((row == 0) && (col == 0)))
+    }
+    
+    private boolean isWallTerritory(char piece, int row, int col, char[][] board) {
+        
+    }*/
+
     private Action getBestMove(char[][] board, int alpha, int beta, int depth) {
         ArrayList<Action> actions = getActions(player, board);
         if (depth < 0) {
@@ -254,15 +223,9 @@ public class OthelloAI extends AbstractAI {
     
     
     /*
-        Alpha is the current lower bound
-        Beta is the current upper bound
-        
-        Finding the best move raises the alpha, since any node that would result in a move lower than alpha should be ignored.
-        Finding the worst move lowers the beta, since any node that would result in a move higher than beta should be ignored.
-        
-        
+        This is probably more optimal to put in the above function, but
+        it's a bit cleaner to have them here right now.
     */
-    
     private Action maxAction(Action action1, Action action2) {
         if (action1.value >= action2.value) {return action1;}
         else {return action2;}
@@ -271,85 +234,6 @@ public class OthelloAI extends AbstractAI {
     private Action minAction(Action action1, Action action2) {
         if (action1.value <= action2.value) {return action1;} 
         else {return action2;}
-    }
-    
-    
-    private Action getBestMove(char[][] workingBoard, ArrayList<Action> actions, String actionHistory) {
-        Action bestAction = actions.get(0);
-        char[][] tempBoard = copyBoard(workingBoard);
-        processMove(playerPiece, bestAction.row, bestAction.col, tempBoard);
-        ArrayList<Action> actionList = getActions(opponent, tempBoard);
-        if (actionList.size() > 0) {
-            bestAction.value = getWorstMove(
-                tempBoard, 
-                actionList, 
-                actionHistory + playerPiece + ": " + bestAction.toString() + " | ").value;
-        } else if (getActions(player, tempBoard).size() == 0) {
-            bestAction.value = getBoardValue(tempBoard);
-        }
-        for (int i = 1; i < actions.size(); i++) {
-            tempBoard = copyBoard(workingBoard);
-            processMove(playerPiece, actions.get(i).row, actions.get(i).col, tempBoard);
-            actionList = getActions(opponent, tempBoard);
-            if (actionList.size() > 0) {
-                actions.get(i).value = getWorstMove(
-                    tempBoard, 
-                    actionList, 
-                    actionHistory + playerPiece + ": " + actions.get(i).toString() + " | ").value;
-            } else {
-                actionList = getActions(player, tempBoard);
-                if (actionList.size() > 0) {
-                    actions.get(i).value = getBestMove(
-                    tempBoard, 
-                    actionList, 
-                    actionHistory + playerPiece + ": " + actions.get(i).toString() + " | ").value;
-                }
-            }
-            //If opponent has no move, I get next turn. Account for that.
-            //if (bestAction.value > actions.get(i).value) {
-                //bestAction = actions.get(i);
-            //}
-        }
-        return bestAction;
-    }
-    
-    private Action getWorstMove(char[][] workingBoard, ArrayList<Action> actions, String actionHistory) {
-        Action worstAction = actions.get(0);
-        char[][] tempBoard = copyBoard(workingBoard);
-        processMove(opponentPiece, worstAction.row, worstAction.col, tempBoard);
-        ArrayList<Action> actionList = getActions(player, tempBoard);
-        if (actionList.size() > 0) {
-            worstAction.value = getBestMove(
-                tempBoard, 
-                actionList, 
-                actionHistory + opponentPiece + ": " + worstAction.toString() + " | ").value;
-        } else if (getActions(opponent, tempBoard).size() == 0) {
-            worstAction.value = getBoardValue(tempBoard);
-        }
-        for (int i = 1; i < actions.size(); i++) {
-            tempBoard = copyBoard(workingBoard);
-            processMove(opponentPiece, actions.get(i).row, actions.get(i).col, tempBoard);
-            actionList = getActions(player, tempBoard);
-            if (actionList.size() > 0) {
-                actions.get(i).value = getBestMove(
-                    tempBoard, 
-                    actionList, 
-                    actionHistory + opponentPiece + ": " + actions.get(i).toString() + " | ").value;
-            } else {
-                actionList = getActions(opponent, tempBoard);
-                if (actionList.size() > 0) {
-                    actions.get(i).value = getWorstMove(
-                        tempBoard, 
-                        actionList, 
-                        actionHistory + opponentPiece + ": " + actions.get(i).toString() + " | ").value;
-                }
-            }
-            //if (worstAction.value < actions.get(i).value) {
-                //worstAction = actions.get(i);
-            //}
-            worstAction.history += opponentPiece + ": " + actions.get(i).toString() + " | ";
-        }
-        return worstAction;
     }
     
     private char[][] copyBoard(char[][] board) {
