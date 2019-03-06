@@ -61,7 +61,7 @@ public class OthelloAI extends AbstractAI {
     private int opponent = 0;
     
     private Thread thinker;
-    private Thread player;
+    private Thread playerThread;
     private Action currentBestMove;
     
     public OthelloAI() {
@@ -75,14 +75,15 @@ public class OthelloAI extends AbstractAI {
                     updateBestMove();
                 }
             }        
-        )
-        player = new Thread(new Runnable() {
+        );
+        playerThread = new Thread(new Runnable() {
             @Override
             public void run() {
                 //ALSO DO STUFF HERE LIKE WAIT FOR COMPUTE MOVE OR SOMETHING HOWEVER THAT WORKS.
                 //WE MAY NOT HAVE TO DO THIS
-            }
-        }
+            	}
+        	}
+        );
         thinker.start();
     }
 
