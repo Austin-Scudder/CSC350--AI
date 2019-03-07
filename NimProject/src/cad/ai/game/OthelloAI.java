@@ -59,6 +59,7 @@ public class OthelloAI extends AbstractAI {
     private int totalValue = 0;
     private int player = 0;
     private int opponent = 0;
+    private int gamesRun = 0;
     
     private Thread thinker;
     private Thread playerThread;
@@ -72,7 +73,9 @@ public class OthelloAI extends AbstractAI {
                 public void run() {
                     //ACTUALLY DO STUFF HERE
                     //More specifically, compute a best move.
-                    updateBestMove();
+                	System.out.println("Constantly computing our best move based on board state...");
+                	char[][] board = (char[][]) game.getStateAsObject();
+                	currentBestMove = getBestMove(board, Integer.MIN_VALUE, Integer.MAX_VALUE, 15);
                 }
             }        
         );
@@ -84,7 +87,7 @@ public class OthelloAI extends AbstractAI {
             	}
         	}
         );
-        thinker.start();
+        
     }
 
     public synchronized void attachGame(Game g) {
@@ -127,7 +130,20 @@ public class OthelloAI extends AbstractAI {
 
         ArrayList<Action> actions = getActions(player, board);
         
-        return getBestMove(board, Integer.MIN_VALUE, Integer.MAX_VALUE, 15).toString();
+        //return getBestMove(board, Integer.MIN_VALUE, Integer.MAX_VALUE, 8).toString();
+        if(gamesRun == 0) {
+        	gamesRun += 1;
+        	return getBestMove(board, Integer.MIN_VALUE, Integer.MAX_VALUE, 8).toString();
+        	
+        }
+        else {
+
+        	thinker.stop();
+        	thinker.start();
+        	return currentBestMove.toString();
+        }
+        
+        //return currentBestMove.toString();
     }
     
     private void updateBestMove() {
