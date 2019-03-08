@@ -78,6 +78,16 @@ public class OthelloAI extends AbstractAI {
             }
         }
         
+        public void resetValues() {
+            if (childrenNodes.isEmpty()) {
+                associatedAction.value = 0;
+            } else {
+                for (int i = 0; i < childrenNodes.size(); i++) {
+                    childrenNodes.get(i).resetValues();
+                }
+            } 
+        }
+        
         public void updateValues(int alpha, int beta) {
             if (childrenNodes.isEmpty()) {
                 associatedAction.value = getBoardValue(board);
@@ -99,11 +109,11 @@ public class OthelloAI extends AbstractAI {
                         if (childrenNodes.get(i).associatedAction.value < childrenNodes.get(chosenMove).associatedAction.value) {
                             chosenMove = i;
                         }
+                        if (childrenNodes.get(chosenMove).associatedAction.value <= alpha) {
+                            return;
+                        }
+                        beta = Math.min(beta, childrenNodes.get(chosenMove).associatedAction.value);
                     }
-                    if (childrenNodes.get(chosenMove).associatedAction.value <= alpha) {
-                        return;
-                    }
-                    beta = Math.min(beta, childrenNodes.get(chosenMove).associatedAction.value);
                 }
             }
         }
@@ -159,12 +169,6 @@ public class OthelloAI extends AbstractAI {
         startingBoard[3][3] = 'O';
         startingBoard[3][4] = 'X';
         startingBoard[4][3] = 'X';
-        actionTree = new ActionTree();
-        actionTree.board = startingBoard;
-        ArrayList<Action> actions = getActions(0, startingBoard);
-        actionTreeMap = new HashMap<char[][], ActionTree>();
-        actionTreeMap.put(startingBoard, actionTree);
-        updateDecisionTree(actionDepth); // Get an initial seed of stuff to work with.
         thinker = new Thread(new Runnable() {
                 @Override
                 public void run() {
@@ -216,28 +220,33 @@ public class OthelloAI extends AbstractAI {
             opponentPiece = player == 0 ? 'O' : 'X';
             timeRemaining = STARTING_TIMER; // We get 90 seconds, but we're accounting for margin of error.
             isPlayerInitialized = true;
+            actionTree = new ActionTree();
+            actionTree.board = board;
+            actionTreeMap = new HashMap<char[][], ActionTree>();
+            actionTreeMap.put(board, actionTree);
             if (player != 0) {
                 actionTree.flipMinMax();
             }
+            updateDecisionTree(actionDepth); // Get an initial seed of stuff to work with.
+            updateBestMove();
         } else {
-            actionDepth -= 2;
-            actionTree = actionTreeMap.get(board);
+            //actionDepth -= 2;
         }
         
         thinkingTimer = 0;
         thinkingTimeThreshold = setTimeLimit(board);
         while (thinkingTimer < thinkingTimeThreshold) {
+            int timewaster = 0;
+            if (currentBestMove != null) {
+                //System.out.println(currentBestMove.toString());
+            }
             thinkingStartTime = System.nanoTime();
             if (isUpdatingTree) {
                 if ((isUpdatingValues) && (!isWaitingForFinish)) {
                     isWaitingForFinish = true;
                     thinkingTimeThreshold += 10000000L; // Give just a little bit more time to finish.
                 }
-                try {
-                    Thread.sleep(10);
-                } catch (InterruptedException e) {
-                    
-                }
+                timewaster++;
             } else {
                 if (actionDepth > 3) {
                     /*
@@ -246,25 +255,40 @@ public class OthelloAI extends AbstractAI {
                         
                         This needs more sanity checks, but this is the best we're getting right now.
                     */
-                    return currentBestMove.toString();
+                    //return currentBestMove.toString();
                 }
             }
             thinkingEndTime = System.nanoTime();
             thinkingTimer += (thinkingEndTime - thinkingStartTime);
         }
+        if ((board[currentBestMove.row][currentBestMove.col] == 'X') || 
+             (board[currentBestMove.row][currentBestMove.col] == 'O')) {
+            System.out.println("WHY DUMB");
+            actionTree = new ActionTree();
+            actionTree.board = board;
+            actionTreeMap.put(board, actionTree);
+            if (player != 0) {
+                actionTree.flipMinMax();
+            }
+            actionDepth = 5;
+            updateBestMove();
+        }
         return currentBestMove.toString();
     }
     
     private void updateBestMove() {
-        ActionTree workingActionTree = actionTree;
-        isUpdatingTree = true;
-        updateDecisionTree(actionDepth);
-        isUpdatingValues = true;
-        workingActionTree.updateValues(Integer.MIN_VALUE, Integer.MAX_VALUE);
-        currentBestMove = workingActionTree.childrenNodes.get(workingActionTree.chosenMove).associatedAction;
-        isUpdatingTree = false;
-        isUpdatingValues = false;
-        actionDepth++;
+        if (isPlayerInitialized) {
+            ActionTree workingActionTree = actionTree;
+            actionTree.resetValues();
+            isUpdatingTree = true;
+            updateDecisionTree(actionDepth);
+            isUpdatingValues = true;
+            workingActionTree.updateValues(Integer.MIN_VALUE, Integer.MAX_VALUE);
+            currentBestMove = workingActionTree.childrenNodes.get(workingActionTree.chosenMove).associatedAction;
+            isUpdatingTree = false;
+            isUpdatingValues = false;
+            actionDepth++;            
+        }
     }
     
     private void updateDecisionTree(int targetDepth) {

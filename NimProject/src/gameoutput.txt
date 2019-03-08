@@ -38,59 +38,61 @@ MESSAGE:Placed mark at location 2e.[Away]
   a b c d e f g h
 Score: X=3 O=3
 Turn: Home (X)
-AI chose to move 2d
-ERROR: This location is already taken![Home]
+WHY DUMB
+AI chose to move 1f
+MESSAGE:Placed mark at location 1f.[Home]
   a b c d e f g h
 0                 0
-1                 1
-2       X O       2
+1           X     1
+2       X X       2
 3       X O       3
 4       X O       4
 5                 5
 6                 6
 7                 7
   a b c d e f g h
-Score: X=3 O=3
+Score: X=5 O=2
+Turn: Away (O)
+AI chose to move 2c
+MESSAGE:Placed mark at location 2c.[Away]
+  a b c d e f g h
+0                 0
+1           X     1
+2     O X X       2
+3       O O       3
+4       X O       4
+5                 5
+6                 6
+7                 7
+  a b c d e f g h
+Score: X=4 O=4
 Turn: Home (X)
-AI chose to move 2d
-ERROR: This location is already taken![Home]
+WHY DUMB
+AI chose to move 2b
+MESSAGE:Placed mark at location 2b.[Home]
   a b c d e f g h
 0                 0
-1                 1
-2       X O       2
-3       X O       3
+1           X     1
+2   X X X X       2
+3       O O       3
 4       X O       4
 5                 5
 6                 6
 7                 7
   a b c d e f g h
-Score: X=3 O=3
-Turn: Home (X)
-AI chose to move 2d
-ERROR: This location is already taken![Home]
+Score: X=6 O=3
+Turn: Away (O)
+AI chose to move 5d
+MESSAGE:Placed mark at location 5d.[Away]
   a b c d e f g h
 0                 0
-1                 1
-2       X O       2
-3       X O       3
-4       X O       4
-5                 5
+1           X     1
+2   X X X X       2
+3       O O       3
+4       O O       4
+5       O         5
 6                 6
 7                 7
   a b c d e f g h
-Score: X=3 O=3
-Turn: Home (X)
-AI chose to move 2d
-ERROR: This location is already taken![Home]
-  a b c d e f g h
-0                 0
-1                 1
-2       X O       2
-3       X O       3
-4       X O       4
-5                 5
-6                 6
-7                 7
-  a b c d e f g h
-Score: X=3 O=3
+Score: X=5 O=5
 Turn: Home (X)
