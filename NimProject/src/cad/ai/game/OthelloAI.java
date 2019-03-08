@@ -94,8 +94,9 @@ public class OthelloAI extends AbstractAI {
             public void run() {
                 //ALSO DO STUFF HERE LIKE WAIT FOR COMPUTE MOVE OR SOMETHING HOWEVER THAT WORKS.
                 //WE MAY NOT HAVE TO DO THIS
-            }
-        });
+            	}
+        	}
+        );
         thinker.start();
     }
 
