@@ -1,245 +1,96 @@
-Playing partial game.
-Move: 0,1c
-Move: 1,1d
-Move: 0,1e
-Move: 1,3b
-Move: 0,4c
-Move: 1,0d
-Move: 0,2e
-Move: 1,3e
-Move: 0,4b
-Move: 1,3f
-Move: 0,4d
-Move: 1,2b
-Move: 0,3a
-Move: 1,0f
-  a b c d e f
-0       O   O 0
-1     O O O   1
-2   O O O O   2
-3 X X X X O O 3
-4   X X X     4
-5             5
-  a b c d e f
-Score: X=7 O=11
+  a b c d e f g h
+0                 0
+1                 1
+2                 2
+3       O X       3
+4       X O       4
+5                 5
+6                 6
+7                 7
+  a b c d e f g h
+Score: X=2 O=2
 Turn: Home (X)
-AI chose to move 0c
-MESSAGE:Placed mark at location 0c.[Home]
-  a b c d e f
-0     X O   O 0
-1     X O O   1
-2   O X O O   2
-3 X X X X O O 3
-4   X X X     4
-5             5
-  a b c d e f
-Score: X=10 O=9
+AI chose to move 2d
+MESSAGE:Placed mark at location 2d.[Home]
+  a b c d e f g h
+0                 0
+1                 1
+2       X         2
+3       X X       3
+4       X O       4
+5                 5
+6                 6
+7                 7
+  a b c d e f g h
+Score: X=4 O=1
 Turn: Away (O)
-AI chose to move 5a
-MESSAGE:Placed mark at location 5a.[Away]
-  a b c d e f
-0     X O   O 0
-1     X O O   1
-2   O X O O   2
-3 X X O X O O 3
-4   O X X     4
-5 O           5
-  a b c d e f
-Score: X=8 O=12
+AI chose to move 2e
+MESSAGE:Placed mark at location 2e.[Away]
+  a b c d e f g h
+0                 0
+1                 1
+2       X O       2
+3       X O       3
+4       X O       4
+5                 5
+6                 6
+7                 7
+  a b c d e f g h
+Score: X=3 O=3
 Turn: Home (X)
-AI chose to move 2a
-MESSAGE:Placed mark at location 2a.[Home]
-  a b c d e f
-0     X O   O 0
-1     X O O   1
-2 X X X O O   2
-3 X X O X O O 3
-4   O X X     4
-5 O           5
-  a b c d e f
-Score: X=10 O=11
-Turn: Away (O)
-AI chose to move 4a
-MESSAGE:Placed mark at location 4a.[Away]
-  a b c d e f
-0     X O   O 0
-1     X O O   1
-2 X X O O O   2
-3 X O O X O O 3
-4 O O X X     4
-5 O           5
-  a b c d e f
-Score: X=8 O=14
+AI chose to move 2d
+ERROR: This location is already taken![Home]
+  a b c d e f g h
+0                 0
+1                 1
+2       X O       2
+3       X O       3
+4       X O       4
+5                 5
+6                 6
+7                 7
+  a b c d e f g h
+Score: X=3 O=3
 Turn: Home (X)
-AI chose to move 1b
-MESSAGE:Placed mark at location 1b.[Home]
-  a b c d e f
-0     X O   O 0
-1   X X O O   1
-2 X X X O O   2
-3 X O O X O O 3
-4 O O X X     4
-5 O           5
-  a b c d e f
-Score: X=10 O=13
-Turn: Away (O)
-AI chose to move 5b
-MESSAGE:Placed mark at location 5b.[Away]
-  a b c d e f
-0     X O   O 0
-1   X X O O   1
-2 X X X O O   2
-3 X O O O O O 3
-4 O O O X     4
-5 O O         5
-  a b c d e f
-Score: X=8 O=16
+AI chose to move 2d
+ERROR: This location is already taken![Home]
+  a b c d e f g h
+0                 0
+1                 1
+2       X O       2
+3       X O       3
+4       X O       4
+5                 5
+6                 6
+7                 7
+  a b c d e f g h
+Score: X=3 O=3
 Turn: Home (X)
-AI chose to move 4e
-MESSAGE:Placed mark at location 4e.[Home]
-  a b c d e f
-0     X O   O 0
-1   X X O O   1
-2 X X X O O   2
-3 X O O X O O 3
-4 O O O X X   4
-5 O O         5
-  a b c d e f
-Score: X=10 O=15
-Turn: Away (O)
-AI chose to move 5c
-MESSAGE:Placed mark at location 5c.[Away]
-  a b c d e f
-0     X O   O 0
-1   X X O O   1
-2 X X X O O   2
-3 X O O X O O 3
-4 O O O O X   4
-5 O O O       5
-  a b c d e f
-Score: X=9 O=17
+AI chose to move 2d
+ERROR: This location is already taken![Home]
+  a b c d e f g h
+0                 0
+1                 1
+2       X O       2
+3       X O       3
+4       X O       4
+5                 5
+6                 6
+7                 7
+  a b c d e f g h
+Score: X=3 O=3
 Turn: Home (X)
-AI chose to move 5e
-MESSAGE:Placed mark at location 5e.[Home]
-  a b c d e f
-0     X O   O 0
-1   X X O O   1
-2 X X X O O   2
-3 X O X X O O 3
-4 O O O X X   4
-5 O O O   X   5
-  a b c d e f
-Score: X=12 O=15
-Turn: Away (O)
-AI chose to move 1a
-MESSAGE:Placed mark at location 1a.[Away]
-  a b c d e f
-0     X O   O 0
-1 O O O O O   1
-2 O X X O O   2
-3 O O X X O O 3
-4 O O O X X   4
-5 O O O   X   5
-  a b c d e f
-Score: X=8 O=20
+AI chose to move 2d
+ERROR: This location is already taken![Home]
+  a b c d e f g h
+0                 0
+1                 1
+2       X O       2
+3       X O       3
+4       X O       4
+5                 5
+6                 6
+7                 7
+  a b c d e f g h
+Score: X=3 O=3
 Turn: Home (X)
-AI chose to move 1f
-MESSAGE:Placed mark at location 1f.[Home]
-  a b c d e f
-0     X O   O 0
-1 O O O O O X 1
-2 O X X O X   2
-3 O O X X O O 3
-4 O O O X X   4
-5 O O O   X   5
-  a b c d e f
-Score: X=10 O=19
-Turn: Away (O)
-AI chose to move 2f
-MESSAGE:Placed mark at location 2f.[Away]
-  a b c d e f
-0     X O   O 0
-1 O O O O O O 1
-2 O X X O O O 2
-3 O O X X O O 3
-4 O O O X X   4
-5 O O O   X   5
-  a b c d e f
-Score: X=8 O=22
-Turn: Home (X)
-AI chose to move 0a
-MESSAGE:Placed mark at location 0a.[Home]
-  a b c d e f
-0 X   X O   O 0
-1 O X O O O O 1
-2 O X X O O O 2
-3 O O X X O O 3
-4 O O O X X   4
-5 O O O   X   5
-  a b c d e f
-Score: X=10 O=21
-Turn: Away (O)
-AI chose to move 0b
-MESSAGE:Placed mark at location 0b.[Away]
-  a b c d e f
-0 X O O O   O 0
-1 O O O O O O 1
-2 O O X O O O 2
-3 O O X X O O 3
-4 O O O X X   4
-5 O O O   X   5
-  a b c d e f
-Score: X=7 O=25
-Turn: Home (X)
-AI chose to move 0e
-MESSAGE:Placed mark at location 0e.[Home]
-  a b c d e f
-0 X X X X X O 0
-1 O O O X X O 1
-2 O O X O X O 2
-3 O O X X X O 3
-4 O O O X X   4
-5 O O O   X   5
-  a b c d e f
-Score: X=15 O=18
-Turn: Away (O)
-AI chose to move 5f
-MESSAGE:Placed mark at location 5f.[Away]
-  a b c d e f
-0 X X X X X O 0
-1 O O O X X O 1
-2 O O O O X O 2
-3 O O X O X O 3
-4 O O O X O   4
-5 O O O   X O 5
-  a b c d e f
-Score: X=12 O=22
-Turn: Home (X)
-AI chose to move 4f
-MESSAGE:Placed mark at location 4f.[Home]
-  a b c d e f
-0 X X X X X O 0
-1 O O O X X O 1
-2 O O O O X O 2
-3 O O X O X O 3
-4 O O O X X X 4
-5 O O O   X O 5
-  a b c d e f
-Score: X=14 O=21
-Turn: Away (O)
-AI chose to move 5d
-MESSAGE:Placed mark at location 5d.[Away]
-  a b c d e f
-0 X X X X X O 0
-1 O O O X X O 1
-2 O O O O X O 2
-3 O O X O X O 3
-4 O O O O O X 4
-5 O O O O O O 5
-  a b c d e f
-Score: X=11 O=25
-Turn: Away (O)
-Away won.
-Away won!
-Away won!
-Good-bye!

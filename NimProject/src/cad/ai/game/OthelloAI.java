@@ -18,6 +18,7 @@ package cad.ai.game;
 import java.util.Random;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 /***********************************************************
  * The AI system for a OthelloGame.
@@ -43,6 +44,70 @@ public class OthelloAI extends AbstractAI {
         public String toString() { return "" + row + (char) (col+'a'); }
     }
     
+    private static class ActionTree {
+        public Action associatedAction;
+        public int chosenMove;
+        public ArrayList<ActionTree> childrenNodes;
+        public boolean isMaxNode = true;
+        public char[][] board;
+        
+        public ActionTree() {
+            childrenNodes = new ArrayList<ActionTree>();
+            isMaxNode = true;
+            associatedAction = new Action(0);
+        }
+        
+        public ActionTree(Action action, boolean isMaxNode, char[][] board) {
+            this();
+            associatedAction = action;
+            this.isMaxNode = isMaxNode;
+            this.board = board;
+        }
+        
+        public ActionTree addChild(Action action, char[][] board) {
+            childrenNodes.add(new ActionTree(action, !isMaxNode, board));
+            return (childrenNodes.get(childrenNodes.size() - 1));
+        }
+        
+        public void flipMinMax() {
+            //We assume we're playing first. If not, we call this to flip the evaluation perspective on all
+            //nodes.
+            isMaxNode = !isMaxNode;
+            for (ActionTree actionTree : childrenNodes) {
+                flipMinMax();
+            }
+        }
+        
+        public void updateValues(int alpha, int beta) {
+            if (childrenNodes.isEmpty()) {
+                associatedAction.value = getBoardValue(board);
+            } else {
+                if (isMaxNode) {
+                    for (int i = 0; i < childrenNodes.size(); i++) {
+                        childrenNodes.get(i).updateValues(alpha, beta);
+                        if (childrenNodes.get(i).associatedAction.value > childrenNodes.get(chosenMove).associatedAction.value) {
+                            chosenMove = i;
+                        }
+                        if (childrenNodes.get(chosenMove).associatedAction.value >= beta) {
+                            return;
+                        }
+                        alpha = Math.max(alpha, childrenNodes.get(chosenMove).associatedAction.value);
+                    }
+                } else {
+                    for (int i = 0; i < childrenNodes.size(); i++) {
+                        childrenNodes.get(i).updateValues(alpha, beta);
+                        if (childrenNodes.get(i).associatedAction.value < childrenNodes.get(chosenMove).associatedAction.value) {
+                            chosenMove = i;
+                        }
+                    }
+                    if (childrenNodes.get(chosenMove).associatedAction.value <= alpha) {
+                        return;
+                    }
+                    beta = Math.min(beta, childrenNodes.get(chosenMove).associatedAction.value);
+                }
+            }
+        }
+    }
     
     public OthelloGame game;  // The game that this AI system is playing
     protected Random ran;
@@ -51,8 +116,8 @@ public class OthelloAI extends AbstractAI {
     private byte goodVectors = 0b00000000;
     private int tempRow = 0;
     private int tempColumn = 0;
-    private char playerPiece = 'O';
-    private char opponentPiece = 'X';
+    private static char playerPiece = 'O';
+    private static char opponentPiece = 'X';
     private char workingPlayerPiece = 'O';
     private char workingOpponentPiece = 'X';
     private boolean isPlayerInitialized = false;
@@ -63,16 +128,20 @@ public class OthelloAI extends AbstractAI {
     private Thread thinker;
     private Thread playerThread;
     private Action currentBestMove;
+    private ActionTree actionTree;
+    private HashMap<char[][], ActionTree> actionTreeMap;
+    private int actionDepth = 3;
+    private char[][] startingBoard;
+    private boolean isUpdatingTree = false;
+    private boolean isUpdatingValues = false;
+    private boolean isWaitingForFinish = false;
     
-    /*
-        Floats instead of doubles for the timers. My intuition is that whatever margin is lost by
-        the lesser precision will be more than made up for by faster processing.
-        
-        And if I'm wrong, it's hardly likely to be the error that loses us a game.
-    */
-    private float timeRemaining = 88.0f;
-    private float thinkingTime = 0.0f;
-    private float thinkingTimeThreshold = 0.0f;
+    private final long STARTING_TIMER = 85 * 1000000000L;
+    private long timeRemaining = STARTING_TIMER;
+    private long thinkingTimer = 0L;
+    private long thinkingTimeThreshold = 0L;
+    private long thinkingStartTime = 0L;
+    private long thinkingEndTime = 0L;
     private final int MID_GAME_THRESHOLD = 30; // Once this many pieces are placed, we're in the most
                                                // crucial part of the game and need more time to think.
                                                // This will need testing to find the optimum number.
@@ -80,6 +149,22 @@ public class OthelloAI extends AbstractAI {
     public OthelloAI() {
         game = null;
         ran = new Random();
+        startingBoard = new char[8][8];
+        for (int i = 0; i < startingBoard.length; i++) {
+            for (int j = 0; j < startingBoard.length; j++) {
+                startingBoard[i][j] = ' ';
+            }
+        }
+        startingBoard[4][4] = 'O';
+        startingBoard[3][3] = 'O';
+        startingBoard[3][4] = 'X';
+        startingBoard[4][3] = 'X';
+        actionTree = new ActionTree();
+        actionTree.board = startingBoard;
+        ArrayList<Action> actions = getActions(0, startingBoard);
+        actionTreeMap = new HashMap<char[][], ActionTree>();
+        actionTreeMap.put(startingBoard, actionTree);
+        updateDecisionTree(actionDepth); // Get an initial seed of stuff to work with.
         thinker = new Thread(new Runnable() {
                 @Override
                 public void run() {
@@ -88,14 +173,6 @@ public class OthelloAI extends AbstractAI {
                     updateBestMove();
                 }
             }        
-        );
-        playerThread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                //ALSO DO STUFF HERE LIKE WAIT FOR COMPUTE MOVE OR SOMETHING HOWEVER THAT WORKS.
-                //WE MAY NOT HAVE TO DO THIS
-            	}
-        	}
         );
         thinker.start();
     }
@@ -128,27 +205,121 @@ public class OthelloAI extends AbstractAI {
             return "0a";
         }
         
+        char[][] board = (char[][]) game.getStateAsObject();
+        
+        ArrayList<Action> actions = getActions(player, board);
+        
         if (!isPlayerInitialized) {
             player = game.getPlayer();
             opponent = player ^ 1;
             playerPiece = player == 0 ? 'X' : 'O';
             opponentPiece = player == 0 ? 'O' : 'X';
-            timeRemaining = 88.0f; // We get 90 seconds, but we're accounting for margin of error.
+            timeRemaining = STARTING_TIMER; // We get 90 seconds, but we're accounting for margin of error.
             isPlayerInitialized = true;
+            if (player != 0) {
+                actionTree.flipMinMax();
+            }
+        } else {
+            actionDepth -= 2;
+            actionTree = actionTreeMap.get(board);
         }
-	
-        char[][] board = (char[][]) game.getStateAsObject();
-
-        ArrayList<Action> actions = getActions(player, board);
         
-        return getBestMove(board, Integer.MIN_VALUE, Integer.MAX_VALUE, 15).toString();
+        thinkingTimer = 0;
+        thinkingTimeThreshold = setTimeLimit(board);
+        while (thinkingTimer < thinkingTimeThreshold) {
+            thinkingStartTime = System.nanoTime();
+            if (isUpdatingTree) {
+                if ((isUpdatingValues) && (!isWaitingForFinish)) {
+                    isWaitingForFinish = true;
+                    thinkingTimeThreshold += 10000000L; // Give just a little bit more time to finish.
+                }
+                try {
+                    Thread.sleep(10);
+                } catch (InterruptedException e) {
+                    
+                }
+            } else {
+                if (actionDepth > 3) {
+                    /*
+                        We want to be at least a couple of levels down in our thinking. If we aren't, then we
+                        can't immediately begin working the next time we're asked for a move.
+                        
+                        This needs more sanity checks, but this is the best we're getting right now.
+                    */
+                    return currentBestMove.toString();
+                }
+            }
+            thinkingEndTime = System.nanoTime();
+            thinkingTimer += (thinkingEndTime - thinkingStartTime);
+        }
+        return currentBestMove.toString();
     }
     
     private void updateBestMove() {
+        ActionTree workingActionTree = actionTree;
+        isUpdatingTree = true;
+        updateDecisionTree(actionDepth);
+        isUpdatingValues = true;
+        workingActionTree.updateValues(Integer.MIN_VALUE, Integer.MAX_VALUE);
+        currentBestMove = workingActionTree.childrenNodes.get(workingActionTree.chosenMove).associatedAction;
+        isUpdatingTree = false;
+        isUpdatingValues = false;
+        actionDepth++;
+    }
+    
+    private void updateDecisionTree(int targetDepth) {
+        int currentDepth = 0;
+        ActionTree currentTree = actionTree;
+        ArrayList<Action> actions;
+        char[][] workingBoard;
+        ArrayList<ActionTree> currentLevelTrees = new ArrayList<ActionTree>();
+        ArrayList<ActionTree> nextLevelTrees = new ArrayList<ActionTree>();
         
+        populateChildren(currentTree);
+        for (ActionTree childTree : currentTree.childrenNodes) {
+            currentLevelTrees.add(childTree);
+        }
+        
+        while (currentDepth <= targetDepth) {
+            for (ActionTree tree : currentLevelTrees) {
+                populateChildren(tree);
+                for (ActionTree childTree : tree.childrenNodes) {
+                    nextLevelTrees.add(childTree);
+                }
+            }
+            currentLevelTrees = nextLevelTrees;
+            nextLevelTrees = new ArrayList<ActionTree>();
+            currentDepth++;
+        }
+    }
+    
+    private void populateChildren(ActionTree currentTree) {
+        ActionTree addedTree;
+        ArrayList<Action> actions;
+        char[][] workingBoard;
+        if (currentTree.childrenNodes.isEmpty()) {
+            if (currentTree.isMaxNode) {
+                actions = getActions(player, currentTree.board);
+                for (Action action : actions) {
+                    workingBoard = copyBoard(currentTree.board);
+                    processMove(playerPiece, action.row, action.col, workingBoard);
+                    addedTree = currentTree.addChild(action, workingBoard);
+                    actionTreeMap.put(workingBoard, addedTree);
+                }
+            }
+            else {
+                actions = getActions(opponent, currentTree.board);
+                for (Action action : actions) {
+                    workingBoard = copyBoard(currentTree.board);
+                    processMove(opponentPiece, action.row, action.col, workingBoard);
+                    addedTree = currentTree.addChild(action, workingBoard);
+                    actionTreeMap.put(workingBoard, addedTree);
+                }
+            }
+        }
     }
 
-    private int getBoardValue(char[][] board) {
+    private static int getBoardValue(char[][] board) {
         int score = 0;
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board.length; j++) {
@@ -205,7 +376,7 @@ public class OthelloAI extends AbstractAI {
         and go back to thinking rather than waste time for a marginal advantage.
     */
     
-    private float setTimeLimit(char[][] board) {
+    private long setTimeLimit(char[][] board) {
         int pieces = 0;
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board.length; j++) {
@@ -214,7 +385,7 @@ public class OthelloAI extends AbstractAI {
                 }
             }
         }
-        if (timeRemaining < 5) {
+        if (timeRemaining < 5000000000L) {
             /* 
                 If we're low on time, default to enough to dash out a move quickly.
                 Losing by timeout is a loss obviously, and thus is to be avoided at all costs.
@@ -222,7 +393,7 @@ public class OthelloAI extends AbstractAI {
                 forfeiting: this aims for that. A tenth of a second gives a little bit of time to look
                 ahead while not risking a loss by timeout.
             */ 
-            return 0.1f; 
+            return 100000000L; 
         }
         /*
             The fewer pieces on the board, the more thinking we should do, except for when we get past
@@ -239,9 +410,9 @@ public class OthelloAI extends AbstractAI {
         */
         
         if (pieces >= MID_GAME_THRESHOLD) {
-            return (((float) (64 - pieces)) * 0.2f);
+            return ((64 - pieces) * 200000000L);
         } else {
-            return (((float) (64 - pieces)) * 0.1f);
+            return ((64 - pieces) * 100000000L);
         }
     }
     
