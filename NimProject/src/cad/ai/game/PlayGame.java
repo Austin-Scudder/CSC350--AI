@@ -20,9 +20,9 @@ import java.io.InputStreamReader;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import cad.ai.game.*;
-//import cad.ai.solutions.TicTacToeAIMinimax;
-//import cad.ai.solutions.OthelloAIMinimax;
-//import cad.ai.solutions.OthelloAIAB;
+import cad.ai.solutions.TicTacToeAIMinimax;
+import cad.ai.solutions.OthelloAIMinimax;
+import cad.ai.solutions.OthelloAIAB;
 
 /***********************************************************
  * The PlayGame class is designed to allow two players to 
@@ -67,13 +67,13 @@ public class PlayGame {
             switch (homeAI) {
             case 0: ai[0] = null; break;
             case 1: ai[0] = new TicTacToeAI(); break;  // Edit these for 
-            //case 2: ai[0] = new TicTacToeAIMinimax(); break;  // different params
+            case 2: ai[0] = new TicTacToeAI(); break;  // different params
             default: ai[0] = new TicTacToeAI(); break; 
             }
             switch (awayAI) {
             case 0: ai[1] = null; break;
             case 1: ai[1] = new TicTacToeAI(); break;  // Edit these as well...
-            //case 2: ai[1] = new TicTacToeAIMinimax(); break;  // different params
+            case 2: ai[1] = new TicTacToeAI(); break;  // different params
             default: ai[1] = new TicTacToeAI(); break; 
             }
             break;
@@ -87,17 +87,15 @@ public class PlayGame {
             switch (homeAI) {
             case 0: ai[0] = null; break;
             case 1: ai[0] = new OthelloAI(); break;  // Edit these for 
-            case 2: ai[0] = new OthelloAI2(); break; 
-            //case 2: ai[0] = new OthelloAIMinimax(); break;  // different params
-            //case 3: ai[0] = new OthelloAIAB(); break;  // different params
+            case 2: ai[0] = new OthelloAI(); break;  // different params
+            case 3: ai[0] = new OthelloAI(); break;  // different params
             default: ai[0] = new OthelloAI(); break; 
             }
             switch (awayAI) {
             case 0: ai[1] = null; break;
             case 1: ai[1] = new OthelloAI(); break;  // Edit these for 
-            case 2: ai[1] = new OthelloAI2(); break; 
-            //case 2: ai[1] = new OthelloAIMinimax(); break;  // different params
-            //case 3: ai[1] = new OthelloAIAB(); break;  // different params
+            case 2: ai[1] = new OthelloAI(); break;  // different params
+            case 3: ai[1] = new OthelloAI(); break;  // different params
             default: ai[1] = new OthelloAI(); break; 
             }
             break;

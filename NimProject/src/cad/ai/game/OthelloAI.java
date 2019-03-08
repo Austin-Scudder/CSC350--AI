@@ -145,7 +145,7 @@ public class OthelloAI extends AbstractAI {
 
         ArrayList<Action> actions = getActions(player, board);
         
-        return getBestMove(board, Integer.MIN_VALUE, Integer.MAX_VALUE, 10).toString();
+        return getBestMove(board, Integer.MIN_VALUE, Integer.MAX_VALUE, 9).toString();
     }
     
     private void updateBestMove() {
