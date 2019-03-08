@@ -61,9 +61,22 @@ public class OthelloAI extends AbstractAI {
     private int opponent = 0;
     
     private Thread thinker;
-    private Thread player;
+    private Thread playerThread;
     private Action currentBestMove;
     
+    /*
+        Floats instead of doubles for the timers. My intuition is that whatever margin is lost by
+        the lesser precision will be more than made up for by faster processing.
+        
+        And if I'm wrong, it's hardly likely to be the error that loses us a game.
+    */
+    private float timeRemaining = 88.0f;
+    private float thinkingTime = 0.0f;
+    private float thinkingTimeThreshold = 0.0f;
+    private final int MID_GAME_THRESHOLD = 30; // Once this many pieces are placed, we're in the most
+                                               // crucial part of the game and need more time to think.
+                                               // This will need testing to find the optimum number.
+
     public OthelloAI() {
         game = null;
         ran = new Random();
@@ -75,14 +88,14 @@ public class OthelloAI extends AbstractAI {
                     updateBestMove();
                 }
             }        
-        )
-        player = new Thread(new Runnable() {
+        );
+        playerThread = new Thread(new Runnable() {
             @Override
             public void run() {
                 //ALSO DO STUFF HERE LIKE WAIT FOR COMPUTE MOVE OR SOMETHING HOWEVER THAT WORKS.
                 //WE MAY NOT HAVE TO DO THIS
             }
-        }
+        });
         thinker.start();
     }
 
@@ -119,6 +132,7 @@ public class OthelloAI extends AbstractAI {
             opponent = player ^ 1;
             playerPiece = player == 0 ? 'X' : 'O';
             opponentPiece = player == 0 ? 'O' : 'X';
+            timeRemaining = 88.0f; // We get 90 seconds, but we're accounting for margin of error.
             isPlayerInitialized = true;
         }
 	
@@ -153,11 +167,82 @@ public class OthelloAI extends AbstractAI {
             Once called upon, get a time limit
             Run until depth is finished or time limit is reached
             Set currentbestmove
-            
+        
         Determine time limit
         
         Refine board evaluation.
     */
+    
+    /*
+        So this is fun. How do we modify alpha beta (a depth first search) to function the way we want
+        as a breadth first search?
+        
+        Moves are visualized as a tree, but we can't just navigate to different parts of the tree.
+        
+        Or can we?
+        
+        The current board state is the root. Each child is that board state plus an action. Each child 
+        of that is the current board state plus an action plus an action.
+        
+        We keep that tree. We keep filling it in. When we receive a new board state, that board state
+        becomes our new root.
+        
+        Each node knows its children. Its children have values. We evaluate the board state as we
+        attach the children. Once we finish a row down to a depth (maybe starting only from some useful
+        depth like 8 or 10), use the leaf node values to find the best move via alpha-beta.
+        
+        Why is this good? This is a task we can maintain as our opponent is thinking. We keep a knowledge
+        base of future board states so that when we get the board state with the next move, we already
+        have calculated its future moves. Ideally, this advantage builds upon itself: the deeper our tree
+        goes, the deeper our next move's tree is, and thus the more accurate the board evaluation.
+        
+        When a move tree's row is finished, we update some data: how many leaf nodes will be in the next
+        row, what the current best move is, and what depth we've reached.
+        
+        That first one is crucial. We need to know how close to processing the next row we are. If we've
+        only just started and there are a bunch left, it might be better to cut our losses, fire off a move
+        and go back to thinking rather than waste time for a marginal advantage.
+    */
+    
+    private float setTimeLimit(char[][] board) {
+        int pieces = 0;
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board.length; j++) {
+                if ((board[i][j] == 'X') || (board[i][j] == 'O')) {
+                    pieces++;
+                }
+            }
+        }
+        if (timeRemaining < 5) {
+            /* 
+                If we're low on time, default to enough to dash out a move quickly.
+                Losing by timeout is a loss obviously, and thus is to be avoided at all costs.
+                If we get down to the wire, we might squeak out a win or a tie by virtue of just not
+                forfeiting: this aims for that. A tenth of a second gives a little bit of time to look
+                ahead while not risking a loss by timeout.
+            */ 
+            return 0.1f; 
+        }
+        /*
+            The fewer pieces on the board, the more thinking we should do, except for when we get past
+            the early game. So as pieces rises, we get less and less time until we hit the midgame
+            threshold, at which point we go back to thinking for longer. Theoretically most of the early
+            game should be on book: anything that's not is definitely worthy of extra consideration.
+            
+            For now, we're going to go with a simple scale. For every empty space on the board, we take
+            a tenth of a second to think about an off book move.
+            
+            Once we hit the midgame, we increase that to a fifth of a second per empty space.
+            
+            This is incredibly naive, but it should work decently well as a time apportionment for now.
+        */
+        
+        if (pieces >= MID_GAME_THRESHOLD) {
+            return (((float) (64 - pieces)) * 0.2f);
+        } else {
+            return (((float) (64 - pieces)) * 0.1f);
+        }
+    }
     
     /*private boolean isCorner(char piece, int row, int col, char[][] board) {
         if (((row == 0) && (col == 0)))
