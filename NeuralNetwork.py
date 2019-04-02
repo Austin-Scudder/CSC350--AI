@@ -16,12 +16,51 @@ Examples are
 from keras.models import Sequential
 from keras.layers import Dense, Activation
 import numpy as np
+import json
+import os
 import sys
 
+
+def read_data(file):
+    try:
+        with open(file, 'r') as inf:
+            bitmap = json.load(inf)
+        return bitmap
+    except FileNotFoundError as err:
+        print("File Not Found: {0}.".format(err))
+
+
+def print_image(img, threshold):
+    for row in img:
+        for pixel in row:
+            print('.' if pixel > threshold else 'X', end='')
+        print()  # Newline at end of the row
+
+
+def file_get():
+    files = []
+    basepath = '/Users/AustinS/PycharmProjects/CSC350--AI/res'
+    with os.scandir(basepath) as entries:
+        for entry in entries:
+            if entry.is_file():
+                files.append('/Users/AustinS/PycharmProjects/CSC350--AI/res/'+entry.name)
+    return files
+
+
+def main():
+    file_list = file_get()
+    img = ""
+    for file_name in file_list:
+        img = read_data(file_name)
+        # print("Displaying image: {0}.".format(file_name))
+        # print_image(img, 200)  # Different thresholds will change what shows up as X and what as a .
+    return img
+
+
 model = Sequential()
-model.add(Dense(units=20, input_dim=2)) # First (hidden) layer
+model.add(Dense(units=1024, input_dim=2)) # First (hidden) layer
 model.add(Activation('sigmoid'))
-model.add(Dense(units=30)) # First (hidden) layer
+model.add(Dense(units=4))  # First (hidden) layer
 model.add(Activation('sigmoid'))
 model.add(Dense(units=2))   # Second, final (output) layer
 model.add(Activation('sigmoid'))

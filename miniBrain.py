@@ -7,10 +7,9 @@ This sample code shows how one can read in our JSON image files in Python3.  It 
 It applies a simple threshold test - if value is > threshold then it outputs a '.' otherwise it outputs an 'X'.  More refinement is probably better.
 But this is for displaying images not processing or recognizing images."""
 
-import sys
 import json
 import os
-from pathlib import Path
+
 
 """ 
 Reads in the given JSON file as outlined in the README.txt file.
