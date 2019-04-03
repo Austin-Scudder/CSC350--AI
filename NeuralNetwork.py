@@ -19,8 +19,6 @@ import numpy as np
 import json
 import os
 
-# Make the test set vs the training set.
-
 
 def read_data(file):
     try:
@@ -53,6 +51,7 @@ def info_get():
     # train_data = tf.keras.utils.normalize(train_data)
     return x_data, y_data
 
+
 def run_test(x_train, y_train, x_test, y_test):
     # Create the model
     model = Sequential()
@@ -70,9 +69,6 @@ def run_test(x_train, y_train, x_test, y_test):
     # Train the model, iterating on the data in batches of 32 samples (try batch_size=1)
     model.fit(x_train, y_train, epochs=20, batch_size=32)
 
-    # x_test = np.random.randint(2, size=(1000, 2))   # Random input data
-    # y_test = np.array([[x and y, x ^ y] for (x, y) in x_test]) # The results (Carry,Add)
-
     # Evaluate the model from a sample test data set
     score = model.evaluate(x_test, y_test)
     print()
@@ -84,37 +80,10 @@ def run_test(x_train, y_train, x_test, y_test):
     print("Result of {} is {} should be {}.".format(x_test, y_pred, y_test))
 
 
-def main():
-    file_list = file_get()
-    img = ""
-    for file_name in file_list:
-        img = read_data(file_name)
-        # print("Displaying image: {0}.".format(file_name))
-        # print_image(img, 200)  # Different thresholds will change what shows up as X and what as a .
-    return img  # edit the return to only giv ethe array
-
-
-
-
-"""x_train = np.random.randint(2, size=(10000,2))   # Random input data
-y_train = np.array([[x and y, x^y] for (x,y) in x_train]) # The results (Carry,Add)"""
-
 x_data, y_data = info_get()
 x_data = np.array(x_data)
 y_data = np.array(y_data)
 
-# x_train = np.random.randint(2, size=(10000,2))   # Random input data
-print(x_data[12])
-print(y_data[12])
-# plt.imshow(x_train[12], cmap=plt.cm.binary)
-# plt.show()
 
 run_test(x_data[:-1], y_data[:-1], x_data[-1:], y_data[-1:])
 
-
-"""
-# this is the main line to run
-if __name__ == "__main__":
-    main()
-
-"""
