@@ -40,16 +40,15 @@ def info_get():
         input_data = np.array(read_data(file)).flatten()
         input_data = [ p/255 for p in input_data ]
         x_data.append(input_data)
-    # train_data = tf.keras.utils.normalize(train_data)
     return x_data, y_data
 
 
 def run_test(x_train, y_train, x_test, y_test):
     # Create the model
     model = Sequential()
-    model.add(Dense(units=1000, input_dim=1024))  # First (hidden) layer
+    model.add(Dense(units=512, input_dim=1024))  # First (hidden) layer
     model.add(Activation('sigmoid'))
-    model.add(Dense(units=10))  # Second (hidden) layer
+    model.add(Dense(units=100))  # Second (hidden) layer
     model.add(Activation('sigmoid'))
     model.add(Dense(units=1))  # Third, final (output) layer
     model.add(Activation('sigmoid'))
@@ -59,17 +58,19 @@ def run_test(x_train, y_train, x_test, y_test):
                   metrics=['accuracy'])
 
     # Train the model, iterating on the data in batches of 32 samples (try batch_size=1)
-    model.fit(x_train, y_train, epochs=20, batch_size=32)
+    model.fit(x_train, y_train, epochs=150, batch_size=32)
 
     # Evaluate the model from a sample test data set
-    score = model.evaluate(x_test, y_test)
+    score = model.evaluate(x_train, y_train)
     print()
     print("Score was {}.".format(score))
     print("Labels were {}.".format(model.metrics_names))
 
     # Make a few predictions
+    print("This is the prediction: ")
     y_pred = model.predict(x_test)
-    print("Result of {} is {} should be {}.".format(x_test, y_pred, y_test))
+    pred = round(y_pred[0][0],0)
+    print("Result of {} is {} should be {}.".format(x_test, pred, y_test))
 
 
 x_data, y_data = info_get()
