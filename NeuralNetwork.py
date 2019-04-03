@@ -2,15 +2,7 @@
 
 Author: Christian A. Duncan (based off of the example given on Keras site)
 Course: CSC350: Intelligent Systems
-Term: Spring 2017
-
-This one trains on the function "1-bit add with carry".
-Examples are 
-   ((0, 0),(0, 0),
-    (0, 1),(0, 1),
-    (1, 0),(0, 1),
-    (1, 1),(1, 0))
-   This requires two inputs and two outputs with 2 nodes in the hidden layer.
+Term: Spring 2019
 """
 
 from keras.models import Sequential
