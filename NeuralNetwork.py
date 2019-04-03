@@ -46,18 +46,45 @@ def file_get():
 
 def info_get():
     files = file_get()
-    test_set = []
-    train_set = []
-    test_data = []
-    train_data = []
+    x_data = []
+    y_data = []
     for file in files:
-        if file[-6] == "9":
-            test_set.append(file[-8])
-            test_data.append(read_data(file))
-        else:
-            train_set.append(file[-8])
-            train_data.append(read_data(file))
-    return train_data, test_data, train_set, test_set
+        y_data.append([int(file[-8])])
+        input_data = np.array(read_data(file)).flatten()
+        input_data = [ p/255 for p in input_data ]
+        x_data.append(input_data)
+    # train_data = tf.keras.utils.normalize(train_data)
+    return x_data, y_data
+
+def run_test(x_train, y_train, x_test, y_test):
+    # Create the model
+    model = Sequential()
+    model.add(Dense(units=1000, input_dim=1024))  # First (hidden) layer
+    model.add(Activation('sigmoid'))
+    model.add(Dense(units=10))  # Second (hidden) layer
+    model.add(Activation('sigmoid'))
+    model.add(Dense(units=1))  # Third, final (output) layer
+    model.add(Activation('sigmoid'))
+
+    model.compile(loss='mean_squared_error',
+                  optimizer='sgd',
+                  metrics=['accuracy'])
+
+    # Train the model, iterating on the data in batches of 32 samples (try batch_size=1)
+    model.fit(x_train, y_train, epochs=20, batch_size=32)
+
+    # x_test = np.random.randint(2, size=(1000, 2))   # Random input data
+    # y_test = np.array([[x and y, x ^ y] for (x, y) in x_test]) # The results (Carry,Add)
+
+    # Evaluate the model from a sample test data set
+    score = model.evaluate(x_test, y_test)
+    print()
+    print("Score was {}.".format(score))
+    print("Labels were {}.".format(model.metrics_names))
+
+    # Make a few predictions
+    y_pred = model.predict(x_test)
+    print("Result of {} is {} should be {}.".format(x_test, y_pred, y_test))
 
 
 def main():
@@ -75,51 +102,20 @@ def main():
 """x_train = np.random.randint(2, size=(10000,2))   # Random input data
 y_train = np.array([[x and y, x^y] for (x,y) in x_train]) # The results (Carry,Add)"""
 
-x_train, x_test, y_train, y_test = np.array(info_get())
+x_data, y_data = info_get()
+x_data = np.array(x_data)
+y_data = np.array(y_data)
 
 # x_train = np.random.randint(2, size=(10000,2))   # Random input data
-print(len(x_train))
-print(len(y_train))
-print(x_train[12])
-print(y_train[12])
+print(x_data[12])
+print(y_data[12])
 # plt.imshow(x_train[12], cmap=plt.cm.binary)
 # plt.show()
+
+run_test(x_data[:-1], y_data[:-1], x_data[-1:], y_data[-1:])
+
+
 """
-model = Sequential()
-model.add(Dense(units=1024, input_dim=2)) # First (hidden) layer
-model.add(Activation('sigmoid'))
-model.add(Dense(units=32)) # First (hidden) layer
-model.add(Activation('sigmoid'))
-model.add(Dense(units=2))   # Second, final (output) layer
-model.add(Activation('sigmoid'))
-
-model.compile(loss='mean_squared_error',
-              optimizer='sgd',
-              metrics=['accuracy'])
-
-
-# Train the model, iterating on the data in batches of 32 samples (try batch_size=1)
-model.fit(x_train, y_train, epochs=10, batch_size=2)
-
-# x_test = np.random.randint(2, size=(1000, 2))   # Random input data
-# y_test = np.array([[x and y, x ^ y] for (x, y) in x_test]) # The results (Carry,Add)
-
-# Evaluate the model from a sample test data set
-score = model.evaluate(x_test, y_test)
-print()
-print("Score was {}.".format(score))
-print("Labels were {}.".format(model.metrics_names))
-
-# Make a few predictions
-x_input = np.array([[0,0], [0,1], [1,0], [1,1]])
-y_output = model.predict(x_input)
-print("Result of {} is {}.".format(x_input, y_output))
-
-
-
-
-
-
 # this is the main line to run
 if __name__ == "__main__":
     main()
