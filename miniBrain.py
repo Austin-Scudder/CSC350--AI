@@ -7,10 +7,10 @@ This sample code shows how one can read in our JSON image files in Python3.  It 
 It applies a simple threshold test - if value is > threshold then it outputs a '.' otherwise it outputs an 'X'.  More refinement is probably better.
 But this is for displaying images not processing or recognizing images."""
 
+import numpy as np
 import json
 import os
-
-
+import sys
 """ 
 Reads in the given JSON file as outlined in the README.txt file.
 """
@@ -20,10 +20,10 @@ def read_data(file):
     try:
         with open(file, 'r') as inf:
             bitmap = json.load(inf)
+
         return bitmap
     except FileNotFoundError as err:
         print("File Not Found: {0}.".format(err))
-
 
 """ 
 Prints out the given "image" (a 2-dimensional array).
@@ -37,30 +37,28 @@ def print_image(img, threshold):
             print('.' if pixel > threshold else 'X', end='')
         print()  # Newline at end of the row
 
-
 """ 
 Main entry point.  Assumes all the arguments passed to it are file names.
 For each argument, reads in the file and the prints it out.
 """
 
-
 def file_get():
-    files = []
+    train_files = []
+    test_files = []
     basepath = '/Users/AustinS/PycharmProjects/CSC350--AI/res'
     with os.scandir(basepath) as entries:
         for entry in entries:
             if entry.is_file():
-                files.append('/Users/AustinS/PycharmProjects/CSC350--AI/res/'+entry.name)
-    return files
-
-
+                if entry.name[-6] == "9":
+                    train_files.append('/Users/AustinS/PycharmProjects/CSC350--AI/res/' + entry.name)
+                else:
+                    test_files.append('/Users/AustinS/PycharmProjects/CSC350--AI/res/' + entry.name)
+    return train_files
 def main():
-    file_list = file_get()
-    for file_name in file_list:
+    for file_name in file_get():
         img = read_data(file_name)
         print("Displaying image: {0}.".format(file_name))
-        print_image(img, 200)  # Different thresholds will change what shows up as X and what as a .
-
+        print_image(img, 200)   # Different thresholds will change what shows up as X and what as a .
 
 # This is just used to trigger the Python to run the main() method.  The if statement is used so that if this code
 # were imported as a module then everything would load but main() would not be executed.
