@@ -18,9 +18,6 @@ from keras.layers import Dense, Activation
 import numpy as np
 import json
 import os
-import matplotlib.pyplot as plt
-import tensorflow as tf
-import sys
 
 # Make the test set vs the training set.
 
@@ -36,7 +33,7 @@ def read_data(file):
 
 def file_get():
     files = []
-    basepath = '/Users/AustinS/PycharmProjects/CSC350--AI/res/'
+    basepath = 'res/'
     with os.scandir(basepath) as entries:
         for entry in entries:
             if entry.is_file():

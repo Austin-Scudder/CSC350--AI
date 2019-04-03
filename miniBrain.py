@@ -45,14 +45,14 @@ For each argument, reads in the file and the prints it out.
 def file_get():
     train_files = []
     test_files = []
-    basepath = '/Users/AustinS/PycharmProjects/CSC350--AI/res'
+    basepath = 'res/'
     with os.scandir(basepath) as entries:
         for entry in entries:
             if entry.is_file():
                 if entry.name[-6] == "9":
-                    train_files.append('/Users/AustinS/PycharmProjects/CSC350--AI/res/' + entry.name)
+                    train_files.append('res/' + entry.name)
                 else:
-                    test_files.append('/Users/AustinS/PycharmProjects/CSC350--AI/res/' + entry.name)
+                    test_files.append('res/' + entry.name)
     return train_files
 def main():
     for file_name in file_get():
