@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="GitCommitMessageComponent">
+		<list key="/Users/AustinS/git/CSC350--AI/.git">
+			<item value="false"/>
+			<item value="Austin &lt;amax1240@gmail.com&gt;"/>
+			<item value="Change"/>
+			<item value="Austin &lt;amax1240@gmail.com&gt;"/>
+			<item value="b5165edce67a226d3b3c467eb81e9e8fb1958703"/>
+			<item value="0"/>
+		</list>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.staging.StagingView">
+		<item value="200,200" key="STAGING_SASH_FORM_WEIGHT"/>
+		<item value="false" key="sortItemState"/>
+		<item value="200,200" key="HORIZONTAL_SASH_FORM_WEIGHT"/>
+	</section>
+</section>
