@@ -9,13 +9,13 @@ from sklearn.model_selection import cross_val_score
 import pandas
 
 def get_file_label(filename):
-    return filename.index('_', 9)
+    return filename[filename.index('_', 9) - 1]
 
 def main():
     train_files = []
     test_files = []
     all_files = []
-    basepath = 'DataSet/'
+    basepath = 'res/'
     file_data = []
     file_name = []
     pandas.set_option('display.expand_frame_repr', False)
@@ -25,10 +25,15 @@ def main():
                 file_data.append(pandas.read_json(entry))
                 file_name.append(get_file_label(entry.name))
                 all_files.append((pandas.read_json(entry), get_file_label(entry.name)))
+                #print(entry.name)
+                #print(get_file_label(entry.name))
     data_train, data_test, name_train, name_test = train_test_split(file_data, file_name, test_size=0.2)
     model = KNeighborsClassifier(n_neighbors = 2)
     model.fit(data_train, name_train)
-    print(cross_val_score(model, data_train, name_train, cv=5))
+    #for name in file_name:
+    #    print(name)
+    print(model.predict(data_test))
+    #print(cross_val_score(model, data_train, name_train, cv=5))
     #print(nbrs.kneighbors_graph(data_train).toArray()
     #print(indicies)
                 #if entry.name[-6] == "9":
