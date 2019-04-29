@@ -1,103 +1,44 @@
-"""
-
-"""
-
 import numpy as np
 import json
 import os
 import sys
 import miniBrain
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import cross_val_score
+import pandas
 
-file1 = ""
-file2 = ""
-file1Reduced = [
-    [0, 0, 0, 0], 
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0]
-]
-file2Reduced = [
-    [0, 0, 0, 0], 
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0]
-]
-workingList = []
-
-
-
-"""
-    32x32:
-    11111111222222223333333344444444
-    11111111222222223333333344444444
-    11111111222222223333333344444444
-    11111111222222223333333344444444
-    11111111222222223333333344444444
-    11111111222222223333333344444444
-    11111111222222223333333344444444
-    11111111222222223333333344444444
-    55555555666666667777777788888888
-    55555555666666667777777788888888
-    55555555666666667777777788888888
-    55555555666666667777777788888888
-    55555555666666667777777788888888
-    55555555666666667777777788888888
-    55555555666666667777777788888888
-    55555555666666667777777788888888
-    AAAAAAAABBBBBBBBCCCCCCCCDDDDDDDD
-    AAAAAAAABBBBBBBBCCCCCCCCDDDDDDDD
-    AAAAAAAABBBBBBBBCCCCCCCCDDDDDDDD
-    AAAAAAAABBBBBBBBCCCCCCCCDDDDDDDD
-    AAAAAAAABBBBBBBBCCCCCCCCDDDDDDDD
-    AAAAAAAABBBBBBBBCCCCCCCCDDDDDDDD
-    AAAAAAAABBBBBBBBCCCCCCCCDDDDDDDD
-    AAAAAAAABBBBBBBBCCCCCCCCDDDDDDDD
-    EEEEEEEEFFFFFFFFGGGGGGGGHHHHHHHH
-    EEEEEEEEFFFFFFFFGGGGGGGGHHHHHHHH
-    EEEEEEEEFFFFFFFFGGGGGGGGHHHHHHHH
-    EEEEEEEEFFFFFFFFGGGGGGGGHHHHHHHH
-    EEEEEEEEFFFFFFFFGGGGGGGGHHHHHHHH
-    EEEEEEEEFFFFFFFFGGGGGGGGHHHHHHHH
-    EEEEEEEEFFFFFFFFGGGGGGGGHHHHHHHH
-    EEEEEEEEFFFFFFFFGGGGGGGGHHHHHHHH
-    
-    turns into a 4x4 image:
-    1234
-    5678
-    ABCD
-    EFGH
-"""
+def get_file_label(filename):
+    return filename.index('_', 9)
 
 def main():
-    print("Displaying image: {0}.".format(file1))
-    miniBrain.print_image(miniBrain.read_data(file1), 200)
-    reduce_image(miniBrain.read_data(file1), file1Reduced)
-    print_image2(file1Reduced)
-    #print("Displaying image: {0}.".format(file2))
-    #miniBrain.print_image(miniBrain.read_data(file2), 200)
+    train_files = []
+    test_files = []
+    all_files = []
+    basepath = 'DataSet/'
+    file_data = []
+    file_name = []
+    pandas.set_option('display.expand_frame_repr', False)
+    with os.scandir(basepath) as entries:
+        for entry in entries:
+            if entry.is_file():
+                file_data.append(pandas.read_json(entry))
+                file_name.append(get_file_label(entry.name))
+                all_files.append((pandas.read_json(entry), get_file_label(entry.name)))
+    data_train, data_test, name_train, name_test = train_test_split(file_data, file_name, test_size=0.2)
+    model = KNeighborsClassifier(n_neighbors = 2)
+    model.fit(data_train, name_train)
+    print(cross_val_score(model, data_train, name_train, cv=5))
+    #print(nbrs.kneighbors_graph(data_train).toArray()
+    #print(indicies)
+                #if entry.name[-6] == "9":
+                #    train_files.append(pandas.read_json(entry))
+                #else:
+                #    test_files.append(pandas.read_json(entry))
+    #nbrs = NearestNeighbors(algorithm='ball_tree').fit(test_files)
+    #distances, indicies = nbrs.kneighbors(test_files)
+    #print(distances)
+    #print(indicies)
     
-def reduce_image(img, reducedList):
-    for x in range(0, 4):
-        for row in img[(8 * x):(8 * (x + 1))]:
-            total = 0
-            count = 0
-            for y in range(0, 4):
-                for pixel in row[(8 * y):(8 * (y + 1))]:
-                    total = total + pixel
-                    count = count + 1
-                reducedList[x][y] = (total / count)
-                
-def print_image2(img):
-    totalString = ""
-    for row in img:
-        for pixel in row:
-            totalString += (str(int(pixel)) + " | ").strip()
-            #print(str(pixel) + " | ")
-        totalString += "\n"
-        #print()  # Newline at end of the row
-    print(totalString)
-                
 if __name__ == "__main__":
-    file1 = sys.argv[1]
-    file2 = sys.argv[2]
     main()
