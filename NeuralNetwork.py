@@ -7,6 +7,7 @@ Term: Spring 2019
 
 from keras.models import Sequential
 from keras.layers import Dense, Activation
+from sklearn.metrics import confusion_matrix
 import numpy as np
 import json
 import os
@@ -48,7 +49,7 @@ def run_test(x_train, y_train, x_test, y_test):
     model = Sequential()
     model.add(Dense(units=512, input_dim=1024))  # First (hidden) layer
     model.add(Activation('sigmoid'))
-    model.add(Dense(units=100))  # Second (hidden) layer
+    model.add(Dense(units=256))  # Second (hidden) layer
     model.add(Activation('sigmoid'))
     model.add(Dense(units=1))  # Third, final (output) layer
     model.add(Activation('sigmoid'))
@@ -58,7 +59,7 @@ def run_test(x_train, y_train, x_test, y_test):
                   metrics=['accuracy'])
 
     # Train the model, iterating on the data in batches of 32 samples (try batch_size=1)
-    model.fit(x_train, y_train, epochs=150, batch_size=32)
+    model.fit(x_train, y_train, epochs=150, batch_size=32, verbose=0)
 
     # Evaluate the model from a sample test data set
     score = model.evaluate(x_train, y_train)
@@ -67,16 +68,20 @@ def run_test(x_train, y_train, x_test, y_test):
     print("Labels were {}.".format(model.metrics_names))
 
     # Make a few predictions
-    print("This is the prediction: ")
-    y_pred = model.predict(x_test)
+    print("These are the predictions: ")
+    print(model.predict(x_train, len(x_train)))
+
+    y_pred = model.predict(x_train)
     pred = round(y_pred[0][0],0)
     print("Result of {} is {} should be {}.".format(x_test, pred, y_test))
+    # confusion_matrix(x_test, y_pred)
 
 
+# Get the data from the files
 x_data, y_data = info_get()
 x_data = np.array(x_data)
 y_data = np.array(y_data)
 
 
 run_test(x_data[:-1], y_data[:-1], x_data[-1:], y_data[-1:])
-
+# confusion_matrix(y_true, y_pred)
