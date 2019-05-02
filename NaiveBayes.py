@@ -42,7 +42,7 @@ x_info, y_labels = info_get()
 y_labels = np.array(y_labels)
 x_info = np.array(x_info)
 
-kfold = ms.KFold(n_splits=15, shuffle=True)
+kfold = ms.KFold(n_splits=10, shuffle=True)
 
 for train_index, test_index in kfold.split(y_labels):
     x_train = np.array(x_info[train_index])
