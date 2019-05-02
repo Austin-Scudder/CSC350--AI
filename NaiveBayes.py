@@ -4,6 +4,7 @@ import numpy as np
 import json
 import os
 import sklearn.model_selection as ms
+from sklearn.metrics import confusion_matrix
 
 
 def read_data(file):
@@ -54,15 +55,15 @@ for train_index, test_index in kfold.split(y_labels):
 model.fit(x_info, y_labels.flatten())
 GaussianNB(priors=None, var_smoothing=1024)
 
-print("Prediction Probability: {}".format(model.predict_proba(x_test)))
-
-print("This is the full prediction: {}".format(model.predict(x_test)))
-print("This is the full list of labels {}".format(y_test))
 index = 0
+predictions = []
 for element in model.predict(x_test):
+    predictions.append(element)
     print("Predicted : {} Actual {}" .format(element, y_test[index]))
     index += 1
+print("Accuracy {} " .format(model.score(x_test, y_test)))
+
+cm = confusion_matrix(y_test, predictions)
+print(cm)
 
 
-
-print(model.score(x_test, y_test))
