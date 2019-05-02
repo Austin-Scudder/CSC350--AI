@@ -8,6 +8,7 @@ Term: Spring 2019
 from keras.models import Sequential
 from keras.layers import Dense, Activation
 from sklearn.metrics import confusion_matrix
+import sklearn.model_selection as ms
 import numpy as np
 import json
 import os
@@ -31,7 +32,7 @@ def file_get():
                     files.append(basepath + entry.name)
     return files
 
-
+# This gets the data from the files and places it into the labels y and the actual 2D array in x
 def info_get():
     files = file_get()
     x_data = []
@@ -39,12 +40,12 @@ def info_get():
     for file in files:
         y_data.append([int(file[-8])])
         input_data = np.array(read_data(file)).flatten()
-        input_data = [ p/255 for p in input_data ]
+        input_data = [p/255 for p in input_data ]
         x_data.append(input_data)
     return x_data, y_data
 
 
-def run_test(x_train, y_train, x_test, y_test):
+def run_test(x_data, y_labels):
     # Create the model
     model = Sequential()
     model.add(Dense(units=512, input_dim=1024))  # First (hidden) layer
@@ -58,30 +59,45 @@ def run_test(x_train, y_train, x_test, y_test):
                   optimizer='sgd',
                   metrics=['accuracy'])
 
+    kfold = ms.KFold(n_splits=10, shuffle=True)
     # Train the model, iterating on the data in batches of 32 samples (try batch_size=1)
-    model.fit(x_train, y_train, epochs=150, batch_size=32, verbose=0)
+    for train_index, test_index in kfold.split(y_data):
+        x_train = y_data[train_index]
+        x_test = y_data[test_index]
+    model.fit(x_train, x_test, epochs=150, batch_size=32, verbose=1)
 
     # Evaluate the model from a sample test data set
-    score = model.evaluate(x_train, y_train)
+    x_data = np.array(x_data)
+    score = model.evaluate(x_train, x_test)
     print()
     print("Score was {}.".format(score))
     print("Labels were {}.".format(model.metrics_names))
-
+    """
+    score = model.predict(x_train, len(x_train))
+    for i in range(len(x_train)):
+        print(score[0][i])
+    """
     # Make a few predictions
     print("These are the predictions: ")
-    print(model.predict(x_train, len(x_train)))
+    x_pred = model.predict(x_train)
+    x_pred = np.array([round(p[0], 0) for p in x_pred])
+    print(x_pred)
 
-    y_pred = model.predict(x_train)
-    pred = round(y_pred[0][0],0)
-    print("Result of {} is {} should be {}.".format(x_test, pred, y_test))
-    # confusion_matrix(x_test, y_pred)
+    print("test")
+    print(x_test)
 
+    cm = confusion_matrix(x_test, x_pred)
+    print(cm)
 
 # Get the data from the files
 x_data, y_data = info_get()
 x_data = np.array(x_data)
 y_data = np.array(y_data)
 
+for train_index, test_index in kfold.split(x_data):
+    x_train = x_data[train_index]
+    x_test = x_data[test_index]
+    print("Train={} Test={}".format(x_train, x_test))
+    run_test(x_train, x_test)
 
-run_test(x_data[:-1], y_data[:-1], x_data[-1:], y_data[-1:])
 # confusion_matrix(y_true, y_pred)
