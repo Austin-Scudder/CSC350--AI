@@ -5,6 +5,7 @@ import json
 import os
 import sklearn.model_selection as ms
 
+
 def read_data(file):
     try:
         with open(file, 'r') as inf:
@@ -32,7 +33,7 @@ def info_get():
     for file in files:
         y_data.append([int(file[-8])])
         input_data = np.array(read_data(file)).flatten()
-        input_data = [p/255 for p in input_data ]
+        input_data = [p/255 for p in input_data]
         x_data.append(input_data)
     return x_data, y_data
 
@@ -50,17 +51,18 @@ for train_index, test_index in kfold.split(y_labels):
     y_train = np.array(y_labels[train_index])
     y_test = np.array(y_labels[test_index])
 
-model.fit(x_train, y_train.flatten())
-GaussianNB(priors=None, var_smoothing=1e-09)
+model.fit(x_info, y_labels.flatten())
+GaussianNB(priors=None, var_smoothing=1024)
 
+print("Prediction Probability: {}".format(model.predict_proba(x_test)))
 
-
-
-
-
+print("This is the full prediction: {}".format(model.predict(x_test)))
+print("This is the full list of labels {}".format(y_test))
 index = 0
 for element in model.predict(x_test):
-    print("Predicted : {} Actual {}" .format(element, y_labels.flatten()[index]))
+    print("Predicted : {} Actual {}" .format(element, y_test[index]))
     index += 1
+
+
 
 print(model.score(x_test, y_test))
