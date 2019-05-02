@@ -1,4 +1,4 @@
-"""A very simple 30-second Keras example.
+"""A very simple 30-second Keras example. =)
 
 Author: Christian A. Duncan (based off of the example given on Keras site)
 Course: CSC350: Intelligent Systems
@@ -6,10 +6,9 @@ Term: Spring 2019
 """
 
 from keras.models import Sequential
+from keras.layers import Dense, Activation
 from sklearn.metrics import confusion_matrix
-from keras.layers.core import Dense, Dropout, Activation
 import sklearn.model_selection as ms
-from keras.utils import np_utils
 import numpy as np
 import json
 import os
@@ -26,13 +25,12 @@ def read_data(file):
 
 def file_get():
     files = []
-    basepath = 'DataSetAI/'
+    basepath = 'res/'
     with os.scandir(basepath) as entries:
         for entry in entries:
-            if entry.is_file() and entry.name[-4] == 'j':
-                files.append(basepath + entry.name)
+            if entry.is_file():
+                    files.append(basepath + entry.name)
     return files
-
 
 # This gets the data from the files and places it into the labels y and the actual 2D array in x
 def info_get():
@@ -47,51 +45,31 @@ def info_get():
     return x_data, y_data
 
 
-def greatest_numpy(nump):
-    #print(nump)
-    y = 0.0
-    count = 0
-    for x in nump:
-        print(nump[count])
-        if int(round(nump[count])) > y:
-            # print("y = {}".format(y))
-            # print(count)
-            y = count
-        count += 1
-    # print("y return = {}".format(y))
-    return y
-
-
 def run_test(x_info, y_labels):
+    # Create the model
+    model = Sequential()
+    model.add(Dense(units=512, input_dim=1024))  # First (hidden) layer
+    model.add(Activation('sigmoid'))
+    model.add(Dense(units=256))  # Second (hidden) layer
+    model.add(Activation('sigmoid'))
+    model.add(Dense(units=1))  # Third, final (output) layer
+    model.add(Activation('sigmoid'))
 
+    model.compile(loss='mean_squared_error',
+                  optimizer='sgd',
+                  metrics=['accuracy'])
+
+    kfold = ms.KFold(n_splits=10, shuffle=True)
+    x_train = []
+    x_test = []
+    # Train the model, iterating on the data in batches of 32 samples (try batch_size=1)
     for train_index, test_index in kfold.split(y_labels):
         x_train = np.array(x_info[train_index])
         x_test = np.array(x_info[test_index])
         y_train = np.array(y_labels[train_index])
         y_test = np.array(y_labels[test_index])
 
-    n_classes = 10
-    print("Shape before one-hot encoding: ", y_train.shape)
-    y_train = np_utils.to_categorical(y_train, n_classes)
-    y_test = np_utils.to_categorical(y_test, n_classes)
-
-    # Create the model
-    model = Sequential()
-    model.add(Dense(units=512, input_dim=1024))  # First (hidden) layer
-    model.add(Activation('relu'))
-    model.add(Dropout(0.2))
-    model.add(Dense(units=256))  # Second (hidden) layer
-    model.add(Activation('relu'))
-    model.add(Dropout(0.2))
-    model.add(Dense(units=10))  # Third, final (output) layer
-    model.add(Activation('softmax'))
-
-    model.compile(loss='categorical_crossentropy', metrics=['accuracy'], optimizer='adam')
-
-    # kfold = ms.KFold(n_splits=10, shuffle=True)
-    # Train the model, iterating on the data in batches of 32 samples (try batch_size=1)
-
-    model.fit(x_train, y_train, epochs=15, batch_size=32, verbose=1)
+    model.fit(x_train, y_train, epochs=150, batch_size=32, verbose=1)
 
     # Evaluate the model from a sample test data set
 
@@ -103,25 +81,17 @@ def run_test(x_info, y_labels):
     # Make a few predictions
     print("These are the predictions: ")
     x_pred = model.predict(x_test)
-    x_pred = np.array(x_pred)
-    predictions = []
-    labels = []
+    x_pred = np.array([round(p[0], 0) for p in x_pred])
     for i in range(len(x_pred)):
-        pred = greatest_numpy(x_pred[i])
-        predictions.append(pred)
-        lab = greatest_numpy(y_test[i])
-        labels.append(lab)
-        # print("This is the prediction {} this is the actual{}".format(x_pred[i], y_test[i]))
-        print("2. This is the prediction {} this is the actual{}".format(pred, lab))
+        print("This is the prediction {} this is the actual{}".format(x_pred[i], y_test[i]))
 
     model_json = model.to_json()
-    with open("modelBig.json", "w") as json_file:
+    with open("model.json", "w") as json_file:
         json_file.write(model_json)
     # serialize weights to HDF5
-    model.save_weights("modelBig.h5")
+    model.save_weights("model.h5")
     print("Saved model to disk")
-
-    cm = confusion_matrix(predictions, labels)
+    cm = confusion_matrix(x_pred, y_test)
     print(cm)
 
 """
@@ -136,7 +106,7 @@ json_file.close()
 loaded_model = model_from_json(loaded_model_json)
 # load weights into new model
 loaded_model.load_weights("model.h5")
-print("Loaded model from disk") 
+print("Loaded model from disk")
 
 # evaluate loaded model on test data
 loaded_model.compile(loss='mean_squared_error',
