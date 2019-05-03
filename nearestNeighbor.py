@@ -2,11 +2,11 @@ import numpy as np
 import json
 import os
 import sys
-import miniBrain
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import cross_val_score
 import pandas
+import itertools
 
 def get_file_label(filename):
     return filename[filename.index('_', 9) - 1]
@@ -15,35 +15,23 @@ def main():
     train_files = []
     test_files = []
     all_files = []
-    basepath = 'res/'
+    basepath = 'DataSet/'
     file_data = []
     file_name = []
     pandas.set_option('display.expand_frame_repr', False)
     with os.scandir(basepath) as entries:
         for entry in entries:
             if entry.is_file():
-                file_data.append(pandas.read_json(entry))
+                with open(entry, 'r') as inf:
+                    bitmap = json.load(inf)
+                file_data.append(bitmap)
                 file_name.append(get_file_label(entry.name))
-                all_files.append((pandas.read_json(entry), get_file_label(entry.name)))
-                #print(entry.name)
-                #print(get_file_label(entry.name))
-    data_train, data_test, name_train, name_test = train_test_split(file_data, file_name, test_size=0.2)
-    model = KNeighborsClassifier(n_neighbors = 2)
-    model.fit(data_train, name_train)
-    #for name in file_name:
-    #    print(name)
-    print(model.predict(data_test))
-    #print(cross_val_score(model, data_train, name_train, cv=5))
-    #print(nbrs.kneighbors_graph(data_train).toArray()
-    #print(indicies)
-                #if entry.name[-6] == "9":
-                #    train_files.append(pandas.read_json(entry))
-                #else:
-                #    test_files.append(pandas.read_json(entry))
-    #nbrs = NearestNeighbors(algorithm='ball_tree').fit(test_files)
-    #distances, indicies = nbrs.kneighbors(test_files)
-    #print(distances)
-    #print(indicies)
+                all_files.append((bitmap, get_file_label(entry.name)))
+    file_data = np.array(file_data).reshape(-1, 1024)
+    model = KNeighborsClassifier(n_neighbors = 5)
+    results = cross_val_score(model, file_data, file_name, cv=6)
+    print("Accuracy: %0.2f (+/- %0.2f)" % (results.mean(), results.std() * 2))
+    
     
 if __name__ == "__main__":
     main()

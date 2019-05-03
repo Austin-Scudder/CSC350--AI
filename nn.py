@@ -1,11 +1,9 @@
-#Put the code for the naive bayes classifier here
-from sklearn.naive_bayes import GaussianNB
 import numpy as np
 import json
 import os
-import sklearn.model_selection as ms
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import confusion_matrix
-
+import sklearn.model_selection as ms
 
 def read_data(file):
     try:
@@ -38,8 +36,7 @@ def info_get():
         x_data.append(input_data)
     return x_data, y_data
 
-
-model = GaussianNB()
+model = KNeighborsClassifier(n_neighbors=2)
 x_info, y_labels = info_get()
 y_labels = np.array(y_labels)
 x_info = np.array(x_info)
@@ -55,14 +52,14 @@ for train_index, test_index in kfold.split(y_labels):
 model.fit(x_info, y_labels.flatten())
 
 index = 0
+correct = 0
 predictions = []
 for element in model.predict(x_test):
     predictions.append(element)
+    if(element == y_test[index]):
+        correct += 1
     print("Predicted : {} Actual {}" .format(element, y_test[index]))
     index += 1
-print("Accuracy {} " .format(model.score(x_test, y_test)))
-
+print("Accuracy {} ".format(correct / index))
 cm = confusion_matrix(y_test, predictions)
-print(cm)
-
-
+print (cm)
