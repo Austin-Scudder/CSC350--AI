@@ -47,6 +47,23 @@ def info_get():
         x_data.append(input_data)
     return x_data, y_data
 
+def actual_get():
+    files = []
+    basepath = 'json 2/'
+    with os.scandir(basepath) as entries:
+        for entry in entries:
+            if entry.is_file() and entry.name[-4] == 'j':
+                files.append(basepath + entry.name)
+    x_data = []
+    y_data = []
+    for file in files:
+        y_data.append([int(file[-8:-5])])
+        input_data = np.array(read_data(file)).flatten()
+        input_data = [p / 255 for p in input_data]
+        x_data.append(input_data)
+    return x_data, y_data
+
+
 
 def greatest_numpy(nump):
     #print(nump)
@@ -65,16 +82,12 @@ def greatest_numpy(nump):
 
 def run_test(x_info, y_labels):
 
-    for train_index, test_index in kfold.split(y_labels):
-        x_train = np.array(x_info[train_index])
-        x_test = np.array(x_info[test_index])
-        y_train = np.array(y_labels[train_index])
-        y_test = np.array(y_labels[test_index])
+    x_train = np.array(x_info)
+    y_train = np.array(y_labels)
 
     n_classes = 10
     print("Shape before one-hot encoding: ", y_train.shape)
     y_train = np_utils.to_categorical(y_train, n_classes)
-    y_test = np_utils.to_categorical(y_test, n_classes)
 
     # Create the model
     model = Sequential()
@@ -92,7 +105,7 @@ def run_test(x_info, y_labels):
     # kfold = ms.KFold(n_splits=10, shuffle=True)
     # Train the model, iterating on the data in batches of 32 samples (try batch_size=1)
 
-    model.fit(x_train, y_train, epochs=15, batch_size=32, verbose=1)
+    model.fit(x_train, y_train, epochs=170, batch_size=32, verbose=1)
 
     # Evaluate the model from a sample test data set
 
@@ -100,6 +113,9 @@ def run_test(x_info, y_labels):
 
     # Make a few predictions
     print("These are the predictions: ")
+    x_test, y_test = actual_get()
+    x_test = np.array(x_test)
+
     x_pred = model.predict(x_test)
     x_pred = np.array(x_pred)
     predictions = []
@@ -109,15 +125,11 @@ def run_test(x_info, y_labels):
         for i in range(len(x_pred)):
             pred = greatest_numpy(x_pred[i])
             predictions.append(pred)
-            lab = greatest_numpy(y_test[i])
+            lab = y_test[i]
             labels.append(lab)
             # print("2. This is the prediction {} this is the actual{}".format(pred, lab[i]))
-            answers.writerow([labels[i], pred])
+            answers.writerow([lab, pred])
 
-    score = model.evaluate(x_test, y_test)
-    print()
-    print("Score was {}.".format(score))
-    print("Labels were {}.".format(model.metrics_names))
 
     model_json = model.to_json()
     with open("modelBig.json", "w") as json_file:
@@ -125,9 +137,6 @@ def run_test(x_info, y_labels):
     # serialize weights to HDF5
     model.save_weights("modelBig.h5")
     print("Saved model to disk")
-
-    cm = confusion_matrix(predictions, labels)
-    print(cm)
 
 
 """
