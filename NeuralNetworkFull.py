@@ -13,6 +13,7 @@ from keras.utils import np_utils
 import numpy as np
 import json
 import os
+import csv
 
 
 def read_data(file):
@@ -91,14 +92,11 @@ def run_test(x_info, y_labels):
     # kfold = ms.KFold(n_splits=10, shuffle=True)
     # Train the model, iterating on the data in batches of 32 samples (try batch_size=1)
 
-    model.fit(x_train, y_train, epochs=150, batch_size=32, verbose=1)
+    model.fit(x_train, y_train, epochs=15, batch_size=32, verbose=1)
 
     # Evaluate the model from a sample test data set
 
-    score = model.evaluate(x_test, y_test)
-    print()
-    print("Score was {}.".format(score))
-    print("Labels were {}.".format(model.metrics_names))
+
 
     # Make a few predictions
     print("These are the predictions: ")
@@ -106,13 +104,20 @@ def run_test(x_info, y_labels):
     x_pred = np.array(x_pred)
     predictions = []
     labels = []
-    for i in range(len(x_pred)):
-        pred = greatest_numpy(x_pred[i])
-        predictions.append(pred)
-        lab = greatest_numpy(y_test[i])
-        labels.append(lab)
-        # print("This is the prediction {} this is the actual{}".format(x_pred[i], y_test[i]))
-        print("2. This is the prediction {} this is the actual{}".format(pred, lab))
+    with open('answers.csv', mode='w') as answers:
+        answers = csv.writer(answers, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        for i in range(len(x_pred)):
+            pred = greatest_numpy(x_pred[i])
+            predictions.append(pred)
+            lab = greatest_numpy(y_test[i])
+            labels.append(lab)
+            # print("2. This is the prediction {} this is the actual{}".format(pred, lab[i]))
+            answers.writerow([labels[i], pred])
+
+    score = model.evaluate(x_test, y_test)
+    print()
+    print("Score was {}.".format(score))
+    print("Labels were {}.".format(model.metrics_names))
 
     model_json = model.to_json()
     with open("modelBig.json", "w") as json_file:
@@ -123,6 +128,7 @@ def run_test(x_info, y_labels):
 
     cm = confusion_matrix(predictions, labels)
     print(cm)
+
 
 """
 # Get the data from the files
