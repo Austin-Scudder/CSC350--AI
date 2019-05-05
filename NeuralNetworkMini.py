@@ -97,7 +97,7 @@ def run_test(x_info, y_labels):
     print(cm)
     #File management for CSV
     print(x_pred)
-    f = open("answersMini.csv", "w")
+    f = open("results.csv", "w")
     f.write("{},{}\n".format("Predicted", "Actual"))
     for x in zip(x_pred, y_test):
         f.write("{},{}\n".format(x[0], x[1]))
