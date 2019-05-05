@@ -15,7 +15,7 @@ def main():
     train_files = []
     test_files = []
     all_files = []
-    basepath = 'DataSet/'
+    basepath = 'DataSetAI/'
     file_data = []
     file_name = []
     pandas.set_option('display.expand_frame_repr', False)

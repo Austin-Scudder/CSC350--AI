@@ -12,6 +12,7 @@ import sklearn.model_selection as ms
 import numpy as np
 import json
 import os
+import csv
 
 
 def read_data(file):
@@ -43,6 +44,7 @@ def info_get():
         input_data = [p/255 for p in input_data ]
         x_data.append(input_data)
     return x_data, y_data
+
 
 
 def run_test(x_info, y_labels):
@@ -93,6 +95,17 @@ def run_test(x_info, y_labels):
     print("Saved model to disk")
     cm = confusion_matrix(x_pred, y_test)
     print(cm)
+    #File management for CSV
+    print(x_pred)
+    f = open("answersMini.csv", "w")
+    f.write("{},{}\n".format("Predicted", "Actual"))
+    for x in zip(x_pred, y_test):
+        f.write("{},{}\n".format(x[0], x[1]))
+    f.close()
+
+
+
+
 
 """
 # Get the data from the files

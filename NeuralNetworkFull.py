@@ -105,7 +105,7 @@ def run_test(x_info, y_labels):
     # kfold = ms.KFold(n_splits=10, shuffle=True)
     # Train the model, iterating on the data in batches of 32 samples (try batch_size=1)
 
-    model.fit(x_train, y_train, epochs=170, batch_size=32, verbose=1)
+    model.fit(x_train, y_train, epochs=17, batch_size=32, verbose=1)
 
     # Evaluate the model from a sample test data set
 
