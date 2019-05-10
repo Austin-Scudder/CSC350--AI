@@ -1,3 +1,6 @@
+#Nearest Neighbor Classifier
+#Authors: Matthew Jagiela, Austin Scudder, Nicholas Molina
+
 import numpy as np
 import json
 import os
@@ -36,12 +39,12 @@ def info_get():
         x_data.append(input_data)
     return x_data, y_data
 
-model = KNeighborsClassifier(n_neighbors=2)
+model = KNeighborsClassifier(n_neighbors=2) #This represents KNN using 2 neighbors. This gives us the best accuracy
 x_info, y_labels = info_get()
 y_labels = np.array(y_labels)
 x_info = np.array(x_info)
 
-kfold = ms.KFold(n_splits=10, shuffle=True)
+kfold = ms.KFold(n_splits=10, shuffle=True) #KFold Validation
 
 for train_index, test_index in kfold.split(y_labels):
     x_train = np.array(x_info[train_index])
@@ -54,12 +57,12 @@ model.fit(x_info, y_labels.flatten())
 index = 0
 correct = 0
 predictions = []
-for element in model.predict(x_test):
-    predictions.append(element)
-    if(element == y_test[index]):
-        correct += 1
-    print("Predicted : {} Actual {}" .format(element, y_test[index]))
-    index += 1
-print("Accuracy {} ".format(correct / index))
-cm = confusion_matrix(y_test, predictions)
-print (cm)
+for element in model.predict(x_test): #For every prediction
+    predictions.append(element) #add predicition to the array of all predicitions
+    if(element == y_test[index]): #for every right answer
+        correct += 1 #Total number of correct answers
+    print("Predicted : {} Actual {}" .format(element, y_test[index])) #Print the result of every answer compared to what it actually is
+    index += 1 #Search index increase
+print("Accuracy {} ".format(correct / index)) #The total accuracy of the model is....
+cm = confusion_matrix(y_test, predictions) #generate the confusion matrix
+print (cm) #Print the confusion matrix

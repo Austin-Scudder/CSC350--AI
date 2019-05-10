@@ -1,4 +1,6 @@
 #Here we can choose a classifier to run the recogniztion
+#We are choosing decision trees
+#Authors: Matthew Jagiela, Austin Scudder, Nicholas Molina
 
 from sklearn import tree
 import numpy as np

@@ -1,4 +1,5 @@
 #code for the support vector classifier goes here.
+#Authors: Matthew Jagiela, Austin Scudder, Nicholas Molina,
 
 from sklearn import svm
 import numpy as np
@@ -41,11 +42,11 @@ def info_get():
 
 
 
-kfold = ms.KFold(n_splits=10, shuffle=True)
+kfold = ms.KFold(n_splits=10, shuffle=True) #KFold Validation...
 
 
 
-model = svm.SVC(gamma='scale')
+model = svm.SVC(gamma='scale') #We are using gamma scale
 x_info, y_labels = info_get()
 y_labels = np.array(y_labels).flatten()
 x_info = np.array(x_info)
@@ -61,12 +62,12 @@ model.fit(x_train, y_train)
 index = 0
 correct = 0
 predictions = []
-for element in model.predict(x_test):
-    predictions.append(element)
-    if(element == y_test[index]):
-        correct += 1
-    print("Predicted : {} Actual {}" .format(element, y_test[index]))
-    index += 1
-print("Accuracy {} ".format(correct / index))
-cm = confusion_matrix(y_test, predictions)
-print (cm)
+for element in model.predict(x_test): #For each prediction:
+    predictions.append(element) #Append the prediction regardless of right or wrong to an array
+    if(element == y_test[index]): #If the prediction matches the actual number:
+        correct += 1    #Increase our correct value
+    print("Predicted : {} Actual {}" .format(element, y_test[index])) #Print out the actual predicition and the actual number
+    index += 1 #Increase the search index
+print("Accuracy {} ".format(correct / index)) #Print the accuracy of the model
+cm = confusion_matrix(y_test, predictions) #Generate the confusion matrix
+print (cm) #Print the confusion matrix

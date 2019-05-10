@@ -1,4 +1,5 @@
 #Put the code for the naive bayes classifier here
+#Authors: Matthew Jagiela, Austin Scudder, Nicholas Molina
 from sklearn.naive_bayes import GaussianNB
 import numpy as np
 import json
@@ -39,12 +40,12 @@ def info_get():
     return x_data, y_data
 
 
-model = GaussianNB()
+model = GaussianNB() #Our model is going to be Naive Bayes Gaussian
 x_info, y_labels = info_get()
 y_labels = np.array(y_labels)
 x_info = np.array(x_info)
 
-kfold = ms.KFold(n_splits=10, shuffle=True)
+kfold = ms.KFold(n_splits=10, shuffle=True) #Kfold validation
 
 for train_index, test_index in kfold.split(y_labels):
     x_train = np.array(x_info[train_index])
@@ -56,12 +57,12 @@ model.fit(x_info, y_labels.flatten())
 
 index = 0
 predictions = []
-for element in model.predict(x_test):
+for element in model.predict(x_test): #Print each predicition and the actual number
     predictions.append(element)
     print("Predicted : {} Actual {}" .format(element, y_test[index]))
     index += 1
-print("Accuracy {} " .format(model.score(x_test, y_test)))
-
+print("Accuracy {} " .format(model.score(x_test, y_test))) #This model has a score associated with it... Print the score.
+#Generate the confusion matrix and print it:
 cm = confusion_matrix(y_test, predictions)
 print(cm)
 
