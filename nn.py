@@ -7,6 +7,8 @@ import os
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import confusion_matrix
 import sklearn.model_selection as ms
+from sklearn.metrics import classification_report
+from sklearn.metrics import matthews_corrcoef
 
 def read_data(file):
     try:
@@ -32,15 +34,20 @@ def info_get():
     files = file_get()
     x_data = []
     y_data = []
+    z_data = []
     for file in files:
         y_data.append([int(file[-8])])
+        z_data.append([file])
         input_data = np.array(read_data(file)).flatten()
         input_data = [p/255 for p in input_data]
         x_data.append(input_data)
-    return x_data, y_data
+    return x_data, y_data, z_data
 
+def get_filename(data, x_info, z_filenames):
+    return z_filenames[x_info.tolist().index(data.tolist())]
+    
 model = KNeighborsClassifier(n_neighbors=2) #This represents KNN using 2 neighbors. This gives us the best accuracy
-x_info, y_labels = info_get()
+x_info, y_labels, z_filenames = info_get()
 y_labels = np.array(y_labels)
 x_info = np.array(x_info)
 
@@ -57,12 +64,16 @@ model.fit(x_info, y_labels.flatten())
 index = 0
 correct = 0
 predictions = []
-for element in model.predict(x_test): #For every prediction
+for element, data in zip(model.predict(x_test), x_test): #For every prediction
     predictions.append(element) #add predicition to the array of all predicitions
     if(element == y_test[index]): #for every right answer
         correct += 1 #Total number of correct answers
-    print("Predicted : {} Actual {}" .format(element, y_test[index])) #Print the result of every answer compared to what it actually is
+    else:
+        print("Predicted : {} Actual {}" .format(element, y_test[index])) #Print the result of every answer compared to what it actually is
+        print("Filename:" + str(get_filename(data, x_info, z_filenames)))
     index += 1 #Search index increase
 print("Accuracy {} ".format(correct / index)) #The total accuracy of the model is....
 cm = confusion_matrix(y_test, predictions) #generate the confusion matrix
 print (cm) #Print the confusion matrix
+print(classification_report(y_test, predictions))
+print(matthews_corrcoef(y_test, predictions))

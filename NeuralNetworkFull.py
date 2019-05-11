@@ -6,7 +6,6 @@ Term: Spring 2019
 """
 
 from keras.models import Sequential
-from sklearn.metrics import confusion_matrix
 from keras.layers.core import Dense, Dropout, Activation
 import sklearn.model_selection as ms
 from keras.utils import np_utils
@@ -14,6 +13,9 @@ import numpy as np
 import json
 import os
 import csv
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import classification_report
+from sklearn.metrics import matthews_corrcoef
 
 
 def read_data(file):
@@ -49,7 +51,7 @@ def info_get():
 
 def actual_get():
     files = []
-    basepath = 'json 2/'
+    basepath = 'DataSetAI/'
     with os.scandir(basepath) as entries:
         for entry in entries:
             if entry.is_file() and entry.name[-4] == 'j':
@@ -57,7 +59,7 @@ def actual_get():
     x_data = []
     y_data = []
     for file in files:
-        y_data.append([int(file[-8:-5])])
+        y_data.append([int(file[-8])])
         input_data = np.array(read_data(file)).flatten()
         input_data = [p / 255 for p in input_data]
         x_data.append(input_data)
@@ -137,6 +139,14 @@ def run_test(x_info, y_labels):
     # serialize weights to HDF5
     model.save_weights("modelBig.h5")
     print("Saved model to disk")
+    print("#####")
+    print("#####")
+    print("#####")
+    print("#####")
+    print(y_test)
+    print(confusion_matrix(y_test, predictions))
+    print(classification_report(y_test, predictions))
+    print(matthews_corrcoef(y_test, predictions))
 
 
 """
